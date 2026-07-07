@@ -1,0 +1,6 @@
+node_modules/
+publisher/out/
+local-test/
+
+# Local editor workspace (not required for the tool)
+*.code-workspace

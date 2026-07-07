@@ -1,0 +1,20 @@
+{
+  "name": "mes-webwiki-sync",
+  "private": true,
+  "version": "1.0.0",
+  "description": "MES WebWiki sync tool for MeridiusIX MkDocs wiki",
+  "scripts": {
+    "vendor-sync": "node ./scripts/vendor-sync.mjs",
+    "build": "npm run vendor-sync && tsc -p ./publisher/tsconfig.json",
+    "publish": "npm run build && node ./publisher/publish.cjs",
+    "setup-local-test": "powershell -ExecutionPolicy Bypass -File ./scripts/setup-local-test.ps1",
+    "test-local": "powershell -ExecutionPolicy Bypass -File ./scripts/test-local.ps1",
+    "sync-local": "powershell -ExecutionPolicy Bypass -File ./scripts/publish-local-sandbox.ps1 -Write",
+    "build-html": "powershell -ExecutionPolicy Bypass -File ./scripts/build-html.ps1",
+    "serve-html": "cd local-test/sandbox && py -3 -m mkdocs serve"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "typescript": "^5.4.0"
+  }
+}

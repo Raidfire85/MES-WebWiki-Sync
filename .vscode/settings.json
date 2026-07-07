@@ -1,0 +1,11 @@
+{
+  "npm.autoDetect": "off",
+  "files.exclude": {
+    "**/local-test": true,
+    "**/publisher/out": true
+  },
+  "search.exclude": {
+    "**/local-test": true,
+    "**/publisher/out": true
+  }
+}

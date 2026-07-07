@@ -1,0 +1,5606 @@
+﻿[
+    {
+        "Tag":  "ActionExecution",
+        "Description":  "Configures action execution."
+    },
+    {
+        "Tag":  "ActionIds",
+        "Description":  "One or more action profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "Actions",
+        "Description":  "Configures actions."
+    },
+    {
+        "Tag":  "ActivateAssertiveAntennas",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables assertive antenna behavior on the NPC grid (antennas actively broadcast/track)."
+    },
+    {
+        "Tag":  "ActivateBooleanNameOnSucces",
+        "Description":  "Text value for activate boolean name on succes."
+    },
+    {
+        "Tag":  "ActivateCustomAction",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates custom action."
+    },
+    {
+        "Tag":  "ActivateEvent",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates MES events whose ids or tags match \u003ccode\u003eActivateEventIds\u003c/code\u003e / \u003ccode\u003eActivateEventTags\u003c/code\u003e."
+    },
+    {
+        "Tag":  "ActivateEventIds",
+        "Description":  "One or more activate event profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "ActivateEventTags",
+        "Description":  "List of values for activate event tags."
+    },
+    {
+        "Tag":  "ActivateTargetLockAfterPlayerDamage",
+        "Description":  "Configures activate target lock after player damage."
+    },
+    {
+        "Tag":  "AddBotsToGrid",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies bots to grid."
+    },
+    {
+        "Tag":  "AddCustomCountersVariablesFromCommand",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies custom counters variables from command."
+    },
+    {
+        "Tag":  "AddCustomDataToBlocks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies custom data to blocks."
+    },
+    {
+        "Tag":  "AddCustomStringsFromCommand",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies custom strings from command."
+    },
+    {
+        "Tag":  "AddDatapads",
+        "Description":  "Configures add datapads."
+    },
+    {
+        "Tag":  "AddDatapadsToSeats",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies datapads to seats."
+    },
+    {
+        "Tag":  "AddedItemsAveragePrice",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies ed items average price."
+    },
+    {
+        "Tag":  "AddedItemsCombineQuantity",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies ed items combine quantity."
+    },
+    {
+        "Tag":  "AddExcludedPlayerTag",
+        "Description":  "List of values for add excluded player tag."
+    },
+    {
+        "Tag":  "AddGPSPlayerConditionIds",
+        "Description":  "One or more add gps player condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "AddGPSPlayerOverridePositionInPlayerCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies gps player override position in player condition."
+    },
+    {
+        "Tag":  "AddGPSToPlayers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies gps to players."
+    },
+    {
+        "Tag":  "AddIncludedPlayerTags",
+        "Description":  "List of values for add included player tags."
+    },
+    {
+        "Tag":  "AddInstanceEventGroup",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies instance event group."
+    },
+    {
+        "Tag":  "AddItemPlayerConditionIds",
+        "Description":  "One or more add item player condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "AddItemToPlayersInventory",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies item to players inventory."
+    },
+    {
+        "Tag":  "AddPlayerConditionPlayerTags",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies player condition player tags."
+    },
+    {
+        "Tag":  "AddResearchPoints",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies research points."
+    },
+    {
+        "Tag":  "AddTags",
+        "Description":  "List of values for add tags."
+    },
+    {
+        "Tag":  "AddTagsIncludeSavedPlayerIdentity",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies tags include saved player identity."
+    },
+    {
+        "Tag":  "AddTagsOverridePositionInPlayerCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies tags override position in player condition."
+    },
+    {
+        "Tag":  "AddTagsPlayerConditionIds",
+        "Description":  "One or more add tags player condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "AddTagstoPlayers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies tagsto players."
+    },
+    {
+        "Tag":  "AddWaypointFromCommand",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies waypoint from command."
+    },
+    {
+        "Tag":  "AddWaypoints",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies waypoints."
+    },
+    {
+        "Tag":  "AdminSpawnOnly",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates admin spawn only."
+    },
+    {
+        "Tag":  "AiEnabledModBots",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates ai enabled mod bots."
+    },
+    {
+        "Tag":  "AiEnabledReady",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates ai enabled ready."
+    },
+    {
+        "Tag":  "AiEnabledRole",
+        "Description":  "Text value for ai enabled role."
+    },
+    {
+        "Tag":  "AlignVoxelsToSpawnMatrix",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates align voxels to spawn matrix."
+    },
+    {
+        "Tag":  "AllModIDsToCheck",
+        "Description":  "Numeric value for all mod i ds to check."
+    },
+    {
+        "Tag":  "AllowAnyExcludedPlayerTag",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows any excluded player tag."
+    },
+    {
+        "Tag":  "AllowAnyFalseBoolean",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows any false boolean."
+    },
+    {
+        "Tag":  "AllowAnyFalseSandboxBoolean",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows any false sandbox boolean."
+    },
+    {
+        "Tag":  "AllowAnyIncludedPlayerTag",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows any included player tag."
+    },
+    {
+        "Tag":  "AllowAnyTrueBoolean",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows any true boolean."
+    },
+    {
+        "Tag":  "AllowAnyTrueSandboxBoolean",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows any true sandbox boolean."
+    },
+    {
+        "Tag":  "AllowAnyValidCounter",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows any valid counter."
+    },
+    {
+        "Tag":  "AllowAnyValidSandboxCounter",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows any valid sandbox counter."
+    },
+    {
+        "Tag":  "AllowBlueprintBuilding",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, players can build grids from blueprints at this shipyard terminal."
+    },
+    {
+        "Tag":  "AllowCustomReplacement",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, players can pay to replace blocks using \u003ccode\u003eOldBlock\u003c/code\u003e/\u003ccode\u003eNewBlock\u003c/code\u003e or \u003ccode\u003eBlockReplacementProfileIds\u003c/code\u003e."
+    },
+    {
+        "Tag":  "AllowDamageReductionMod",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows damage reduction mod."
+    },
+    {
+        "Tag":  "AllowDuplicatedMessages",
+        "Description":  "Configures allow duplicated messages."
+    },
+    {
+        "Tag":  "AllowedActions",
+        "Description":  "Enum value for allowed actions."
+    },
+    {
+        "Tag":  "AllowedTargetBlocks",
+        "Description":  "Configures allowed target blocks."
+    },
+    {
+        "Tag":  "AllowedTerrainTypes",
+        "Description":  "List of values for allowed terrain types."
+    },
+    {
+        "Tag":  "AllowedWeatherSystems",
+        "Description":  "List of values for allowed weather systems."
+    },
+    {
+        "Tag":  "AllowEnergyInhibitorMod",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows energy inhibitor mod."
+    },
+    {
+        "Tag":  "AllowGridTakeover",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, players can purchase ownership of an NPC grid through this shipyard."
+    },
+    {
+        "Tag":  "AllowHandDrillInhibitorMod",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows hand drill inhibitor mod."
+    },
+    {
+        "Tag":  "AllowHomingWeaponMultiTargeting",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows homing weapon multi targeting."
+    },
+    {
+        "Tag":  "AllowIfNonPublic",
+        "Description":  "Configures allow if non public."
+    },
+    {
+        "Tag":  "AllowInRandomization",
+        "Description":  "Configures allow in randomization."
+    },
+    {
+        "Tag":  "AllowJetpackInhibitorMod",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows jetpack inhibitor mod."
+    },
+    {
+        "Tag":  "AllowNpcSignals",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows npc signals."
+    },
+    {
+        "Tag":  "AllowOnlyIfExactSize",
+        "Description":  "Configures allow only if exact size."
+    },
+    {
+        "Tag":  "AllowOverrides",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows overrides."
+    },
+    {
+        "Tag":  "AllowPartialGridNameMatches",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows partial grid name matches."
+    },
+    {
+        "Tag":  "AllowPersonnelInhibitorMod",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows personnel inhibitor mod."
+    },
+    {
+        "Tag":  "AllowPrefabIndexReuse",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows prefab index reuse."
+    },
+    {
+        "Tag":  "AllowRepairAndConstruction",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, players can repair and weld incomplete blocks at this shipyard."
+    },
+    {
+        "Tag":  "AllowScrapPurchasing",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, players can sell scrap grids to this shipyard."
+    },
+    {
+        "Tag":  "AllowSolarChargingMod",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows solar charging mod."
+    },
+    {
+        "Tag":  "AllowStrafing",
+        "Description":  "Strafe Settings setting: allow strafing."
+    },
+    {
+        "Tag":  "AllowTargetFarWithoutTarget",
+        "Description":  "Configures allow target far without target."
+    },
+    {
+        "Tag":  "AllowUniqueCommandCodeSenderOnly",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, allows unique command code sender only."
+    },
+    {
+        "Tag":  "AllPlayersMatchThisCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates all players match this condition."
+    },
+    {
+        "Tag":  "AllPlayersMustMatchReputation",
+        "Description":  "Configures all players must match reputation."
+    },
+    {
+        "Tag":  "AllPlayersReputationMustMatch",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates all players reputation must match."
+    },
+    {
+        "Tag":  "AltitudeCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates altitude check."
+    },
+    {
+        "Tag":  "AltitudeCheckIgnoreWater",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates altitude check ignore water."
+    },
+    {
+        "Tag":  "AltitudeTolerance",
+        "Description":  "Planet Config setting: altitude tolerance."
+    },
+    {
+        "Tag":  "AmmoReplenishClipAmount",
+        "Description":  "Numeric amount for ammo replenish clip amount."
+    },
+    {
+        "Tag":  "AngleAllowedForForwardThrust",
+        "Description":  "Thrust Settings setting: angle allowed for forward thrust."
+    },
+    {
+        "Tag":  "AntennaFactionOwner",
+        "Description":  "Text value for antenna faction owner."
+    },
+    {
+        "Tag":  "AntennaHudText",
+        "Description":  "Text value for antenna hud text."
+    },
+    {
+        "Tag":  "AntennaHudTextSuffix",
+        "Description":  "Text value for antenna hud text suffix."
+    },
+    {
+        "Tag":  "AntennaNamesForRangeChange",
+        "Description":  "List of values for antenna names for range change."
+    },
+    {
+        "Tag":  "AntennaRangeChangeAmount",
+        "Description":  "Numeric amount for antenna range change amount."
+    },
+    {
+        "Tag":  "AntennaRangeChangeType",
+        "Description":  "Text value for antenna range change type."
+    },
+    {
+        "Tag":  "AnyModIDsToCheck",
+        "Description":  "Numeric value for any mod i ds to check."
+    },
+    {
+        "Tag":  "AppendAntennaHudText",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies antenna hud text."
+    },
+    {
+        "Tag":  "AppendedName",
+        "Description":  "Configures appended name."
+    },
+    {
+        "Tag":  "AppendNameToBlock",
+        "Description":  "Configures append name to block."
+    },
+    {
+        "Tag":  "ApplyContainerTypeToInventoryBlock",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies container type to inventory block."
+    },
+    {
+        "Tag":  "ApplyContractProfiles",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies contract profiles."
+    },
+    {
+        "Tag":  "ApplyLcdChanges",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies lcd changes."
+    },
+    {
+        "Tag":  "ApplyStoreProfiles",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies store profiles."
+    },
+    {
+        "Tag":  "AssignEscortFromCommand",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates assign escort from command."
+    },
+    {
+        "Tag":  "AtmosphericCargoShip",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates atmospheric cargo ship."
+    },
+    {
+        "Tag":  "AtmosphericCargoShipChance",
+        "Description":  "Numeric value for atmospheric cargo ship chance."
+    },
+    {
+        "Tag":  "AttackRunBreakawayDistance",
+        "Description":  "Rotation Settings setting: attack run breakaway distance."
+    },
+    {
+        "Tag":  "AttackRunDistancePlanet",
+        "Description":  "Rotation Settings setting: attack run distance planet."
+    },
+    {
+        "Tag":  "AttackRunDistanceSpace",
+        "Description":  "Rotation Settings setting: attack run distance space."
+    },
+    {
+        "Tag":  "AttackRunMaxTimeTrigger",
+        "Description":  "Rotation Settings setting: attack run max time trigger."
+    },
+    {
+        "Tag":  "AttackRunOverrideDistance",
+        "Description":  "Rotation Settings setting: attack run override distance."
+    },
+    {
+        "Tag":  "AttackRunOverrideTimerTrigger",
+        "Description":  "Rotation Settings setting: attack run override timer trigger."
+    },
+    {
+        "Tag":  "AttackRunOverrideWithDistanceAndTimer",
+        "Description":  "Rotation Settings setting: attack run override with distance and timer."
+    },
+    {
+        "Tag":  "AttackRunUseCollisionEvasionPlanet",
+        "Description":  "Rotation Settings setting: attack run use collision evasion planet."
+    },
+    {
+        "Tag":  "AttackRunUseCollisionEvasionSpace",
+        "Description":  "Rotation Settings setting: attack run use collision evasion space."
+    },
+    {
+        "Tag":  "AttackRunUseSafePlanetPathing",
+        "Description":  "Rotation Settings setting: attack run use safe planet pathing."
+    },
+    {
+        "Tag":  "AttackSounds",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates attack sounds."
+    },
+    {
+        "Tag":  "Author",
+        "Description":  "Configures author."
+    },
+    {
+        "Tag":  "AutopilotData",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates autopilot data."
+    },
+    {
+        "Tag":  "AutopilotProfile",
+        "Description":  "Configures autopilot profile."
+    },
+    {
+        "Tag":  "AvoidPlayerCollisions",
+        "Description":  "Rotation Settings setting: avoid player collisions."
+    },
+    {
+        "Tag":  "Background",
+        "Description":  "Vector3D coordinates for background."
+    },
+    {
+        "Tag":  "BarrelRoll",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates barrel roll."
+    },
+    {
+        "Tag":  "BarrelRollMaxDurationMs",
+        "Description":  "Rotation Settings setting: barrel roll max duration ms."
+    },
+    {
+        "Tag":  "BarrelRollMinDurationMs",
+        "Description":  "Rotation Settings setting: barrel roll min duration ms."
+    },
+    {
+        "Tag":  "BehaviorModeCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates behavior mode check."
+    },
+    {
+        "Tag":  "BehaviorSpawn",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates behavior spawn."
+    },
+    {
+        "Tag":  "BehaviorSpecificEventA",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates behavior specific event a."
+    },
+    {
+        "Tag":  "BehaviorSubclass",
+        "Description":  "Enum value for behavior subclass."
+    },
+    {
+        "Tag":  "BehaviorSubclassCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates behavior subclass check."
+    },
+    {
+        "Tag":  "BlockName",
+        "Description":  "SubtypeId or name of the shipyard terminal block this profile applies to."
+    },
+    {
+        "Tag":  "BlockNamesShareModeAll",
+        "Description":  "List of values for block names share mode all."
+    },
+    {
+        "Tag":  "BlockReplacementProfileIds",
+        "Description":  "One or more block replacement profile profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "Blocks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates blocks."
+    },
+    {
+        "Tag":  "BlocksOfType",
+        "Description":  "List of values for blocks of type."
+    },
+    {
+        "Tag":  "BlockTargets",
+        "Description":  "Configures block targets."
+    },
+    {
+        "Tag":  "BlockTypesToToggle",
+        "Description":  "Configures block types to toggle."
+    },
+    {
+        "Tag":  "BlockTypeToggles",
+        "Description":  "Enum value for block type toggles."
+    },
+    {
+        "Tag":  "BlueprintBuildingCommissionPercentage",
+        "Description":  "Blueprint build price multiplier percentage (100 = raw cost). Source default: \u003ccode\u003e115\u003c/code\u003e."
+    },
+    {
+        "Tag":  "BlueprintBuildingLargeGridBlockLimit",
+        "Description":  "Numeric value for blueprint building large grid block limit."
+    },
+    {
+        "Tag":  "BlueprintBuildingReputationDiscount",
+        "Description":  "Numeric value for blueprint building reputation discount."
+    },
+    {
+        "Tag":  "BlueprintBuildingSmallGridBlockLimit",
+        "Description":  "Numeric value for blueprint building small grid block limit."
+    },
+    {
+        "Tag":  "BossCustomAnnounceAuthor",
+        "Description":  "Text value for boss custom announce author."
+    },
+    {
+        "Tag":  "BossCustomAnnounceEnable",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates boss custom announce enable."
+    },
+    {
+        "Tag":  "BossCustomAnnounceMessage",
+        "Description":  "Text value for boss custom announce message."
+    },
+    {
+        "Tag":  "BossCustomGPSColor",
+        "Description":  "Vector3D coordinates for boss custom gps color."
+    },
+    {
+        "Tag":  "BossCustomGPSLabel",
+        "Description":  "Text value for boss custom gps label."
+    },
+    {
+        "Tag":  "BossEncounterAny",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates boss encounter any."
+    },
+    {
+        "Tag":  "BossEncounterAtmo",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates boss encounter atmo."
+    },
+    {
+        "Tag":  "BossEncounterChance",
+        "Description":  "Numeric value for boss encounter chance."
+    },
+    {
+        "Tag":  "BossEncounterSpace",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates boss encounter space."
+    },
+    {
+        "Tag":  "BossMusicId",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e Implement //Doc"
+    },
+    {
+        "Tag":  "BotBehavior",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates bot behavior."
+    },
+    {
+        "Tag":  "BotCount",
+        "Description":  "Numeric value for bot count."
+    },
+    {
+        "Tag":  "BotDisplayName",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates bot display name."
+    },
+    {
+        "Tag":  "BotProfiles",
+        "Description":  "One or more bot profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "BotSpawnProfileNames",
+        "Description":  "One or more bot spawn profile profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "BotType",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates bot type."
+    },
+    {
+        "Tag":  "BroadcastChatType",
+        "Description":  "Configures broadcast chat type."
+    },
+    {
+        "Tag":  "BroadcastCommandProfiles",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, broadcasts command profiles."
+    },
+    {
+        "Tag":  "BroadcastCurrentTarget",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, broadcasts current target."
+    },
+    {
+        "Tag":  "BroadcastDamagerTarget",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, broadcasts damager target."
+    },
+    {
+        "Tag":  "BroadcastGenericCommand",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, broadcasts generic command."
+    },
+    {
+        "Tag":  "BroadcastOnlyAntenna",
+        "Description":  "Configures broadcast only antenna."
+    },
+    {
+        "Tag":  "BroadcastRandomly",
+        "Description":  "Configures broadcast randomly."
+    },
+    {
+        "Tag":  "BroadcastSendCode",
+        "Description":  "Text value for broadcast send code."
+    },
+    {
+        "Tag":  "BuildProjectedBlocks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, builds projected blocks."
+    },
+    {
+        "Tag":  "ButtonPanelIndex",
+        "Description":  "Configures button panel index."
+    },
+    {
+        "Tag":  "ButtonPanelName",
+        "Description":  "Configures button panel name."
+    },
+    {
+        "Tag":  "CameraDetectionMaxRange",
+        "Description":  "Rotation Settings setting: camera detection max range."
+    },
+    {
+        "Tag":  "CancelWaitingAtWaypoint",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies cel waiting at waypoint."
+    },
+    {
+        "Tag":  "CanDamageGrids",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies damage grids."
+    },
+    {
+        "Tag":  "CanSpawnUnderwater",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies spawn underwater."
+    },
+    {
+        "Tag":  "CanUseAirNodes",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies use air nodes."
+    },
+    {
+        "Tag":  "CanUseLadders",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies use ladders."
+    },
+    {
+        "Tag":  "CanUseSeats",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies use seats."
+    },
+    {
+        "Tag":  "CanUseSpaceNodes",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies use space nodes."
+    },
+    {
+        "Tag":  "CanUseWaterNodes",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies use water nodes."
+    },
+    {
+        "Tag":  "CargoShipTerrainPath",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates cargo ship terrain path."
+    },
+    {
+        "Tag":  "Chance",
+        "Description":  "Configures chance."
+    },
+    {
+        "Tag":  "ChanceCeiling",
+        "Description":  "Numeric value for chance ceiling."
+    },
+    {
+        "Tag":  "ChangeAntennaHudText",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes antenna hud text."
+    },
+    {
+        "Tag":  "ChangeAntennaOwnership",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes antenna ownership."
+    },
+    {
+        "Tag":  "ChangeAntennaRanges",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes antenna ranges."
+    },
+    {
+        "Tag":  "ChangeAttackerReputation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes attacker reputation."
+    },
+    {
+        "Tag":  "ChangeAttackerReputationAmount",
+        "Description":  "Numeric amount for change attacker reputation amount."
+    },
+    {
+        "Tag":  "ChangeAttackerReputationFaction",
+        "Description":  "List of values for change attacker reputation faction."
+    },
+    {
+        "Tag":  "ChangeAttackersFactionAccount",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes attackers faction account."
+    },
+    {
+        "Tag":  "ChangeAttackersFactionAccountByAmount",
+        "Description":  "Numeric amount for change attackers faction account by amount."
+    },
+    {
+        "Tag":  "ChangeAutopilotMinAltitude",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes autopilot min altitude."
+    },
+    {
+        "Tag":  "ChangeAutopilotProfile",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes autopilot profile."
+    },
+    {
+        "Tag":  "ChangeAutopilotSpeed",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes autopilot speed."
+    },
+    {
+        "Tag":  "ChangeBehaviorSubclass",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, switches the behavior subclass (eg Fighter, Horsefly, Patrol) via \u003ccode\u003eNewBehaviorSubclass\u003c/code\u003e."
+    },
+    {
+        "Tag":  "ChangeBlockDamageMultipliers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes block damage multipliers."
+    },
+    {
+        "Tag":  "ChangeBlockNames",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes block names."
+    },
+    {
+        "Tag":  "ChangeBlockNamesFrom",
+        "Description":  "List of values for change block names from."
+    },
+    {
+        "Tag":  "ChangeBlockNamesTo",
+        "Description":  "List of values for change block names to."
+    },
+    {
+        "Tag":  "ChangeBlockOwnership",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes block ownership."
+    },
+    {
+        "Tag":  "ChangeBlocksShareModeAll",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes blocks share mode all."
+    },
+    {
+        "Tag":  "ChangeBooleans",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes booleans."
+    },
+    {
+        "Tag":  "ChangeCounters",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes counters."
+    },
+    {
+        "Tag":  "ChangeGridOwnership",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes grid ownership."
+    },
+    {
+        "Tag":  "ChangeInertiaDampeners",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes inertia dampeners."
+    },
+    {
+        "Tag":  "ChangeNpcFactionCredits",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes npc faction credits."
+    },
+    {
+        "Tag":  "ChangeNpcFactionCreditsAmount",
+        "Description":  "Numeric amount for change npc faction credits amount."
+    },
+    {
+        "Tag":  "ChangeNpcFactionCreditsTag",
+        "Description":  "Text value for change npc faction credits tag."
+    },
+    {
+        "Tag":  "ChangePlayerCredits",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes player credits."
+    },
+    {
+        "Tag":  "ChangePlayerCreditsAmount",
+        "Description":  "Numeric amount for change player credits amount."
+    },
+    {
+        "Tag":  "ChangePlayerCreditsIncludeSavedPlayerIdentity",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes player credits include saved player identity."
+    },
+    {
+        "Tag":  "ChangePlayerCreditsOverridePositionInPlayerCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes player credits override position in player condition."
+    },
+    {
+        "Tag":  "ChangePlayerCreditsPlayerConditionIds",
+        "Description":  "One or more change player credits player condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "ChangeReputationBetweenFactions",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes reputation between factions."
+    },
+    {
+        "Tag":  "ChangeReputationFactionsAmounts",
+        "Description":  "List of values for change reputation factions amounts."
+    },
+    {
+        "Tag":  "ChangeReputationFactionsFrom",
+        "Description":  "List of values for change reputation factions from."
+    },
+    {
+        "Tag":  "ChangeReputationFactionsTargets",
+        "Description":  "List of values for change reputation factions targets."
+    },
+    {
+        "Tag":  "ChangeReputationFactionsTo",
+        "Description":  "List of values for change reputation factions to."
+    },
+    {
+        "Tag":  "ChangeReputationPropagatesToPlayers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes reputation propagates to players."
+    },
+    {
+        "Tag":  "ChangeReputationWithPlayers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes reputation with players."
+    },
+    {
+        "Tag":  "ChangeRotationDirection",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes rotation direction."
+    },
+    {
+        "Tag":  "ChangeTargetProfile",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, changes target profile."
+    },
+    {
+        "Tag":  "ChangeTurretTargetingParameters",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e Implement"
+    },
+    {
+        "Tag":  "ChangeZoneAtPosition",
+        "Description":  "ChangeZoneAtPosition (While Inside Zone)."
+    },
+    {
+        "Tag":  "ChargeForSpawning",
+        "Description":  "Numeric value for charge for spawning."
+    },
+    {
+        "Tag":  "ChargeNpcFactionForSpawn",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates charge npc faction for spawn."
+    },
+    {
+        "Tag":  "ChatAudio",
+        "Description":  "Configures chat audio."
+    },
+    {
+        "Tag":  "ChatAvatar",
+        "Description":  "Configures chat avatar."
+    },
+    {
+        "Tag":  "ChatData",
+        "Description":  "Configures chat data."
+    },
+    {
+        "Tag":  "ChatMessages",
+        "Description":  "Configures chat messages."
+    },
+    {
+        "Tag":  "ChatVolumeMultiplier",
+        "Description":  "Configures chat volume multiplier."
+    },
+    {
+        "Tag":  "CheckAllLoadedModIDs",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks all loaded mod i ds."
+    },
+    {
+        "Tag":  "CheckAnyLoadedModIDs",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks any loaded mod i ds."
+    },
+    {
+        "Tag":  "CheckCommandGridValue",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks command grid value."
+    },
+    {
+        "Tag":  "CheckCommandGridValueCompare",
+        "Description":  "Enum value for check command grid value compare."
+    },
+    {
+        "Tag":  "CheckCustomCounters",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks custom counters."
+    },
+    {
+        "Tag":  "CheckCustomSandboxCounters",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks custom sandbox counters."
+    },
+    {
+        "Tag":  "CheckFalseBooleans",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks false booleans."
+    },
+    {
+        "Tag":  "CheckFalseSandboxBooleans",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks false sandbox booleans."
+    },
+    {
+        "Tag":  "CheckForBlocksOfType",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks for blocks of type."
+    },
+    {
+        "Tag":  "CheckForPlanetaryLane",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks for planetary lane."
+    },
+    {
+        "Tag":  "CheckForSpawnConditions",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks for spawn conditions."
+    },
+    {
+        "Tag":  "CheckGridSize",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks grid size."
+    },
+    {
+        "Tag":  "CheckGridSpeed",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks grid speed."
+    },
+    {
+        "Tag":  "CheckGridStatic",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks grid static."
+    },
+    {
+        "Tag":  "CheckGridVerticalSpeed",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks grid vertical speed."
+    },
+    {
+        "Tag":  "CheckHealthPercentage",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks health percentage."
+    },
+    {
+        "Tag":  "CheckHorizonAngle",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks horizon angle."
+    },
+    {
+        "Tag":  "CheckIfDamagerIsNpc",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks if damager is npc."
+    },
+    {
+        "Tag":  "CheckIfDamagerIsPlayer",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks if damager is player."
+    },
+    {
+        "Tag":  "CheckIfGridNameMatches",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks if grid name matches."
+    },
+    {
+        "Tag":  "CheckIfSpawnGroupExist",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks if spawn group exist."
+    },
+    {
+        "Tag":  "CheckIfTargetIsChasing",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks if target is chasing."
+    },
+    {
+        "Tag":  "CheckIfTargetIsNpcOwned",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks if target is npc owned."
+    },
+    {
+        "Tag":  "CheckIfTargetIsPlayerOwned",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks if target is player owned."
+    },
+    {
+        "Tag":  "CheckInSufficientUpwardThrust",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks in sufficient upward thrust."
+    },
+    {
+        "Tag":  "CheckLastRespawnShipName",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks last respawn ship name."
+    },
+    {
+        "Tag":  "CheckMainEventDaysPassed",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks main event days passed."
+    },
+    {
+        "Tag":  "CheckMESBlacklistedSpawnGroups",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks mes blacklisted spawn groups."
+    },
+    {
+        "Tag":  "CheckPlayerCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks player condition."
+    },
+    {
+        "Tag":  "CheckPlayerCreditBalance",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks player credit balance."
+    },
+    {
+        "Tag":  "CheckPlayerIdentitySandboxList",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks player identity sandbox list."
+    },
+    {
+        "Tag":  "CheckPlayerInActiveZone",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks player in active zone."
+    },
+    {
+        "Tag":  "CheckPlayerInZone",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks player in zone."
+    },
+    {
+        "Tag":  "CheckPlayerNear",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks player near."
+    },
+    {
+        "Tag":  "CheckPlayerReputation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks player reputation."
+    },
+    {
+        "Tag":  "CheckPlayerTags",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks player tags."
+    },
+    {
+        "Tag":  "CheckPrefabGravityProfiles",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks prefab gravity profiles."
+    },
+    {
+        "Tag":  "CheckRelationSenderReceiver",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks relation sender receiver."
+    },
+    {
+        "Tag":  "CheckReputationAgainstOtherNPCFaction",
+        "Description":  "Text value for check reputation against other npc faction."
+    },
+    {
+        "Tag":  "CheckReputationwithFaction",
+        "Description":  "List of values for check reputationwith faction."
+    },
+    {
+        "Tag":  "CheckRequiredBlocks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks required blocks."
+    },
+    {
+        "Tag":  "CheckSufficientUpwardThrust",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks sufficient upward thrust."
+    },
+    {
+        "Tag":  "CheckTargetAltitudeDifference",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks target altitude difference."
+    },
+    {
+        "Tag":  "CheckTargetAngleFromForward",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks target angle from forward."
+    },
+    {
+        "Tag":  "CheckTargetChaseSpeed",
+        "Description":  "This can become negative. Neat."
+    },
+    {
+        "Tag":  "CheckTargetDistance",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks target distance."
+    },
+    {
+        "Tag":  "CheckTargetSpeed",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks target speed."
+    },
+    {
+        "Tag":  "CheckThreatScore",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks threat score."
+    },
+    {
+        "Tag":  "CheckThreatScoreFromClosestPlayerPosition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks threat score from closest player position."
+    },
+    {
+        "Tag":  "CheckThreatScoreFromTargetPosition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks threat score from target position."
+    },
+    {
+        "Tag":  "CheckThreatScoreGridConfiguration",
+        "Description":  "Configures check threat score grid configuration."
+    },
+    {
+        "Tag":  "CheckThreatScoreIncludeOtherNpcOwners",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks threat score include other npc owners."
+    },
+    {
+        "Tag":  "CheckThreatScoreMaximum",
+        "Description":  "Numeric value for check threat score maximum."
+    },
+    {
+        "Tag":  "CheckThreatScoreMinimum",
+        "Description":  "Numeric value for check threat score minimum."
+    },
+    {
+        "Tag":  "CheckThreatScoreRadius",
+        "Description":  "Radius in meters for check threat score."
+    },
+    {
+        "Tag":  "CheckTrueBooleans",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks true booleans."
+    },
+    {
+        "Tag":  "CheckTrueSandboxBooleans",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks true sandbox booleans."
+    },
+    {
+        "Tag":  "CheckWaypointAngleFromForward",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, checks waypoint angle from forward."
+    },
+    {
+        "Tag":  "CircleTargetAltitudeConstriction",
+        "Description":  "Circle Target Config setting: circle target altitude constriction."
+    },
+    {
+        "Tag":  "CircleTargetAltitudeConstrictionAmount",
+        "Description":  "Circle Target Config setting: circle target altitude constriction amount."
+    },
+    {
+        "Tag":  "CircleTargetClockwise",
+        "Description":  "Circle Target Config setting: circle target clockwise."
+    },
+    {
+        "Tag":  "CircleTargetDriftExemption",
+        "Description":  "Circle Target Config setting: circle target drift exemption."
+    },
+    {
+        "Tag":  "CircleTargetRadiusConstriction",
+        "Description":  "Circle Target Config setting: circle target radius constriction."
+    },
+    {
+        "Tag":  "CircleTargetRadiusConstrictionAmount",
+        "Description":  "Circle Target Config setting: circle target radius constriction amount."
+    },
+    {
+        "Tag":  "CircleTargetUpAngleLimit",
+        "Description":  "Circle Target Config setting: circle target up angle limit."
+    },
+    {
+        "Tag":  "CircleTargetUseWaypointAbandon",
+        "Description":  "Circle Target Config setting: circle target use waypoint abandon."
+    },
+    {
+        "Tag":  "ClearAllWaypoints",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, clears all waypoints."
+    },
+    {
+        "Tag":  "ClearAntennaThoughtBubble",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, clears antenna thought bubble."
+    },
+    {
+        "Tag":  "ClearContractContentsFirst",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, clears contract contents first."
+    },
+    {
+        "Tag":  "ClearCustomPatrolReference",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, clears custom patrol reference."
+    },
+    {
+        "Tag":  "ClearStoreContentsFirst",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, clears store contents first."
+    },
+    {
+        "Tag":  "Collateral",
+        "Description":  "Text value for collateral."
+    },
+    {
+        "Tag":  "CollisionAsteroidUsesBoundingBoxForVelocity",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates collision asteroid uses bounding box for velocity."
+    },
+    {
+        "Tag":  "CollisionEvasionResumeDistance",
+        "Description":  "Collision Config setting: collision evasion resume distance."
+    },
+    {
+        "Tag":  "CollisionEvasionResumeTime",
+        "Description":  "Collision Config setting: collision evasion resume time."
+    },
+    {
+        "Tag":  "CollisionEvasionWaypointCalculatedAwayFromEntity",
+        "Description":  "Collision Config setting: collision evasion waypoint calculated away from entity."
+    },
+    {
+        "Tag":  "CollisionEvasionWaypointDistance",
+        "Description":  "Make Space and Planet Variant - OR... Make This Based on Detection Type!"
+    },
+    {
+        "Tag":  "CollisionEvasionWaypointFromEntityMaxAngle",
+        "Description":  "Collision Config setting: collision evasion waypoint from entity max angle."
+    },
+    {
+        "Tag":  "CollisionFallEvasionWaypointDistance",
+        "Description":  "Collision Config setting: collision fall evasion waypoint distance."
+    },
+    {
+        "Tag":  "CollisionTimeTrigger",
+        "Description":  "Time in seconds for collision time trigger."
+    },
+    {
+        "Tag":  "Color",
+        "Description":  "Configures color."
+    },
+    {
+        "Tag":  "CombatPhaseChecksInPersistentCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates combat phase checks in persistent condition."
+    },
+    {
+        "Tag":  "CommandCheckFromParent",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates command check from parent."
+    },
+    {
+        "Tag":  "CommandCheckRelationSenderReceiver",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates command check relation sender receiver."
+    },
+    {
+        "Tag":  "CommandCode",
+        "Description":  "Configures command code."
+    },
+    {
+        "Tag":  "CommandDelayTicks",
+        "Description":  "Configures command delay ticks."
+    },
+    {
+        "Tag":  "CommandFromParent",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates command from parent."
+    },
+    {
+        "Tag":  "CommandGravityCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates command gravity check."
+    },
+    {
+        "Tag":  "CommandGravityMatches",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates command gravity matches."
+    },
+    {
+        "Tag":  "CommandGridValue",
+        "Description":  "Numeric value for command grid value."
+    },
+    {
+        "Tag":  "CommandProfileIds",
+        "Description":  "One or more command profile profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "CommandProfileOriginCoords",
+        "Description":  "Vector3D coordinates for command profile origin coords."
+    },
+    {
+        "Tag":  "CommandReceiveCode",
+        "Description":  "Configures command receive code."
+    },
+    {
+        "Tag":  "CommandRelation",
+        "Description":  "Enum value for command relation."
+    },
+    {
+        "Tag":  "CompareCommandGridValue",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, compares command grid value."
+    },
+    {
+        "Tag":  "CompareCommandGridValueMode",
+        "Description":  "Enum value for compare command grid value mode."
+    },
+    {
+        "Tag":  "CompareCommandGridValueSelfMultiplier",
+        "Description":  "Numeric value for compare command grid value self multiplier."
+    },
+    {
+        "Tag":  "CompareThreatScore",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, compares threat score."
+    },
+    {
+        "Tag":  "CompareThreatScoreFromTargetPosition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, compares threat score from target position."
+    },
+    {
+        "Tag":  "CompareThreatScoreGridConfiguration",
+        "Description":  "Configures compare threat score grid configuration."
+    },
+    {
+        "Tag":  "CompareThreatScoreIncludeOtherNpcOwners",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, compares threat score include other npc owners."
+    },
+    {
+        "Tag":  "CompareThreatScoreMode",
+        "Description":  "Enum value for compare threat score mode."
+    },
+    {
+        "Tag":  "CompareThreatScoreRadius",
+        "Description":  "Radius in meters for compare threat score."
+    },
+    {
+        "Tag":  "CompareThreatScoreSelfValueMultiplier",
+        "Description":  "Numeric value for compare threat score self value multiplier."
+    },
+    {
+        "Tag":  "CompareThreatScoreUseSelfValue",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, compares threat score use self value."
+    },
+    {
+        "Tag":  "CompareThreatScoreValue",
+        "Description":  "Numeric value for compare threat score value."
+    },
+    {
+        "Tag":  "ConditionCheckResetsTimer",
+        "Description":  "Configures condition check resets timer."
+    },
+    {
+        "Tag":  "ConditionIds",
+        "Description":  "One or more condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "Conditions",
+        "Description":  "Configures conditions."
+    },
+    {
+        "Tag":  "ContainerBlockTypes",
+        "Description":  "Configures container block types."
+    },
+    {
+        "Tag":  "ContainerTypeBlockNames",
+        "Description":  "One or more container type block profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "ContainerTypes",
+        "Description":  "Configures container types."
+    },
+    {
+        "Tag":  "ContainerTypeSubtypeIds",
+        "Description":  "One or more container type subtype profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "ContractBlockProfiles",
+        "Description":  "One or more contract block profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "ContractBlocks",
+        "Description":  "List of values for contract blocks."
+    },
+    {
+        "Tag":  "ContractProfiles",
+        "Description":  "One or more contract profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "Coordinates",
+        "Description":  "Configures coordinates."
+    },
+    {
+        "Tag":  "CounterCompareTypes",
+        "Description":  "Enum value for counter compare types."
+    },
+    {
+        "Tag":  "CreateKnownPlayerArea",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies known player area."
+    },
+    {
+        "Tag":  "CreateLightningAtAttacker",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies lightning at attacker."
+    },
+    {
+        "Tag":  "CreateLightningAtTarget",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies lightning at target."
+    },
+    {
+        "Tag":  "CreateRandomLightning",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies random lightning."
+    },
+    {
+        "Tag":  "CreateSafeZone",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies safe zone."
+    },
+    {
+        "Tag":  "CreatureChance",
+        "Description":  "Numeric value for creature chance."
+    },
+    {
+        "Tag":  "CreatureIds",
+        "Description":  "One or more creature profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "CreatureSpawn",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates creature spawn."
+    },
+    {
+        "Tag":  "CurrentBehaviorMode",
+        "Description":  "Enum value for current behavior mode."
+    },
+    {
+        "Tag":  "CustomActionArgumentsBool",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates custom action arguments bool."
+    },
+    {
+        "Tag":  "CustomActionArgumentsDouble",
+        "Description":  "Numeric value for custom action arguments double."
+    },
+    {
+        "Tag":  "CustomActionArgumentsFloat",
+        "Description":  "Numeric value for custom action arguments float."
+    },
+    {
+        "Tag":  "CustomActionArgumentsInt",
+        "Description":  "List of values for custom action arguments int."
+    },
+    {
+        "Tag":  "CustomActionArgumentsLong",
+        "Description":  "Numeric value for custom action arguments long."
+    },
+    {
+        "Tag":  "CustomActionArgumentsString",
+        "Description":  "List of values for custom action arguments string."
+    },
+    {
+        "Tag":  "CustomActionArgumentsVector3D",
+        "Description":  "List of values for custom action arguments vector3 d."
+    },
+    {
+        "Tag":  "CustomActionName",
+        "Description":  "Text value for custom action name."
+    },
+    {
+        "Tag":  "CustomApiConditions",
+        "Description":  "List of values for custom api conditions."
+    },
+    {
+        "Tag":  "CustomApiMapping",
+        "Description":  "List of values for custom api mapping."
+    },
+    {
+        "Tag":  "CustomCounters",
+        "Description":  "List of values for custom counters."
+    },
+    {
+        "Tag":  "CustomCountersTargetOverrideCommandScore",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates custom counters target override command score."
+    },
+    {
+        "Tag":  "CustomCountersTargetOverrideSelfScore",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates custom counters target override self score."
+    },
+    {
+        "Tag":  "CustomCountersTargets",
+        "Description":  "List of values for custom counters targets."
+    },
+    {
+        "Tag":  "CustomCountersVariables",
+        "Description":  "Configures custom counters variables."
+    },
+    {
+        "Tag":  "CustomCountersVariablesReferences",
+        "Description":  "Configures custom counters variables references."
+    },
+    {
+        "Tag":  "CustomDataBlockNames",
+        "Description":  "One or more custom data block profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "CustomDataFiles",
+        "Description":  "Configures custom data files."
+    },
+    {
+        "Tag":  "CustomPathEndAltitude",
+        "Description":  "Altitude in meters for custom path end."
+    },
+    {
+        "Tag":  "CustomPathStartAltitude",
+        "Description":  "Altitude in meters for custom path start."
+    },
+    {
+        "Tag":  "CustomRelativeForward",
+        "Description":  "Configures custom relative forward."
+    },
+    {
+        "Tag":  "CustomRelativeUp",
+        "Description":  "Configures custom relative up."
+    },
+    {
+        "Tag":  "CustomReplacementCommissionPercentage",
+        "Description":  "Numeric amount for custom replacement commission percentage."
+    },
+    {
+        "Tag":  "CustomReplacementLargeGridBlockLimit",
+        "Description":  "Numeric value for custom replacement large grid block limit."
+    },
+    {
+        "Tag":  "CustomReplacementReputationDiscount",
+        "Description":  "Numeric value for custom replacement reputation discount."
+    },
+    {
+        "Tag":  "CustomReplacementSmallGridBlockLimit",
+        "Description":  "Numeric value for custom replacement small grid block limit."
+    },
+    {
+        "Tag":  "CustomReputationRangeCheck",
+        "Description":  "Configures custom reputation range check."
+    },
+    {
+        "Tag":  "CustomSandboxCounters",
+        "Description":  "List of values for custom sandbox counters."
+    },
+    {
+        "Tag":  "CustomSandboxCountersTargets",
+        "Description":  "List of values for custom sandbox counters targets."
+    },
+    {
+        "Tag":  "CustomStrings",
+        "Description":  "Configures custom strings."
+    },
+    {
+        "Tag":  "CustomStringsReferences",
+        "Description":  "Configures custom strings references."
+    },
+    {
+        "Tag":  "CustomTags",
+        "Description":  "Configures custom tags."
+    },
+    {
+        "Tag":  "CustomVoxelMaterial",
+        "Description":  "List of values for custom voxel material."
+    },
+    {
+        "Tag":  "CustomWaypoints",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates custom waypoints."
+    },
+    {
+        "Tag":  "CustomWorldCenter",
+        "Description":  "Vector3D coordinates for custom world center."
+    },
+    {
+        "Tag":  "CutVoxelsAtAirtightCells",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates cut voxels at airtight cells."
+    },
+    {
+        "Tag":  "CutVoxelSize",
+        "Description":  "Numeric value for cut voxel size."
+    },
+    {
+        "Tag":  "DamageMultiplierBlockNames",
+        "Description":  "One or more damage multiplier block profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "DamageMultiplierValues",
+        "Description":  "List of values for damage multiplier values."
+    },
+    {
+        "Tag":  "DamageToolAttacker",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates damage tool attacker."
+    },
+    {
+        "Tag":  "DamageToolAttackerAmount",
+        "Description":  "Numeric amount for damage tool attacker amount."
+    },
+    {
+        "Tag":  "DamageToolAttackerParticle",
+        "Description":  "Text value for damage tool attacker particle."
+    },
+    {
+        "Tag":  "DamageToolAttackerSound",
+        "Description":  "Text value for damage tool attacker sound."
+    },
+    {
+        "Tag":  "DamageTypes",
+        "Description":  "Configures damage types."
+    },
+    {
+        "Tag":  "DatapadCount",
+        "Description":  "Configures datapad count."
+    },
+    {
+        "Tag":  "DatapadCountToAdd",
+        "Description":  "Numeric value for datapad count to add."
+    },
+    {
+        "Tag":  "DatapadFileSource",
+        "Description":  "Configures datapad file source."
+    },
+    {
+        "Tag":  "DatapadIndex",
+        "Description":  "Configures datapad index."
+    },
+    {
+        "Tag":  "DatapadNamesToAdd",
+        "Description":  "List of values for datapad names to add."
+    },
+    {
+        "Tag":  "DateTimeDaysOfWeek",
+        "Description":  "Enum value for date time days of week."
+    },
+    {
+        "Tag":  "DaysPassed",
+        "Description":  "Numeric value for days passed."
+    },
+    {
+        "Tag":  "DeathSound",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates death sound."
+    },
+    {
+        "Tag":  "DebugMessage",
+        "Description":  "Debug Message."
+    },
+    {
+        "Tag":  "DecreaseAntennaThoughtBubblePercentage",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies antenna thought bubble percentage."
+    },
+    {
+        "Tag":  "DecreaseAntennaThoughtBubblePercentageAmount",
+        "Description":  "Numeric amount for decrease antenna thought bubble percentage amount."
+    },
+    {
+        "Tag":  "DecreaseCounters",
+        "Description":  "List of values for decrease counters."
+    },
+    {
+        "Tag":  "DecreaseCountersAmount",
+        "Description":  "Numeric amount for decrease counters amount."
+    },
+    {
+        "Tag":  "DecreaseCountersAmountVariable",
+        "Description":  "Text value for decrease counters amount variable."
+    },
+    {
+        "Tag":  "DecreaseCountersUseAmountVariable",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies counters use amount variable."
+    },
+    {
+        "Tag":  "DecreaseCountersUseCommandScore",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies counters use command score."
+    },
+    {
+        "Tag":  "DecreaseSandboxCounters",
+        "Description":  "List of values for decrease sandbox counters."
+    },
+    {
+        "Tag":  "DecreaseSandboxCountersAmount",
+        "Description":  "Numeric amount for decrease sandbox counters amount."
+    },
+    {
+        "Tag":  "Description",
+        "Description":  "Text value for description."
+    },
+    {
+        "Tag":  "DesiredAngleToTarget",
+        "Description":  "Rotation Settings setting: desired angle to target."
+    },
+    {
+        "Tag":  "DespawnCoordsMaxAltitude",
+        "Description":  "Rotation Settings setting: despawn coords max altitude."
+    },
+    {
+        "Tag":  "DespawnCoordsMaxDistance",
+        "Description":  "Rotation Settings setting: despawn coords max distance."
+    },
+    {
+        "Tag":  "DespawnCoordsMinAltitude",
+        "Description":  "Rotation Settings setting: despawn coords min altitude."
+    },
+    {
+        "Tag":  "DespawnCoordsMinDistance",
+        "Description":  "Rotation Settings setting: despawn coords min distance."
+    },
+    {
+        "Tag":  "DespawnTicks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates despawn ticks."
+    },
+    {
+        "Tag":  "DespawnTypeFromSpawner",
+        "Description":  "Configures despawn type from spawner."
+    },
+    {
+        "Tag":  "DetectSelfAsJumpedGrid",
+        "Description":  "Configures detect self as jumped grid."
+    },
+    {
+        "Tag":  "DialogueBanks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates dialogue banks."
+    },
+    {
+        "Tag":  "DialogueCueId",
+        "Description":  "A dialogue cue profile or id value."
+    },
+    {
+        "Tag":  "DirectionFromPlanetCenter",
+        "Description":  "List of values for direction from planet center."
+    },
+    {
+        "Tag":  "DirectionFromWorldCenter",
+        "Description":  "List of values for direction from world center."
+    },
+    {
+        "Tag":  "DisableAutopilot",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, disables autopilot."
+    },
+    {
+        "Tag":  "DisableDampeners",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, disables dampeners."
+    },
+    {
+        "Tag":  "DisableHighestRangeAntennas",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, disables highest range antennas."
+    },
+    {
+        "Tag":  "DisableInertiaDampeners",
+        "Description":  "Rotation Settings setting: disable inertia dampeners."
+    },
+    {
+        "Tag":  "DisableNamedTriggerOnSuccess",
+        "Description":  "Configures disable named trigger on success."
+    },
+    {
+        "Tag":  "DisableTriggerIds",
+        "Description":  "One or more disable trigger profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "DisableTriggerNames",
+        "Description":  "One or more disable trigger profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "DisableTriggers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, disables triggers."
+    },
+    {
+        "Tag":  "DisableTriggerTags",
+        "Description":  "List of values for disable trigger tags."
+    },
+    {
+        "Tag":  "DisallowedTerrainTypes",
+        "Description":  "List of values for disallowed terrain types."
+    },
+    {
+        "Tag":  "DisengageDistancePlanet",
+        "Description":  "Rotation Settings setting: disengage distance planet."
+    },
+    {
+        "Tag":  "DisengageDistanceSpace",
+        "Description":  "Rotation Settings setting: disengage distance space."
+    },
+    {
+        "Tag":  "DistanceToCheckEngagableTarget",
+        "Description":  "Rotation Settings setting: distance to check engagable target."
+    },
+    {
+        "Tag":  "DoNotForceStaticGrid",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, prevents force static grid."
+    },
+    {
+        "Tag":  "DroneEncounter",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates drone encounter."
+    },
+    {
+        "Tag":  "DroneEncounterChance",
+        "Description":  "Numeric value for drone encounter chance."
+    },
+    {
+        "Tag":  "DroneInheritsSourceAltitude",
+        "Description":  "Altitude in meters for drone inherits source."
+    },
+    {
+        "Tag":  "Duration",
+        "Description":  "Time in seconds for duration."
+    },
+    {
+        "Tag":  "ElseActions",
+        "Description":  "Configures else actions."
+    },
+    {
+        "Tag":  "EmoteActions",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates emote actions."
+    },
+    {
+        "Tag":  "EnableAutopilot",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables autopilot."
+    },
+    {
+        "Tag":  "EnableBlockNames",
+        "Description":  "One or more enable block profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "EnableBlocks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables blocks."
+    },
+    {
+        "Tag":  "EnableBlockStates",
+        "Description":  "Enum value for enable block states."
+    },
+    {
+        "Tag":  "Enabled",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables d."
+    },
+    {
+        "Tag":  "EnableHighestRangeAntennas",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables highest range antennas."
+    },
+    {
+        "Tag":  "EnableNamedTriggerOnSuccess",
+        "Description":  "Configures enable named trigger on success."
+    },
+    {
+        "Tag":  "EnableTriggerIds",
+        "Description":  "One or more enable trigger profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "EnableTriggerNames",
+        "Description":  "One or more enable trigger profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "EnableTriggers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables triggers."
+    },
+    {
+        "Tag":  "EnableTriggerTags",
+        "Description":  "List of values for enable trigger tags."
+    },
+    {
+        "Tag":  "EndAntennaThoughtBubblePercentage",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies antenna thought bubble percentage."
+    },
+    {
+        "Tag":  "EngageDistancePlanet",
+        "Description":  "Rotation Settings setting: engage distance planet."
+    },
+    {
+        "Tag":  "EngageDistanceSpace",
+        "Description":  "Rotation Settings setting: engage distance space."
+    },
+    {
+        "Tag":  "EngageOnCameraDetection",
+        "Description":  "Rotation Settings setting: engage on camera detection."
+    },
+    {
+        "Tag":  "EngageOnTargetLineOfSight",
+        "Description":  "Rotation Settings setting: engage on target line of sight."
+    },
+    {
+        "Tag":  "EngageOnWeaponActivation",
+        "Description":  "Rotation Settings setting: engage on weapon activation."
+    },
+    {
+        "Tag":  "EqualizeOffersAndOrders",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates equalize offers and orders."
+    },
+    {
+        "Tag":  "EscortOffsets",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates escort offsets."
+    },
+    {
+        "Tag":  "EscortSpeedMatchMaxDistance",
+        "Description":  "Rotation Settings setting: escort speed match max distance."
+    },
+    {
+        "Tag":  "EscortSpeedMatchMinDistance",
+        "Description":  "Rotation Settings setting: escort speed match min distance."
+    },
+    {
+        "Tag":  "EscortUsesRelativeDampening",
+        "Description":  "Rotation Settings setting: escort uses relative dampening."
+    },
+    {
+        "Tag":  "EventConditionIds",
+        "Description":  "One or more event condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "EventControllerId",
+        "Description":  "A event controller profile or id value."
+    },
+    {
+        "Tag":  "EventControllerNames",
+        "Description":  "One or more event controller profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "EventControllersActive",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates event controllers active."
+    },
+    {
+        "Tag":  "EventControllersSetCurrentTime",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates event controllers set current time."
+    },
+    {
+        "Tag":  "Events",
+        "Description":  "Configures events."
+    },
+    {
+        "Tag":  "ExcludeAllMods",
+        "Description":  "List of values for exclude all mods."
+    },
+    {
+        "Tag":  "ExcludeAnyMods",
+        "Description":  "List of values for exclude any mods."
+    },
+    {
+        "Tag":  "ExcludedDamageTypes",
+        "Description":  "Configures excluded damage types."
+    },
+    {
+        "Tag":  "ExcludedPlayerTag",
+        "Description":  "List of values for excluded player tag."
+    },
+    {
+        "Tag":  "ExcludedPlayerTags",
+        "Description":  "List of values for excluded player tags."
+    },
+    {
+        "Tag":  "Exclusive",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates exclusive."
+    },
+    {
+        "Tag":  "ExistingSpawnGroupName",
+        "Description":  "Text value for existing spawn group name."
+    },
+    {
+        "Tag":  "ExplosionDamage",
+        "Description":  "Numeric value for explosion damage."
+    },
+    {
+        "Tag":  "ExplosionIgnoresVoxels",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates explosion ignores voxels."
+    },
+    {
+        "Tag":  "ExplosionOffsetFromRemote",
+        "Description":  "Vector3D coordinates for explosion offset from remote."
+    },
+    {
+        "Tag":  "ExplosionRange",
+        "Description":  "Numeric value for explosion range."
+    },
+    {
+        "Tag":  "ExtraSlowDownDistance",
+        "Description":  "Speed Config setting: extra slow down distance."
+    },
+    {
+        "Tag":  "Faction",
+        "Description":  "Text value for faction."
+    },
+    {
+        "Tag":  "FactionAccess",
+        "Description":  "Enum value for faction access."
+    },
+    {
+        "Tag":  "FactionOwner",
+        "Description":  "Text value for faction owner."
+    },
+    {
+        "Tag":  "FactionTag",
+        "Description":  "Configures faction tag."
+    },
+    {
+        "Tag":  "FactionTargets",
+        "Description":  "Configures faction targets."
+    },
+    {
+        "Tag":  "FadeInPlayerConditionIds",
+        "Description":  "One or more fade in player condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "FadeInPlayers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates fade in players."
+    },
+    {
+        "Tag":  "FadeOutPlayerConditionIds",
+        "Description":  "One or more fade out player condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "FadeOutPlayers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates fade out players."
+    },
+    {
+        "Tag":  "FailedDroneSpawnResetsPlayerTime",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates failed drone spawn resets player time."
+    },
+    {
+        "Tag":  "FailReputationPrice",
+        "Description":  "Text value for fail reputation price."
+    },
+    {
+        "Tag":  "FalseBooleans",
+        "Description":  "List of values for false booleans."
+    },
+    {
+        "Tag":  "FalseSandboxBooleans",
+        "Description":  "List of values for false sandbox booleans."
+    },
+    {
+        "Tag":  "FalseSandboxVariables",
+        "Description":  "List of values for false sandbox variables."
+    },
+    {
+        "Tag":  "FighterDisengageDistancePlanet",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates fighter disengage distance planet."
+    },
+    {
+        "Tag":  "FighterDisengageDistanceSpace",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates fighter disengage distance space."
+    },
+    {
+        "Tag":  "FighterEngageDistancePlanet",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates fighter engage distance planet."
+    },
+    {
+        "Tag":  "FighterEngageDistanceSpace",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates fighter engage distance space."
+    },
+    {
+        "Tag":  "FighterPlaneBeginPlanetAttackRunDistance",
+        "Description":  "Distance in meters for fighter plane begin planet attack run."
+    },
+    {
+        "Tag":  "FighterPlaneBeginSpaceAttackRunDistance",
+        "Description":  "Distance in meters for fighter plane begin space attack run."
+    },
+    {
+        "Tag":  "FighterPlaneBreakawayDistance",
+        "Description":  "Distance in meters for fighter plane breakaway."
+    },
+    {
+        "Tag":  "FighterPlaneEngageUseSafePlanetPathing",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates fighter plane engage use safe planet pathing."
+    },
+    {
+        "Tag":  "FighterPlaneOffsetRecalculationTime",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates fighter plane offset recalculation time."
+    },
+    {
+        "Tag":  "FileSource",
+        "Description":  "Text value for file source."
+    },
+    {
+        "Tag":  "FirstSpawnTimeMs",
+        "Description":  "Configures first spawn time ms."
+    },
+    {
+        "Tag":  "FloatingObjectAccess",
+        "Description":  "Enum value for floating object access."
+    },
+    {
+        "Tag":  "FlyLevelWithGravity",
+        "Description":  "Planet Config setting: fly level with gravity."
+    },
+    {
+        "Tag":  "ForceDampenersEnabled",
+        "Description":  "Rotation Settings setting: force dampeners enabled."
+    },
+    {
+        "Tag":  "ForceDespawn",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, forces despawn."
+    },
+    {
+        "Tag":  "ForcedRotationDampeningAmount",
+        "Description":  "Rotation Settings setting: forced rotation dampening amount."
+    },
+    {
+        "Tag":  "ForceExactPositionAndOrientation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, forces exact position and orientation."
+    },
+    {
+        "Tag":  "ForceManualTriggerActivation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, forces manual trigger activation."
+    },
+    {
+        "Tag":  "ForceSameFactionOwnership",
+        "Description":  "Configures force same faction ownership."
+    },
+    {
+        "Tag":  "ForceStaticGrid",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, forces static grid."
+    },
+    {
+        "Tag":  "GenerateExplosion",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates generate explosion."
+    },
+    {
+        "Tag":  "GetFromMinorityGridOwners",
+        "Description":  "Configures get from minority grid owners."
+    },
+    {
+        "Tag":  "GetSpeedFromSpawnGroup",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates get speed from spawn group."
+    },
+    {
+        "Tag":  "GetTargetBy",
+        "Description":  "Configures get target by."
+    },
+    {
+        "Tag":  "GetTargetLockBy",
+        "Description":  "Configures get target lock by."
+    },
+    {
+        "Tag":  "GlobalPosition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates global position."
+    },
+    {
+        "Tag":  "GPSColors",
+        "Description":  "List of values for gps colors."
+    },
+    {
+        "Tag":  "GPSCoords",
+        "Description":  "List of values for gps coords."
+    },
+    {
+        "Tag":  "GPSDescriptions",
+        "Description":  "List of values for gps descriptions."
+    },
+    {
+        "Tag":  "GPSLabel",
+        "Description":  "Configures gps label."
+    },
+    {
+        "Tag":  "GPSNames",
+        "Description":  "One or more gps profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "GPSOffset",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates gps offset."
+    },
+    {
+        "Tag":  "GPSVector3Ds",
+        "Description":  "List of values for gps vector3 ds."
+    },
+    {
+        "Tag":  "GravityCargoShip",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates gravity cargo ship."
+    },
+    {
+        "Tag":  "GravityCargoShipChance",
+        "Description":  "Numeric value for gravity cargo ship chance."
+    },
+    {
+        "Tag":  "GravityCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates gravity check."
+    },
+    {
+        "Tag":  "GridAccess",
+        "Description":  "Enum value for grid access."
+    },
+    {
+        "Tag":  "GridCleanupExemptDuration",
+        "Description":  "Time in seconds for grid cleanup exempt duration."
+    },
+    {
+        "Tag":  "GridDestructible",
+        "Description":  "Enum value for grid destructible."
+    },
+    {
+        "Tag":  "GridEditable",
+        "Description":  "Enum value for grid editable."
+    },
+    {
+        "Tag":  "GridNamesToCheck",
+        "Description":  "List of values for grid names to check."
+    },
+    {
+        "Tag":  "GridSizeLarge",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates grid size large."
+    },
+    {
+        "Tag":  "GridStatic",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates grid static."
+    },
+    {
+        "Tag":  "GridTakeoverLargeGridBlockLimit",
+        "Description":  "Numeric value for grid takeover large grid block limit."
+    },
+    {
+        "Tag":  "GridTakeoverPricePerComputerMultiplier",
+        "Description":  "Price multiplier per computer block when taking over a grid. Source default: \u003ccode\u003e100\u003c/code\u003e."
+    },
+    {
+        "Tag":  "GridTakeoverReputationDiscount",
+        "Description":  "Numeric value for grid takeover reputation discount."
+    },
+    {
+        "Tag":  "GridTakeoverSmallGridBlockLimit",
+        "Description":  "Numeric value for grid takeover small grid block limit."
+    },
+    {
+        "Tag":  "HackingChat",
+        "Description":  "Change Chat Profile To Use Modifiers."
+    },
+    {
+        "Tag":  "HasAntennaForBroadcast",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates has antenna for broadcast."
+    },
+    {
+        "Tag":  "HasNoWeapons",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates has no weapons."
+    },
+    {
+        "Tag":  "HasTarget",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates has target."
+    },
+    {
+        "Tag":  "HasWeapons",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates has weapons."
+    },
+    {
+        "Tag":  "HeavyYaw",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates heavy yaw."
+    },
+    {
+        "Tag":  "HighlightBlockModes",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies block modes."
+    },
+    {
+        "Tag":  "HighlightBlockNames",
+        "Description":  "One or more highlight block profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "HighlightBlocks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies blocks."
+    },
+    {
+        "Tag":  "HorseFighterDisengageDistancePlanet",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates horse fighter disengage distance planet."
+    },
+    {
+        "Tag":  "HorseFighterDisengageDistanceSpace",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates horse fighter disengage distance space."
+    },
+    {
+        "Tag":  "HorseFighterEngageDistancePlanet",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates horse fighter engage distance planet."
+    },
+    {
+        "Tag":  "HorseFighterEngageDistanceSpace",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates horse fighter engage distance space."
+    },
+    {
+        "Tag":  "HorseFighterTimeApproaching",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates horse fighter time approaching."
+    },
+    {
+        "Tag":  "HorseFighterTimeEngaging",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates horse fighter time engaging."
+    },
+    {
+        "Tag":  "HorseFighterWaypointAbandonTimeTrigger",
+        "Description":  "Time in seconds for horse fighter waypoint abandon time trigger."
+    },
+    {
+        "Tag":  "HorseFighterWaypointWaitTimeTrigger",
+        "Description":  "Time in seconds for horse fighter waypoint wait time trigger."
+    },
+    {
+        "Tag":  "HorseflyWaypointAbandonTimeTrigger",
+        "Description":  "Remote Control tag. Seconds before abandoning the current offset waypoint and generating a new one."
+    },
+    {
+        "Tag":  "HorseflyWaypointWaitTimeTrigger",
+        "Description":  "Remote Control tag. Seconds the Horsefly waits at an offset waypoint before moving again. Overrides autopilot \u003ccode\u003eWaypointWaitTimeTrigger\u003c/code\u003e when greater than zero."
+    },
+    {
+        "Tag":  "HorseNauticalWaypointAbandonTimeTrigger",
+        "Description":  "Time in seconds for horse nautical waypoint abandon time trigger."
+    },
+    {
+        "Tag":  "HorseNauticalWaypointWaitTimeTrigger",
+        "Description":  "Time in seconds for horse nautical waypoint wait time trigger."
+    },
+    {
+        "Tag":  "HoverCliffAngle",
+        "Description":  "Rotation Settings setting: hover cliff angle."
+    },
+    {
+        "Tag":  "HoverPathStepDistance",
+        "Description":  "Rotation Settings setting: hover path step distance."
+    },
+    {
+        "Tag":  "HoverUpAngle",
+        "Description":  "Rotation Settings setting: hover up angle."
+    },
+    {
+        "Tag":  "IdealMaxSpeed",
+        "Description":  "Speed Config setting: ideal max speed."
+    },
+    {
+        "Tag":  "IdealMinSpeed",
+        "Description":  "Speed Config setting: ideal min speed."
+    },
+    {
+        "Tag":  "IdealPlanetAltitude",
+        "Description":  "Planet Config setting: ideal planet altitude."
+    },
+    {
+        "Tag":  "IdleSounds",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates idle sounds."
+    },
+    {
+        "Tag":  "IgnoreAntennaRequirement",
+        "Description":  "Configures ignore antenna requirement."
+    },
+    {
+        "Tag":  "IgnoreCombatPhase",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies combat phase."
+    },
+    {
+        "Tag":  "IgnoredAntennaRangeOverride",
+        "Description":  "Configures ignored antenna range override."
+    },
+    {
+        "Tag":  "IgnoreGlobalAmmoMassLimits",
+        "Description":  "Imp //Doc."
+    },
+    {
+        "Tag":  "IgnoreGlobalWeaponMassLimits",
+        "Description":  "Imp //Doc."
+    },
+    {
+        "Tag":  "IgnoreOtherSafeZonesDuringCreation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies other safe zones during creation."
+    },
+    {
+        "Tag":  "IgnoreReceiverAntennaRequirement",
+        "Description":  "Configures ignore receiver antenna requirement."
+    },
+    {
+        "Tag":  "IgnoreSafetyChecks",
+        "Description":  "Configures ignore safety checks."
+    },
+    {
+        "Tag":  "IncludeAllPlayersInRadius",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies all players in radius."
+    },
+    {
+        "Tag":  "IncludedPlayerTag",
+        "Description":  "List of values for included player tag."
+    },
+    {
+        "Tag":  "IncludedPlayerTags",
+        "Description":  "List of values for included player tags."
+    },
+    {
+        "Tag":  "IncludeFactionBalance",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies faction balance."
+    },
+    {
+        "Tag":  "IncreaseAntennaThoughtBubblePercentage",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies antenna thought bubble percentage."
+    },
+    {
+        "Tag":  "IncreaseAntennaThoughtBubblePercentageAmount",
+        "Description":  "Numeric amount for increase antenna thought bubble percentage amount."
+    },
+    {
+        "Tag":  "IncreaseCounters",
+        "Description":  "List of values for increase counters."
+    },
+    {
+        "Tag":  "IncreaseCountersAmount",
+        "Description":  "Numeric amount for increase counters amount."
+    },
+    {
+        "Tag":  "IncreaseCountersAmountVariable",
+        "Description":  "Text value for increase counters amount variable."
+    },
+    {
+        "Tag":  "IncreaseCountersUseAmountVariable",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies counters use amount variable."
+    },
+    {
+        "Tag":  "IncreaseCountersUseCommandScore",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies counters use command score."
+    },
+    {
+        "Tag":  "IncreaseRunCountEventIdAmount",
+        "Description":  "Numeric amount for increase run count event id amount."
+    },
+    {
+        "Tag":  "IncreaseRunCountEventIds",
+        "Description":  "One or more increase run count event profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "IncreaseRunCountEventTagAmount",
+        "Description":  "Numeric amount for increase run count event tag amount."
+    },
+    {
+        "Tag":  "IncreaseRunCountEventTags",
+        "Description":  "List of values for increase run count event tags."
+    },
+    {
+        "Tag":  "IncreaseRunCountOfEvents",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies run count of events."
+    },
+    {
+        "Tag":  "IncreaseSandboxCounters",
+        "Description":  "List of values for increase sandbox counters."
+    },
+    {
+        "Tag":  "IncreaseSandboxCountersAmount",
+        "Description":  "Numeric amount for increase sandbox counters amount."
+    },
+    {
+        "Tag":  "InertiaDampenersEnable",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates inertia dampeners enable."
+    },
+    {
+        "Tag":  "InheritLastAttackerFromCommand",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates inherit last attacker from command."
+    },
+    {
+        "Tag":  "InheritNpcAltitude",
+        "Description":  "Configures inherit npc altitude."
+    },
+    {
+        "Tag":  "InheritRelativeAltitude",
+        "Description":  "Configures inherit relative altitude."
+    },
+    {
+        "Tag":  "InsideAntenna",
+        "Description":  "Configures inside antenna."
+    },
+    {
+        "Tag":  "InsideAntennaName",
+        "Description":  "Configures inside antenna name."
+    },
+    {
+        "Tag":  "InstallationSpawnsOnDryLand",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates installation spawns on dry land."
+    },
+    {
+        "Tag":  "InstallationSpawnsOnWaterSurface",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates installation spawns on water surface."
+    },
+    {
+        "Tag":  "InstallationSpawnsUnderwater",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates installation spawns underwater."
+    },
+    {
+        "Tag":  "InstallationTerrainValidation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates installation terrain validation."
+    },
+    {
+        "Tag":  "InstanceEventGroupId",
+        "Description":  "A instance event group profile or id value."
+    },
+    {
+        "Tag":  "InstanceEventGroupReplaceKeys",
+        "Description":  "List of values for instance event group replace keys."
+    },
+    {
+        "Tag":  "InstanceEventGroupReplaceValues",
+        "Description":  "List of values for instance event group replace values."
+    },
+    {
+        "Tag":  "InSufficientUpwardThrustDirection",
+        "Description":  "Enum value for in sufficient upward thrust direction."
+    },
+    {
+        "Tag":  "InSufficientUpwardThrustTolerance",
+        "Description":  "Numeric value for in sufficient upward thrust tolerance."
+    },
+    {
+        "Tag":  "InteractionRadius",
+        "Description":  "Radius in meters around the shipyard block where players can interact. Source default: \u003ccode\u003e250\u003c/code\u003e."
+    },
+    {
+        "Tag":  "IsAttackerFriendly",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates is attacker friendly."
+    },
+    {
+        "Tag":  "IsAttackerHostile",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates is attacker hostile."
+    },
+    {
+        "Tag":  "IsAttackerNeutral",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates is attacker neutral."
+    },
+    {
+        "Tag":  "IsOnDarkSide",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates is on dark side."
+    },
+    {
+        "Tag":  "IsStatic",
+        "Description":  "Configures is static."
+    },
+    {
+        "Tag":  "IsTargetGrid",
+        "Description":  "A is target gr profile or id value."
+    },
+    {
+        "Tag":  "IsTargetPlayer",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates is target player."
+    },
+    {
+        "Tag":  "IsTargetStatic",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates is target static."
+    },
+    {
+        "Tag":  "IsUnderwater",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates is underwater."
+    },
+    {
+        "Tag":  "IsVisible",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates is visible."
+    },
+    {
+        "Tag":  "ItemIds",
+        "Description":  "One or more item profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "JumpedEntityMustBeTarget",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates jumped entity must be target."
+    },
+    {
+        "Tag":  "JumpedGridActivationDistance",
+        "Description":  "Configures jumped grid activation distance."
+    },
+    {
+        "Tag":  "JumpedGridsCanBeNonHostile",
+        "Description":  "Configures jumped grids can be non hostile."
+    },
+    {
+        "Tag":  "JumpToJumpedEntity",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates jump to jumped entity."
+    },
+    {
+        "Tag":  "JumpToTarget",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates jump to target."
+    },
+    {
+        "Tag":  "JumpToWaypoint",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates jump to waypoint."
+    },
+    {
+        "Tag":  "JumpWaypoint",
+        "Description":  "Text value for jump waypoint."
+    },
+    {
+        "Tag":  "KnownPlayerAreaMaxSpawns",
+        "Description":  "Numeric value for known player area max spawns."
+    },
+    {
+        "Tag":  "KnownPlayerAreaMinThreatForAvoidingAbandonment",
+        "Description":  "Numeric value for known player area min threat for avoiding abandonment."
+    },
+    {
+        "Tag":  "KnownPlayerAreaRadius",
+        "Description":  "Radius in meters for known player area."
+    },
+    {
+        "Tag":  "KnownPlayerAreaTimer",
+        "Description":  "Time in seconds for known player area timer."
+    },
+    {
+        "Tag":  "KnownPlayerLocationMaxSpawnedEncounters",
+        "Description":  "Numeric value for known player location max spawned encounters."
+    },
+    {
+        "Tag":  "KnownPlayerLocationMinSpawnedEncounters",
+        "Description":  "Numeric value for known player location min spawned encounters."
+    },
+    {
+        "Tag":  "KnownPlayerLocationMustBeInside",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates known player location must be inside."
+    },
+    {
+        "Tag":  "KnownPlayerLocationMustMatchFaction",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates known player location must match faction."
+    },
+    {
+        "Tag":  "LastRespawnShipName",
+        "Description":  "Text value for last respawn ship name."
+    },
+    {
+        "Tag":  "LastRunFailed",
+        "Description":  "Non Configurable."
+    },
+    {
+        "Tag":  "LcdBlockNames",
+        "Description":  "One or more lcd block profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "LcdTemplateIndexes",
+        "Description":  "List of values for lcd template indexes."
+    },
+    {
+        "Tag":  "LcdTextTemplateFile",
+        "Description":  "Text value for lcd text template file."
+    },
+    {
+        "Tag":  "LeadPlayerConditionIds",
+        "Description":  "One or more lead player condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "LeadTargets",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates lead targets."
+    },
+    {
+        "Tag":  "LevelWithGravityWhenIdle",
+        "Description":  "Planet Config setting: level with gravity when idle."
+    },
+    {
+        "Tag":  "LightningColor",
+        "Description":  "Vector3D coordinates for lightning color."
+    },
+    {
+        "Tag":  "LightningDamage",
+        "Description":  "Numeric value for lightning damage."
+    },
+    {
+        "Tag":  "LightningExplosionRadius",
+        "Description":  "Radius in meters for lightning explosion."
+    },
+    {
+        "Tag":  "LightningMaxDistance",
+        "Description":  "Distance in meters for lightning max."
+    },
+    {
+        "Tag":  "LightningMinDistance",
+        "Description":  "Distance in meters for lightning min."
+    },
+    {
+        "Tag":  "Limit",
+        "Description":  "Configures limit."
+    },
+    {
+        "Tag":  "LimitRotationSpeed",
+        "Description":  "Rotation Settings setting: limit rotation speed."
+    },
+    {
+        "Tag":  "LinkSafeZoneToRemoteControl",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies safe zone to remote control."
+    },
+    {
+        "Tag":  "LinkToParentEntity",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies to parent entity."
+    },
+    {
+        "Tag":  "LocationSandboxVariableName",
+        "Description":  "Text value for location sandbox variable name."
+    },
+    {
+        "Tag":  "LootContainerSubtypeId",
+        "Description":  "A loot container subtype profile or id value."
+    },
+    {
+        "Tag":  "LootProfiles",
+        "Description":  "A loot profile or id value."
+    },
+    {
+        "Tag":  "LostTargetTimerTrigger",
+        "Description":  "Rotation Settings setting: lost target timer trigger."
+    },
+    {
+        "Tag":  "LunarCargoShip",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates lunar cargo ship."
+    },
+    {
+        "Tag":  "LunarCargoShipChance",
+        "Description":  "Numeric value for lunar cargo ship chance."
+    },
+    {
+        "Tag":  "ManipulationGroups",
+        "Description":  "Configures manipulation groups."
+    },
+    {
+        "Tag":  "ManipulationProfiles",
+        "Description":  "Configures manipulation profiles."
+    },
+    {
+        "Tag":  "ManuallyActivatedTriggerNames",
+        "Description":  "One or more manually activated trigger profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "ManuallyActivatedTriggerTags",
+        "Description":  "List of values for manually activated trigger tags."
+    },
+    {
+        "Tag":  "ManuallyActivateTrigger",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies ly activate trigger."
+    },
+    {
+        "Tag":  "ManualTargetLockOnly",
+        "Description":  "Configures manual target lock only."
+    },
+    {
+        "Tag":  "MatchAllFilters",
+        "Description":  "Target must match ALL listed TargetFilterEnum values."
+    },
+    {
+        "Tag":  "MatchAnyCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, requires any condition to match."
+    },
+    {
+        "Tag":  "MatchAnyFilters",
+        "Description":  "Target must match at least ONE listed TargetFilterEnum value."
+    },
+    {
+        "Tag":  "MatchBlocksContainingName",
+        "Description":  "Configures match blocks containing name."
+    },
+    {
+        "Tag":  "MatchedName",
+        "Description":  "Configures matched name."
+    },
+    {
+        "Tag":  "MatchNoneFilters",
+        "Description":  "Target is rejected if it matches ANY listed TargetFilterEnum value."
+    },
+    {
+        "Tag":  "MatchOnlyTypeId",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, requires only type id to match."
+    },
+    {
+        "Tag":  "MatchSenderReceiverOwners",
+        "Description":  "Configures match sender receiver owners."
+    },
+    {
+        "Tag":  "MatchSignalName",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e Implement //Doc"
+    },
+    {
+        "Tag":  "MatchTerrainType",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, requires terrain type to match."
+    },
+    {
+        "Tag":  "MaxAccumulatedDamage",
+        "Description":  "Maximum value for accumulated damage."
+    },
+    {
+        "Tag":  "MaxActions",
+        "Description":  "Configures max actions."
+    },
+    {
+        "Tag":  "MaxAirDensity",
+        "Description":  "Configures max air density."
+    },
+    {
+        "Tag":  "MaxAltitude",
+        "Description":  "Configures max altitude."
+    },
+    {
+        "Tag":  "MaxAmmoReplenishments",
+        "Description":  "Maximum value for ammo replenishments."
+    },
+    {
+        "Tag":  "MaxAngleForLeveledAscent",
+        "Description":  "Rotation Settings setting: max angle for leveled ascent."
+    },
+    {
+        "Tag":  "MaxAngleFromDirection",
+        "Description":  "Maximum value for angle from direction."
+    },
+    {
+        "Tag":  "MaxAngleFromPlanetCenterDirection",
+        "Description":  "Maximum value for angle from planet center direction."
+    },
+    {
+        "Tag":  "MaxBlocks",
+        "Description":  "Configures max blocks."
+    },
+    {
+        "Tag":  "MaxBlocksToRepair",
+        "Description":  "Maximum value for blocks to repair."
+    },
+    {
+        "Tag":  "MaxBuildPercentage",
+        "Description":  "Maximum value for build percentage."
+    },
+    {
+        "Tag":  "MaxChats",
+        "Description":  "Configures max chats."
+    },
+    {
+        "Tag":  "MaxContracts",
+        "Description":  "Maximum value for contracts."
+    },
+    {
+        "Tag":  "MaxCooldownMs",
+        "Description":  "Maximum value for cooldown ms."
+    },
+    {
+        "Tag":  "MaxCreatureCount",
+        "Description":  "Maximum value for creature count."
+    },
+    {
+        "Tag":  "MaxCreatureDistance",
+        "Description":  "Maximum value for creature distance."
+    },
+    {
+        "Tag":  "MaxDateTimeDay",
+        "Description":  "Maximum value for date time day."
+    },
+    {
+        "Tag":  "MaxDateTimeHour",
+        "Description":  "Maximum value for date time hour."
+    },
+    {
+        "Tag":  "MaxDateTimeMinute",
+        "Description":  "Maximum value for date time minute."
+    },
+    {
+        "Tag":  "MaxDateTimeMonth",
+        "Description":  "Maximum value for date time month."
+    },
+    {
+        "Tag":  "MaxDateTimeYear",
+        "Description":  "Maximum value for date time year."
+    },
+    {
+        "Tag":  "MaxDifficulty",
+        "Description":  "Maximum value for difficulty."
+    },
+    {
+        "Tag":  "MaxDistance",
+        "Description":  "Configures max distance."
+    },
+    {
+        "Tag":  "MaxDistanceUnderwater",
+        "Description":  "Maximum value for distance underwater."
+    },
+    {
+        "Tag":  "MaxDroneAltitude",
+        "Description":  "Maximum value for drone altitude."
+    },
+    {
+        "Tag":  "MaxDroneDistance",
+        "Description":  "Maximum value for drone distance."
+    },
+    {
+        "Tag":  "MaxExistingTargetDistance",
+        "Description":  "Configures max existing target distance."
+    },
+    {
+        "Tag":  "MaxFireRateForBarrageWeapons",
+        "Description":  "Maximum value for fire rate for barrage weapons."
+    },
+    {
+        "Tag":  "MaxGravity",
+        "Description":  "Rotation Settings setting: max gravity."
+    },
+    {
+        "Tag":  "MaxGravityAtmo",
+        "Description":  "Maximum value for gravity atmo."
+    },
+    {
+        "Tag":  "MaxGravityVacuum",
+        "Description":  "Maximum value for gravity vacuum."
+    },
+    {
+        "Tag":  "MaxGridSpeed",
+        "Description":  "Maximum value for grid speed."
+    },
+    {
+        "Tag":  "MaxGridVerticalSpeed",
+        "Description":  "Maximum value for grid vertical speed."
+    },
+    {
+        "Tag":  "MaxHorizonAngle",
+        "Description":  "Maximum value for horizon angle."
+    },
+    {
+        "Tag":  "MaximumPlayerCredits",
+        "Description":  "Maximum value for imum player credits."
+    },
+    {
+        "Tag":  "MaximumPlayers",
+        "Description":  "Maximum value for imum players."
+    },
+    {
+        "Tag":  "MaximumPlayerTime",
+        "Description":  "Maximum value for imum player time."
+    },
+    {
+        "Tag":  "MaximumReputation",
+        "Description":  "Maximum value for imum reputation."
+    },
+    {
+        "Tag":  "MaxIntegrityPercentage",
+        "Description":  "Maximum value for integrity percentage."
+    },
+    {
+        "Tag":  "MaxItemAmount",
+        "Description":  "Configures max item amount."
+    },
+    {
+        "Tag":  "MaxItemId",
+        "Description":  "Configures max item id."
+    },
+    {
+        "Tag":  "MaxLineOfSight",
+        "Description":  "Configures max line of sight."
+    },
+    {
+        "Tag":  "MaxMovementDetectableDistance",
+        "Description":  "Configures max movement detectable distance."
+    },
+    {
+        "Tag":  "MaxMovementScore",
+        "Description":  "Configures max movement score."
+    },
+    {
+        "Tag":  "MaxOfferItems",
+        "Description":  "Maximum value for offer items."
+    },
+    {
+        "Tag":  "MaxOrderItems",
+        "Description":  "Maximum value for order items."
+    },
+    {
+        "Tag":  "MaxPercentage",
+        "Description":  "Maximum value for percentage."
+    },
+    {
+        "Tag":  "MaxPercentageOfHealthRemaining",
+        "Description":  "Maximum value for percentage of health remaining."
+    },
+    {
+        "Tag":  "MaxPercentageOfWeaponsRemaining",
+        "Description":  "Maximum value for percentage of weapons remaining."
+    },
+    {
+        "Tag":  "MaxPlanetPathCheckDistance",
+        "Description":  "Planet Config setting: max planet path check distance."
+    },
+    {
+        "Tag":  "MaxPlayerCreditBalance",
+        "Description":  "Maximum value for player credit balance."
+    },
+    {
+        "Tag":  "MaxPlayerReputation",
+        "Description":  "Configures max player reputation."
+    },
+    {
+        "Tag":  "MaxPlayerReputationDistanceCheck",
+        "Description":  "Maximum value for player reputation distance check."
+    },
+    {
+        "Tag":  "MaxProjectedBlocksToBuild",
+        "Description":  "Maximum value for projected blocks to build."
+    },
+    {
+        "Tag":  "MaxRadius",
+        "Description":  "Configures max radius."
+    },
+    {
+        "Tag":  "MaxRotationMagnitude",
+        "Description":  "Rotation Settings setting: max rotation magnitude."
+    },
+    {
+        "Tag":  "MaxSignalRadius",
+        "Description":  "Maximum value for signal radius."
+    },
+    {
+        "Tag":  "MaxSpawnFromPlanetSurface",
+        "Description":  "Maximum value for spawn from planet surface."
+    },
+    {
+        "Tag":  "MaxSpawnFromWorldCenter",
+        "Description":  "Maximum value for spawn from world center."
+    },
+    {
+        "Tag":  "MaxSpeed",
+        "Description":  "Configures max speed."
+    },
+    {
+        "Tag":  "MaxSpeedTolerance",
+        "Description":  "Speed Config setting: max speed tolerance."
+    },
+    {
+        "Tag":  "MaxStaticWeaponRange",
+        "Description":  "Maximum value for static weapon range."
+    },
+    {
+        "Tag":  "MaxSubgridThrustAngle",
+        "Description":  "Thrust Settings setting: max subgrid thrust angle."
+    },
+    {
+        "Tag":  "MaxTargetAltitude",
+        "Description":  "Maximum value for target altitude."
+    },
+    {
+        "Tag":  "MaxTargetAltitudeDifference",
+        "Description":  "Maximum value for target altitude difference."
+    },
+    {
+        "Tag":  "MaxTargetAngle",
+        "Description":  "Maximum value for target angle."
+    },
+    {
+        "Tag":  "MaxTargetChaseAngle",
+        "Description":  "Maximum value for target chase angle."
+    },
+    {
+        "Tag":  "MaxTargetChaseSpeed",
+        "Description":  "Maximum value for target chase speed."
+    },
+    {
+        "Tag":  "MaxTargetDistance",
+        "Description":  "Maximum value for target distance."
+    },
+    {
+        "Tag":  "MaxTargetDistanceUnderwater",
+        "Description":  "Maximum value for target distance underwater."
+    },
+    {
+        "Tag":  "MaxTargetLockingDistance",
+        "Description":  "Configures max target locking distance."
+    },
+    {
+        "Tag":  "MaxTargetSpeed",
+        "Description":  "Maximum value for target speed."
+    },
+    {
+        "Tag":  "MaxTargetValue",
+        "Description":  "Maximum TargetValue (threat score) a target may have. \u003cstrong\u003eDefault in MES source is 1\u003c/strong\u003e if omitted - use \u003ccode\u003e[MaxTargetValue:-1]\u003c/code\u003e to remove the upper cap."
+    },
+    {
+        "Tag":  "MaxTime",
+        "Description":  "Maximum value for time."
+    },
+    {
+        "Tag":  "MaxUnderWaterDepth",
+        "Description":  "Configures max under water depth."
+    },
+    {
+        "Tag":  "MaxVelocityAngleForSpeedControl",
+        "Description":  "Thrust Settings setting: max velocity angle for speed control."
+    },
+    {
+        "Tag":  "MaxVerticalSpeed",
+        "Description":  "Rotation Settings setting: max vertical speed."
+    },
+    {
+        "Tag":  "MaxWaterCoverage",
+        "Description":  "Maximum value for water coverage."
+    },
+    {
+        "Tag":  "MaxWaypointAngle",
+        "Description":  "Maximum value for waypoint angle."
+    },
+    {
+        "Tag":  "MinAccumulatedDamage",
+        "Description":  "Minimum value for accumulated damage."
+    },
+    {
+        "Tag":  "MinAirDensity",
+        "Description":  "Configures min air density."
+    },
+    {
+        "Tag":  "MinAltitude",
+        "Description":  "Configures min altitude."
+    },
+    {
+        "Tag":  "MinAngleForLeveledDescent",
+        "Description":  "Rotation Settings setting: min angle for leveled descent."
+    },
+    {
+        "Tag":  "MinAngleFromDirection",
+        "Description":  "Minimum value for angle from direction."
+    },
+    {
+        "Tag":  "MinAngleFromPlanetCenterDirection",
+        "Description":  "Minimum value for angle from planet center direction."
+    },
+    {
+        "Tag":  "MinBlocks",
+        "Description":  "Configures min blocks."
+    },
+    {
+        "Tag":  "MinBuildPercentage",
+        "Description":  "Minimum value for build percentage."
+    },
+    {
+        "Tag":  "MinContracts",
+        "Description":  "Minimum value for contracts."
+    },
+    {
+        "Tag":  "MinCooldownMs",
+        "Description":  "Minimum value for cooldown ms."
+    },
+    {
+        "Tag":  "MinCreatureCount",
+        "Description":  "Minimum value for creature count."
+    },
+    {
+        "Tag":  "MinCreatureDistance",
+        "Description":  "Minimum value for creature distance."
+    },
+    {
+        "Tag":  "MinDateTimeDay",
+        "Description":  "Minimum value for date time day."
+    },
+    {
+        "Tag":  "MinDateTimeHour",
+        "Description":  "Minimum value for date time hour."
+    },
+    {
+        "Tag":  "MinDateTimeMinute",
+        "Description":  "Minimum value for date time minute."
+    },
+    {
+        "Tag":  "MinDateTimeMonth",
+        "Description":  "Minimum value for date time month."
+    },
+    {
+        "Tag":  "MinDateTimeYear",
+        "Description":  "Minimum value for date time year."
+    },
+    {
+        "Tag":  "MinDifficulty",
+        "Description":  "Minimum value for difficulty."
+    },
+    {
+        "Tag":  "MinDistance",
+        "Description":  "Configures min distance."
+    },
+    {
+        "Tag":  "MinDistanceUnderwater",
+        "Description":  "Minimum value for distance underwater."
+    },
+    {
+        "Tag":  "MinDistFromOtherCreaturesInGroup",
+        "Description":  "Minimum value for dist from other creatures in group."
+    },
+    {
+        "Tag":  "MinDroneAltitude",
+        "Description":  "Minimum value for drone altitude."
+    },
+    {
+        "Tag":  "MinDroneDistance",
+        "Description":  "Minimum value for drone distance."
+    },
+    {
+        "Tag":  "MinGravity",
+        "Description":  "Rotation Settings setting: min gravity."
+    },
+    {
+        "Tag":  "MinGridSpeed",
+        "Description":  "Minimum value for grid speed."
+    },
+    {
+        "Tag":  "MinGridVerticalSpeed",
+        "Description":  "Minimum value for grid vertical speed."
+    },
+    {
+        "Tag":  "MinHorizonAngle",
+        "Description":  "Minimum value for horizon angle."
+    },
+    {
+        "Tag":  "MinimumPlanetAltitude",
+        "Description":  "Planet Config setting: minimum planet altitude."
+    },
+    {
+        "Tag":  "MinimumPlayerCredits",
+        "Description":  "Minimum value for imum player credits."
+    },
+    {
+        "Tag":  "MinimumPlayers",
+        "Description":  "Minimum value for imum players."
+    },
+    {
+        "Tag":  "MinimumPlayerTime",
+        "Description":  "Minimum value for imum player time."
+    },
+    {
+        "Tag":  "MinimumReputation",
+        "Description":  "Minimum value for imum reputation."
+    },
+    {
+        "Tag":  "MinimumSpeedForVelocityChecks",
+        "Description":  "Minimum value for imum speed for velocity checks."
+    },
+    {
+        "Tag":  "MinIntegrityPercentage",
+        "Description":  "Minimum value for integrity percentage."
+    },
+    {
+        "Tag":  "MinMovementScore",
+        "Description":  "Configures min movement score."
+    },
+    {
+        "Tag":  "MinOfferItems",
+        "Description":  "Minimum value for offer items."
+    },
+    {
+        "Tag":  "MinOrderItems",
+        "Description":  "Minimum value for order items."
+    },
+    {
+        "Tag":  "MinPercentage",
+        "Description":  "Minimum value for percentage."
+    },
+    {
+        "Tag":  "MinPercentageOfHealthRemaining",
+        "Description":  "Minimum value for percentage of health remaining."
+    },
+    {
+        "Tag":  "MinPercentageOfWeaponsRemaining",
+        "Description":  "Minimum value for percentage of weapons remaining."
+    },
+    {
+        "Tag":  "MinPlayerCreditBalance",
+        "Description":  "Minimum value for player credit balance."
+    },
+    {
+        "Tag":  "MinPlayerReputation",
+        "Description":  "Configures min player reputation."
+    },
+    {
+        "Tag":  "MinReputation",
+        "Description":  "Minimum faction reputation required (may be unused in current MES build). Source default: \u003ccode\u003e-500\u003c/code\u003e."
+    },
+    {
+        "Tag":  "MinSignalRadius",
+        "Description":  "Minimum value for signal radius."
+    },
+    {
+        "Tag":  "MinSpawnFromPlanetSurface",
+        "Description":  "Minimum value for spawn from planet surface."
+    },
+    {
+        "Tag":  "MinSpawnFromWorldCenter",
+        "Description":  "Minimum value for spawn from world center."
+    },
+    {
+        "Tag":  "MinSpeed",
+        "Description":  "Configures min speed."
+    },
+    {
+        "Tag":  "MinTargetAltitude",
+        "Description":  "Minimum value for target altitude."
+    },
+    {
+        "Tag":  "MinTargetAltitudeDifference",
+        "Description":  "Minimum value for target altitude difference."
+    },
+    {
+        "Tag":  "MinTargetAngle",
+        "Description":  "Minimum value for target angle."
+    },
+    {
+        "Tag":  "MinTargetChaseAngle",
+        "Description":  "Minimum value for target chase angle."
+    },
+    {
+        "Tag":  "MinTargetChaseSpeed",
+        "Description":  "Minimum value for target chase speed."
+    },
+    {
+        "Tag":  "MinTargetDistance",
+        "Description":  "Minimum value for target distance."
+    },
+    {
+        "Tag":  "MinTargetDistanceUnderwater",
+        "Description":  "Minimum value for target distance underwater."
+    },
+    {
+        "Tag":  "MinTargetSpeed",
+        "Description":  "Minimum value for target speed."
+    },
+    {
+        "Tag":  "MinTargetValue",
+        "Description":  "Minimum TargetValue (threat score) required for a target to be valid when using the \u003ccode\u003eTargetValue\u003c/code\u003e filter."
+    },
+    {
+        "Tag":  "MinTime",
+        "Description":  "Minimum value for time."
+    },
+    {
+        "Tag":  "MinUnderWaterDepth",
+        "Description":  "Configures min under water depth."
+    },
+    {
+        "Tag":  "MinWaterCoverage",
+        "Description":  "Minimum value for water coverage."
+    },
+    {
+        "Tag":  "MinWaterDepth",
+        "Description":  "Minimum value for water depth."
+    },
+    {
+        "Tag":  "MinWaypointAngle",
+        "Description":  "Minimum value for waypoint angle."
+    },
+    {
+        "Tag":  "MissionIds",
+        "Description":  "One or more mission profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "MissionType",
+        "Description":  "Configures mission type."
+    },
+    {
+        "Tag":  "ModBlockExists",
+        "Description":  "List of values for mod block exists."
+    },
+    {
+        "Tag":  "MultiTargetCheckCooldown",
+        "Description":  "Time in seconds for multi target check cooldown."
+    },
+    {
+        "Tag":  "MustSpawnInPlanetaryLane",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, requires spawn in planetary lane."
+    },
+    {
+        "Tag":  "MustSpawnUnderwater",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, requires spawn underwater."
+    },
+    {
+        "Tag":  "Names",
+        "Description":  "Configures names."
+    },
+    {
+        "Tag":  "NewAutopilotMinAltitude",
+        "Description":  "New value used for autopilot min altitude."
+    },
+    {
+        "Tag":  "NewAutopilotSpeed",
+        "Description":  "New value used for autopilot speed."
+    },
+    {
+        "Tag":  "NewBehavior",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e Companion tag for deprecated \u003ccode\u003eSwitchToBehavior\u003c/code\u003e. Use \u003ccode\u003eNewBehaviorSubclass\u003c/code\u003e instead."
+    },
+    {
+        "Tag":  "NewBehaviorSubclass",
+        "Description":  "BehaviorSubclass enum value to assign when \u003ccode\u003eChangeBehaviorSubclass\u003c/code\u003e is true."
+    },
+    {
+        "Tag":  "NewBlock",
+        "Description":  "Configures new block."
+    },
+    {
+        "Tag":  "NewBlockColors",
+        "Description":  "New value used for block colors."
+    },
+    {
+        "Tag":  "NewBlockSkins",
+        "Description":  "New value used for block skins."
+    },
+    {
+        "Tag":  "NewTargetProfile",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e Obsolete"
+    },
+    {
+        "Tag":  "NewTargetProfileId",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e Implement"
+    },
+    {
+        "Tag":  "NoActiveContracts",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies active contracts."
+    },
+    {
+        "Tag":  "NonBroadcastVisualRange",
+        "Description":  "Configures non broadcast visual range."
+    },
+    {
+        "Tag":  "NoTarget",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies target."
+    },
+    {
+        "Tag":  "NoTargetTimerTrigger",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies target timer trigger."
+    },
+    {
+        "Tag":  "Offers",
+        "Description":  "List of values for offers."
+    },
+    {
+        "Tag":  "Offset",
+        "Description":  "Configures offset."
+    },
+    {
+        "Tag":  "OffsetMaxAngleFromTarget",
+        "Description":  "Offset Misc Config setting: offset max angle from target."
+    },
+    {
+        "Tag":  "OffsetPlanetMaxDistFromTarget",
+        "Description":  "Offset Planet Config setting: offset planet max dist from target."
+    },
+    {
+        "Tag":  "OffsetPlanetMaxTargetAltitude",
+        "Description":  "Offset Planet Config setting: offset planet max target altitude."
+    },
+    {
+        "Tag":  "OffsetPlanetMinDistFromTarget",
+        "Description":  "Offset Planet Config setting: offset planet min dist from target."
+    },
+    {
+        "Tag":  "OffsetPlanetMinTargetAltitude",
+        "Description":  "Offset Planet Config setting: offset planet min target altitude."
+    },
+    {
+        "Tag":  "OffsetRecalculationTime",
+        "Description":  "Rotation Settings setting: offset recalculation time."
+    },
+    {
+        "Tag":  "OffsetSpaceMaxDistFromTarget",
+        "Description":  "Offset Space Config setting: offset space max dist from target."
+    },
+    {
+        "Tag":  "OffsetSpaceMinDistFromTarget",
+        "Description":  "Offset Space Config setting: offset space min dist from target."
+    },
+    {
+        "Tag":  "OldBlock",
+        "Description":  "Configures old block."
+    },
+    {
+        "Tag":  "OldBlockColors",
+        "Description":  "Previous value used for block colors."
+    },
+    {
+        "Tag":  "OldBlockSkins",
+        "Description":  "Previous value used for block skins."
+    },
+    {
+        "Tag":  "OnFailResetCooldown",
+        "Description":  "Time in seconds for on fail reset cooldown."
+    },
+    {
+        "Tag":  "OnlyGetFromEntityOwner",
+        "Description":  "Configures only get from entity owner."
+    },
+    {
+        "Tag":  "OnlySpawnBotsInPressurizedRooms",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies spawn bots in pressurized rooms."
+    },
+    {
+        "Tag":  "Orders",
+        "Description":  "List of values for orders."
+    },
+    {
+        "Tag":  "OverrideCommandCode",
+        "Description":  "Text value for override command code."
+    },
+    {
+        "Tag":  "OverrideFaction",
+        "Description":  "Text value for override faction."
+    },
+    {
+        "Tag":  "OverridePlayerConditionPosition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates override player condition position."
+    },
+    {
+        "Tag":  "OverridePosition",
+        "Description":  "Vector3D coordinates for override position."
+    },
+    {
+        "Tag":  "OverrideTargetData",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates override target data."
+    },
+    {
+        "Tag":  "OverwriteAutopilotId",
+        "Description":  "A overwrite autopilot profile or id value."
+    },
+    {
+        "Tag":  "OverwriteAutopilotMode",
+        "Description":  "Configures overwrite autopilot mode."
+    },
+    {
+        "Tag":  "OverwriteAutopilotProfile",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies autopilot profile."
+    },
+    {
+        "Tag":  "Owners",
+        "Description":  "Configures owners."
+    },
+    {
+        "Tag":  "OwnershipBlockFactions",
+        "Description":  "List of values for ownership block factions."
+    },
+    {
+        "Tag":  "OwnershipBlockNames",
+        "Description":  "One or more ownership block profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "PadDistanceFromTarget",
+        "Description":  "Rotation Settings setting: pad distance from target."
+    },
+    {
+        "Tag":  "PainSounds",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates pain sounds."
+    },
+    {
+        "Tag":  "ParentEntityRadiusMultiplier",
+        "Description":  "Numeric value for parent entity radius multiplier."
+    },
+    {
+        "Tag":  "ParentGridNameRequirement",
+        "Description":  "Text value for parent grid name requirement."
+    },
+    {
+        "Tag":  "ParticleEffectColor",
+        "Description":  "Vector3D coordinates for particle effect color."
+    },
+    {
+        "Tag":  "ParticleEffectId",
+        "Description":  "A particle effect profile or id value."
+    },
+    {
+        "Tag":  "ParticleEffectMaxTime",
+        "Description":  "Numeric value for particle effect max time."
+    },
+    {
+        "Tag":  "ParticleEffectOffset",
+        "Description":  "Vector3D coordinates for particle effect offset."
+    },
+    {
+        "Tag":  "ParticleEffectScale",
+        "Description":  "Numeric value for particle effect scale."
+    },
+    {
+        "Tag":  "PCUCheckRadius",
+        "Description":  "Radius in meters for pcu check."
+    },
+    {
+        "Tag":  "PCUMaximum",
+        "Description":  "Numeric value for pcu maximum."
+    },
+    {
+        "Tag":  "PCUMinimum",
+        "Description":  "Numeric value for pcu minimum."
+    },
+    {
+        "Tag":  "PercentageOfHealthRemaining",
+        "Description":  "Configures percentage of health remaining."
+    },
+    {
+        "Tag":  "PercentageOfWeaponsRemaining",
+        "Description":  "Configures percentage of weapons remaining."
+    },
+    {
+        "Tag":  "PersistantConditionIds",
+        "Description":  "One or more persistant condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "PersistantEventConditionIds",
+        "Description":  "One or more persistant event condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "PlanetaryCargoShip",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates planetary cargo ship."
+    },
+    {
+        "Tag":  "PlanetaryInstallation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates planetary installation."
+    },
+    {
+        "Tag":  "PlanetaryInstallationChance",
+        "Description":  "Numeric value for planetary installation chance."
+    },
+    {
+        "Tag":  "PlanetaryInstallationType",
+        "Description":  "Text value for planetary installation type."
+    },
+    {
+        "Tag":  "PlanetaryLanePassValue",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates planetary lane pass value."
+    },
+    {
+        "Tag":  "PlanetaryLanePlanetNameA",
+        "Description":  "Text value for planetary lane planet name a."
+    },
+    {
+        "Tag":  "PlanetaryLanePlanetNameB",
+        "Description":  "Text value for planetary lane planet name b."
+    },
+    {
+        "Tag":  "PlanetBlacklist",
+        "Description":  "List of values for planet blacklist."
+    },
+    {
+        "Tag":  "PlanetIgnoreSafeLocation",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e Implement //Doc"
+    },
+    {
+        "Tag":  "PlanetMaximumSize",
+        "Description":  "Numeric value for planet maximum size."
+    },
+    {
+        "Tag":  "PlanetMinimumSize",
+        "Description":  "Numeric value for planet minimum size."
+    },
+    {
+        "Tag":  "PlanetName",
+        "Description":  "Text value for planet name."
+    },
+    {
+        "Tag":  "PlanetRequiresAtmo",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates planet requires atmo."
+    },
+    {
+        "Tag":  "PlanetRequiresOxygen",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates planet requires oxygen."
+    },
+    {
+        "Tag":  "PlanetRequiresVacuum",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates planet requires vacuum."
+    },
+    {
+        "Tag":  "PlanetSize",
+        "Description":  "Numeric value for planet size."
+    },
+    {
+        "Tag":  "PlanetTimeLimit",
+        "Description":  "Numeric value for planet time limit."
+    },
+    {
+        "Tag":  "PlanetWaypointProfile",
+        "Description":  "Text value for planet waypoint profile."
+    },
+    {
+        "Tag":  "PlanetWhitelist",
+        "Description":  "List of values for planet whitelist."
+    },
+    {
+        "Tag":  "PlayDialogueCue",
+        "Description":  "Playsound cue."
+    },
+    {
+        "Tag":  "PlayDialogueOverridePositionInPlayerCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, plays dialogue override position in player condition."
+    },
+    {
+        "Tag":  "PlayDialoguePlayerConditionIds",
+        "Description":  "One or more play dialogue player condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "PlayDialogueToSpecificPlayers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, plays dialogue to specific players."
+    },
+    {
+        "Tag":  "PlayerAccess",
+        "Description":  "Enum value for player access."
+    },
+    {
+        "Tag":  "PlayerConditionCheckRadius",
+        "Description":  "Radius in meters for player condition check."
+    },
+    {
+        "Tag":  "PlayerConditionIds",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, plays er condition ids."
+    },
+    {
+        "Tag":  "PlayerConditionProfileIds",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, plays er condition profile ids."
+    },
+    {
+        "Tag":  "PlayerCountCheckRadius",
+        "Description":  "Radius in meters for player count check."
+    },
+    {
+        "Tag":  "PlayerCreditsCheckRadius",
+        "Description":  "Radius in meters for player credits check."
+    },
+    {
+        "Tag":  "PlayerDistanceTimerTrigger",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, plays er distance timer trigger."
+    },
+    {
+        "Tag":  "PlayerDistanceTrigger",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, plays er distance trigger."
+    },
+    {
+        "Tag":  "PlayerIdentityInSandboxList",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, plays er identity in sandbox list."
+    },
+    {
+        "Tag":  "PlayerIdentityMatches",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, plays er identity matches."
+    },
+    {
+        "Tag":  "PlayerIdentitySandboxListId",
+        "Description":  "A player identity sandbox list profile or id value."
+    },
+    {
+        "Tag":  "PlayerKnownLocationFactionOverride",
+        "Description":  "Configures player known location faction override."
+    },
+    {
+        "Tag":  "PlayerNearCoords",
+        "Description":  "Vector3D coordinates for player near coords."
+    },
+    {
+        "Tag":  "PlayerNearDistanceFromCoords",
+        "Description":  "Numeric value for player near distance from coords."
+    },
+    {
+        "Tag":  "PlayerNearMinDistanceFromCoords",
+        "Description":  "Numeric value for player near min distance from coords."
+    },
+    {
+        "Tag":  "PlayerNearPositionOffset",
+        "Description":  "Configures player near position offset."
+    },
+    {
+        "Tag":  "PlayerReputationCheckRadius",
+        "Description":  "Radius in meters for player reputation check."
+    },
+    {
+        "Tag":  "PlayParticleEffectAtRemote",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, plays particle effect at remote."
+    },
+    {
+        "Tag":  "PlaySoundAtPosition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, plays sound at position."
+    },
+    {
+        "Tag":  "PlaySoundAtSpawnTriggerPosition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, plays sound at spawn trigger position."
+    },
+    {
+        "Tag":  "PositionAtFirstCockpit",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates position at first cockpit."
+    },
+    {
+        "Tag":  "PrefabFixedCount",
+        "Description":  "Numeric value for prefab fixed count."
+    },
+    {
+        "Tag":  "PrefabIds",
+        "Description":  "One or more prefab profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "PrefabIndexes",
+        "Description":  "List of values for prefab indexes."
+    },
+    {
+        "Tag":  "PrefabIndexGroupNames",
+        "Description":  "One or more prefab index group profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "PrefabIndexGroupValues",
+        "Description":  "List of values for prefab index group values."
+    },
+    {
+        "Tag":  "PrefabOffsetOverrides",
+        "Description":  "List of values for prefab offset overrides."
+    },
+    {
+        "Tag":  "Prefabs",
+        "Description":  "Configures prefabs."
+    },
+    {
+        "Tag":  "PrefabSpawningMode",
+        "Description":  "Enum value for prefab spawning mode."
+    },
+    {
+        "Tag":  "PreserveSettingsOnBehaviorSwitch",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e OBSOLETE"
+    },
+    {
+        "Tag":  "PreserveTargetDataOnBehaviorSwitch",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e OBSOLETE"
+    },
+    {
+        "Tag":  "PreserveTriggersOnBehaviorSwitch",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e OBSOLETE"
+    },
+    {
+        "Tag":  "PrioritizePlayerControlled",
+        "Description":  "Configures prioritize player controlled."
+    },
+    {
+        "Tag":  "PrioritizeSpecifiedFactions",
+        "Description":  "Configures prioritize specified factions."
+    },
+    {
+        "Tag":  "ProcessAsAdminSpawn",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, treats the spawn action as an admin spawn (bypasses some spawn condition checks)."
+    },
+    {
+        "Tag":  "ProcessStaticEncountersAtLocation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, processes static encounters at location."
+    },
+    {
+        "Tag":  "ProcessStaticEncountersLocation",
+        "Description":  "Vector3D coordinates for process static encounters location."
+    },
+    {
+        "Tag":  "ProfileSubtypeId",
+        "Description":  "Profile setting: profile subtype id."
+    },
+    {
+        "Tag":  "Radius",
+        "Description":  "Configures radius."
+    },
+    {
+        "Tag":  "RadiusFromParentEntity",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates radius from parent entity."
+    },
+    {
+        "Tag":  "RamMaxDurationMs",
+        "Description":  "Rotation Settings setting: ram max duration ms."
+    },
+    {
+        "Tag":  "RamMinDurationMs",
+        "Description":  "Rotation Settings setting: ram min duration ms."
+    },
+    {
+        "Tag":  "Ramming",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates ramming."
+    },
+    {
+        "Tag":  "RandomEncounterChance",
+        "Description":  "Numeric value for random encounter chance."
+    },
+    {
+        "Tag":  "RandomGyroRotation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates random gyro rotation."
+    },
+    {
+        "Tag":  "RandomNumberRoll",
+        "Description":  "Numeric value for random number roll."
+    },
+    {
+        "Tag":  "RandomThrustDirection",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates random thrust direction."
+    },
+    {
+        "Tag":  "RazeBlocksNames",
+        "Description":  "One or more raze blocks profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "RazeBlocksOfType",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates raze blocks of type."
+    },
+    {
+        "Tag":  "RazeBlocksTypes",
+        "Description":  "Configures raze blocks types."
+    },
+    {
+        "Tag":  "RazeBlocksWithNames",
+        "Description":  "A raze blocks with profile or id value."
+    },
+    {
+        "Tag":  "ReactorsOn",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates reactors on."
+    },
+    {
+        "Tag":  "RecalculateDespawnCoords",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies despawn coords."
+    },
+    {
+        "Tag":  "RecolorGrid",
+        "Description":  "A recolor gr profile or id value."
+    },
+    {
+        "Tag":  "RecolorSubGrids",
+        "Description":  "A recolor sub gr profile or id value."
+    },
+    {
+        "Tag":  "RefreshTarget",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, refreshes target."
+    },
+    {
+        "Tag":  "RegisterCreatureToPlanetGenerators",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies creature to planet generators."
+    },
+    {
+        "Tag":  "Relation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates relation."
+    },
+    {
+        "Tag":  "Relations",
+        "Description":  "Configures relations."
+    },
+    {
+        "Tag":  "RelativeEntity",
+        "Description":  "Configures relative entity."
+    },
+    {
+        "Tag":  "RelativeSpawnOffset",
+        "Description":  "Configures relative spawn offset."
+    },
+    {
+        "Tag":  "RelativeSpawnVelocity",
+        "Description":  "Configures relative spawn velocity."
+    },
+    {
+        "Tag":  "RemoteControlCode",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates remote control code."
+    },
+    {
+        "Tag":  "RemoteControlCodeMaxDistance",
+        "Description":  "Distance in meters for remote control code max."
+    },
+    {
+        "Tag":  "RemoteControlCodeMinDistance",
+        "Description":  "Distance in meters for remote control code min."
+    },
+    {
+        "Tag":  "RemoveAllKnownPlayerAreas",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates remove all known player areas."
+    },
+    {
+        "Tag":  "RemoveGPSFromPlayers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates remove gps from players."
+    },
+    {
+        "Tag":  "RemoveGPSNames",
+        "Description":  "One or more remove gps profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "RemoveGPSPlayerConditionIds",
+        "Description":  "One or more remove gps player condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "RemoveKnownPlayerArea",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates remove known player area."
+    },
+    {
+        "Tag":  "RemovePlayerIdentity",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates remove player identity."
+    },
+    {
+        "Tag":  "RemoveTags",
+        "Description":  "List of values for remove tags."
+    },
+    {
+        "Tag":  "RemoveTagsFromPlayers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates remove tags from players."
+    },
+    {
+        "Tag":  "RemoveTagsIncludeSavedPlayerIdentity",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates remove tags include saved player identity."
+    },
+    {
+        "Tag":  "RemoveTagsOverridePositioninPlayerCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates remove tags override positionin player condition."
+    },
+    {
+        "Tag":  "RemoveTagsPlayerConditionIds",
+        "Description":  "One or more remove tags player condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "RemoveThisInstanceGroup",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates remove this instance group."
+    },
+    {
+        "Tag":  "RemoveVoxelsIfGridRemoved",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates remove voxels if grid removed."
+    },
+    {
+        "Tag":  "RepairAndConstructionCommissionPercentage",
+        "Description":  "Numeric amount for repair and construction commission percentage."
+    },
+    {
+        "Tag":  "RepairAndConstructionExcludedComponentIds",
+        "Description":  "One or more repair and construction excluded component profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "RepairAndConstructionLargeGridBlockLimit",
+        "Description":  "Numeric value for repair and construction large grid block limit."
+    },
+    {
+        "Tag":  "RepairAndConstructionReputationDiscount",
+        "Description":  "Numeric value for repair and construction reputation discount."
+    },
+    {
+        "Tag":  "RepairAndConstructionSmallGridBlockLimit",
+        "Description":  "Numeric value for repair and construction small grid block limit."
+    },
+    {
+        "Tag":  "RepairBlocks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, repairs blocks."
+    },
+    {
+        "Tag":  "RepairBlocksIncludeSubgrids",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, repairs blocks include subgrids."
+    },
+    {
+        "Tag":  "RepairPriorities",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, repairs priorities."
+    },
+    {
+        "Tag":  "ReplaceBlockReference",
+        "Description":  "List of values for replace block reference."
+    },
+    {
+        "Tag":  "ReplaceKeys",
+        "Description":  "List of values for replace keys."
+    },
+    {
+        "Tag":  "ReplacePairs",
+        "Description":  "List of values for replace pairs."
+    },
+    {
+        "Tag":  "ReplaceValues",
+        "Description":  "List of values for replace values."
+    },
+    {
+        "Tag":  "ReputationChangeAmount",
+        "Description":  "Numeric amount for reputation change amount."
+    },
+    {
+        "Tag":  "ReputationChangeFactions",
+        "Description":  "List of values for reputation change factions."
+    },
+    {
+        "Tag":  "ReputationChangeRadius",
+        "Description":  "Radius in meters for reputation change."
+    },
+    {
+        "Tag":  "ReputationChangesForAllAttackPlayerFactionMembers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates reputation changes for all attack player faction members."
+    },
+    {
+        "Tag":  "ReputationChangesForAllRadiusPlayerFactionMembers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates reputation changes for all radius player faction members."
+    },
+    {
+        "Tag":  "ReputationMaxCap",
+        "Description":  "Numeric value for reputation max cap."
+    },
+    {
+        "Tag":  "ReputationMinCap",
+        "Description":  "Numeric value for reputation min cap."
+    },
+    {
+        "Tag":  "ReputationNeededForDiscount",
+        "Description":  "Faction reputation at or above this value unlocks reputation-based discounts. Source default: \u003ccode\u003e501\u003c/code\u003e."
+    },
+    {
+        "Tag":  "ReputationPlayerConditionIds",
+        "Description":  "One or more reputation player condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "ReputationReward",
+        "Description":  "Text value for reputation reward."
+    },
+    {
+        "Tag":  "RequestEscortSlot",
+        "Description":  "Configures request escort slot."
+    },
+    {
+        "Tag":  "RequireAllMods",
+        "Description":  "List of values for require all mods."
+    },
+    {
+        "Tag":  "RequireAnyMods",
+        "Description":  "List of values for require any mods."
+    },
+    {
+        "Tag":  "RequiredAllFunctionalBlockNames",
+        "Description":  "One or more required all functional block profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "RequiredAnyFunctionalBlockNames",
+        "Description":  "One or more required any functional block profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "RequiredAnyPlayersOnline",
+        "Description":  "List of values for required any players online."
+    },
+    {
+        "Tag":  "RequiredBlockAnySubtypeId",
+        "Description":  "A required block any subtype profile or id value."
+    },
+    {
+        "Tag":  "RequiredBlockCheckRange",
+        "Description":  "Numeric value for required block check range."
+    },
+    {
+        "Tag":  "RequiredBlockIncludeNPCGrids",
+        "Description":  "A required block include npc gr profile or id value."
+    },
+    {
+        "Tag":  "RequiredBlockSubtypeIds",
+        "Description":  "One or more required block subtype profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "RequiredNoneFunctionalBlockNames",
+        "Description":  "One or more required none functional block profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "RequiredOffers",
+        "Description":  "List of values for required offers."
+    },
+    {
+        "Tag":  "RequiredOrders",
+        "Description":  "List of values for required orders."
+    },
+    {
+        "Tag":  "RequiredPlayersOnline",
+        "Description":  "List of values for required players online."
+    },
+    {
+        "Tag":  "RequiredSpawnConditions",
+        "Description":  "List of values for required spawn conditions."
+    },
+    {
+        "Tag":  "ResearchPointsAmount",
+        "Description":  "Numeric amount for research points amount."
+    },
+    {
+        "Tag":  "ResetCooldownTimeOfEvents",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, resets cooldown time of events."
+    },
+    {
+        "Tag":  "ResetCooldownTimeOfTriggers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, resets cooldown time of triggers."
+    },
+    {
+        "Tag":  "ResetCounters",
+        "Description":  "List of values for reset counters."
+    },
+    {
+        "Tag":  "ResetEventCooldownIds",
+        "Description":  "One or more reset event cooldown profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "ResetEventCooldownTags",
+        "Description":  "List of values for reset event cooldown tags."
+    },
+    {
+        "Tag":  "ResetSandboxCounters",
+        "Description":  "List of values for reset sandbox counters."
+    },
+    {
+        "Tag":  "ResetThisStaticEncounter",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, resets this static encounter."
+    },
+    {
+        "Tag":  "ResetTriggerCooldownNames",
+        "Description":  "One or more reset trigger cooldown profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "ResetTriggerCooldownTags",
+        "Description":  "List of values for reset trigger cooldown tags."
+    },
+    {
+        "Tag":  "RestrictedItems",
+        "Description":  "Configures restricted items."
+    },
+    {
+        "Tag":  "RestrictedTargetBlocks",
+        "Description":  "Configures restricted target blocks."
+    },
+    {
+        "Tag":  "Retreat",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates retreat."
+    },
+    {
+        "Tag":  "RetreatDespawnDistance",
+        "Description":  "Distance in meters for retreat despawn."
+    },
+    {
+        "Tag":  "RetreatTimerTrigger",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates retreat timer trigger."
+    },
+    {
+        "Tag":  "ReturnToSender",
+        "Description":  "Configures return to sender."
+    },
+    {
+        "Tag":  "ReverseForwardDirections",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates reverse forward directions."
+    },
+    {
+        "Tag":  "ReverseOffsetDistAltAboveHeight",
+        "Description":  "Offset Misc Config setting: reverse offset dist alt above height."
+    },
+    {
+        "Tag":  "ReverseOffsetHeight",
+        "Description":  "Offset Misc Config setting: reverse offset height."
+    },
+    {
+        "Tag":  "Reward",
+        "Description":  "Text value for reward."
+    },
+    {
+        "Tag":  "RivalAiAnySpawn",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates rival ai any spawn."
+    },
+    {
+        "Tag":  "RivalAiAtmosphericSpawn",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates rival ai atmospheric spawn."
+    },
+    {
+        "Tag":  "RivalAiSpaceSpawn",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates rival ai space spawn."
+    },
+    {
+        "Tag":  "RivalAiSpawn",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates rival ai spawn."
+    },
+    {
+        "Tag":  "RotateFirstCockpitToForward",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates rotate first cockpit to forward."
+    },
+    {
+        "Tag":  "RotateInstallations",
+        "Description":  "List of values for rotate installations."
+    },
+    {
+        "Tag":  "RotateTowardsTargetWhileAtPosition",
+        "Description":  "Rotation Settings setting: rotate towards target while at position."
+    },
+    {
+        "Tag":  "RotationBoostUpAmount",
+        "Description":  "Rotation Settings setting: rotation boost up amount."
+    },
+    {
+        "Tag":  "RotationDirection",
+        "Description":  "Enum value for rotation direction."
+    },
+    {
+        "Tag":  "RotationMultiplier",
+        "Description":  "Rotation Settings setting: rotation multiplier."
+    },
+    {
+        "Tag":  "RotationMultiplierPitch",
+        "Description":  "Rotation Settings setting: rotation multiplier pitch."
+    },
+    {
+        "Tag":  "RotationMultiplierRoll",
+        "Description":  "Rotation Settings setting: rotation multiplier roll."
+    },
+    {
+        "Tag":  "RotationMultiplierYaw",
+        "Description":  "Rotation Settings setting: rotation multiplier yaw."
+    },
+    {
+        "Tag":  "RotationSlowdownAngle",
+        "Description":  "Rotation Settings setting: rotation slowdown angle."
+    },
+    {
+        "Tag":  "Routes",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates routes."
+    },
+    {
+        "Tag":  "SafeZonePositionGridCenter",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates safe zone position grid center."
+    },
+    {
+        "Tag":  "SafeZonePositionTerrainSurface",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates safe zone position terrain surface."
+    },
+    {
+        "Tag":  "SafeZoneProfile",
+        "Description":  "Text value for safe zone profile."
+    },
+    {
+        "Tag":  "SandboxCounterCompareTypes",
+        "Description":  "Enum value for sandbox counter compare types."
+    },
+    {
+        "Tag":  "SandboxCounterCostAmounts",
+        "Description":  "List of values for sandbox counter cost amounts."
+    },
+    {
+        "Tag":  "SandboxCounterCostNames",
+        "Description":  "One or more sandbox counter cost profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "SandboxVariables",
+        "Description":  "List of values for sandbox variables."
+    },
+    {
+        "Tag":  "SaveLocationToSandboxVariable",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies location to sandbox variable."
+    },
+    {
+        "Tag":  "SavePlayerIdentity",
+        "Description":  "SaveSavePlayerIdentity."
+    },
+    {
+        "Tag":  "Score",
+        "Description":  "Used in Commands,Event Conditions. Doing this on prefab saves a lot of triggers/actions for me - CPTARTHUR."
+    },
+    {
+        "Tag":  "ScrapPurchasingIncludeInventory",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates scrap purchasing include inventory."
+    },
+    {
+        "Tag":  "ScrapPurchasingLargeGridBlockLimit",
+        "Description":  "Numeric value for scrap purchasing large grid block limit."
+    },
+    {
+        "Tag":  "ScrapPurchasingMaxPercentageValue",
+        "Description":  "Base percentage of scrap value paid to the player. Source default: \u003ccode\u003e75\u003c/code\u003e."
+    },
+    {
+        "Tag":  "ScrapPurchasingReputationDiscount",
+        "Description":  "Numeric value for scrap purchasing reputation discount."
+    },
+    {
+        "Tag":  "ScrapPurchasingSmallGridBlockLimit",
+        "Description":  "Numeric value for scrap purchasing small grid block limit."
+    },
+    {
+        "Tag":  "SecondaryAutopilotData",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates secondary autopilot data."
+    },
+    {
+        "Tag":  "SelfDestruct",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates self destruct."
+    },
+    {
+        "Tag":  "SelfDestructTimeBetweenBlasts",
+        "Description":  "Numeric value for self destruct time between blasts."
+    },
+    {
+        "Tag":  "SelfDestructTimerPadding",
+        "Description":  "Numeric value for self destruct timer padding."
+    },
+    {
+        "Tag":  "SendCommandWithoutAntenna",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates send command without antenna."
+    },
+    {
+        "Tag":  "SendCommandWithoutAntennaRadius",
+        "Description":  "Radius in meters for send command without antenna."
+    },
+    {
+        "Tag":  "SendDamagerEntityId",
+        "Description":  "Configures send damager entity id."
+    },
+    {
+        "Tag":  "SendGridValue",
+        "Description":  "Configures send grid value."
+    },
+    {
+        "Tag":  "SendScoreValue",
+        "Description":  "Configures send score value."
+    },
+    {
+        "Tag":  "SendSelfAsTargetEntityId",
+        "Description":  "Configures send self as target entity id."
+    },
+    {
+        "Tag":  "SendTargetEntityId",
+        "Description":  "Configures send target entity id."
+    },
+    {
+        "Tag":  "SendToAllOnlinePlayers",
+        "Description":  "Configures send to all online players."
+    },
+    {
+        "Tag":  "SendToCommandPlayer",
+        "Description":  "Configures send to command player."
+    },
+    {
+        "Tag":  "SendToSpecificPlayers",
+        "Description":  "Configures send to specific players."
+    },
+    {
+        "Tag":  "SendWaypoint",
+        "Description":  "Configures send waypoint."
+    },
+    {
+        "Tag":  "SensorName",
+        "Description":  "Configures sensor name."
+    },
+    {
+        "Tag":  "SetAntennaThoughtBubble",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets antenna thought bubble."
+    },
+    {
+        "Tag":  "SetAntennaThoughtBubbleName",
+        "Description":  "Text value for set antenna thought bubble name."
+    },
+    {
+        "Tag":  "SetBooleansFalse",
+        "Description":  "List of values for set booleans false."
+    },
+    {
+        "Tag":  "SetBooleansTrue",
+        "Description":  "List of values for set booleans true."
+    },
+    {
+        "Tag":  "SetCounters",
+        "Description":  "List of values for set counters."
+    },
+    {
+        "Tag":  "SetCountersAmount",
+        "Description":  "Numeric amount for set counters amount."
+    },
+    {
+        "Tag":  "SetCountersAmountVariable",
+        "Description":  "Text value for set counters amount variable."
+    },
+    {
+        "Tag":  "SetCountersUseAmountVariable",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets counters use amount variable."
+    },
+    {
+        "Tag":  "SetCountersValues",
+        "Description":  "List of values for set counters values."
+    },
+    {
+        "Tag":  "SetCustomCountersVariables",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets custom counters variables."
+    },
+    {
+        "Tag":  "SetCustomStrings",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets custom strings."
+    },
+    {
+        "Tag":  "SetEventControllers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets event controllers."
+    },
+    {
+        "Tag":  "SetGridCleanupExempt",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets grid cleanup exempt."
+    },
+    {
+        "Tag":  "SetGridToDynamic",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets grid to dynamic."
+    },
+    {
+        "Tag":  "SetGridToStatic",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets grid to static."
+    },
+    {
+        "Tag":  "SetSandboxBooleansFalse",
+        "Description":  "List of values for set sandbox booleans false."
+    },
+    {
+        "Tag":  "SetSandboxBooleansTrue",
+        "Description":  "List of values for set sandbox booleans true."
+    },
+    {
+        "Tag":  "SetSandboxCounters",
+        "Description":  "List of values for set sandbox counters."
+    },
+    {
+        "Tag":  "SetSandboxCountersValues",
+        "Description":  "List of values for set sandbox counters values."
+    },
+    {
+        "Tag":  "SettingsAutoHeal",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings auto heal."
+    },
+    {
+        "Tag":  "SettingsAutoRespawn",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings auto respawn."
+    },
+    {
+        "Tag":  "SettingsBountyContracts",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings bounty contracts."
+    },
+    {
+        "Tag":  "SettingsContainerDrops",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings container drops."
+    },
+    {
+        "Tag":  "SettingsCopyPaste",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings copy paste."
+    },
+    {
+        "Tag":  "SettingsDestructibleBlocks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings destructible blocks."
+    },
+    {
+        "Tag":  "SettingsEconomy",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings economy."
+    },
+    {
+        "Tag":  "SettingsEnableDrones",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings enable drones."
+    },
+    {
+        "Tag":  "SettingsIngameScripts",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings ingame scripts."
+    },
+    {
+        "Tag":  "SettingsJetpack",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings jetpack."
+    },
+    {
+        "Tag":  "SettingsOxygen",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings oxygen."
+    },
+    {
+        "Tag":  "SettingsResearch",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings research."
+    },
+    {
+        "Tag":  "SettingsSpawnWithTools",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings spawn with tools."
+    },
+    {
+        "Tag":  "SettingsSpiders",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings spiders."
+    },
+    {
+        "Tag":  "SettingsSubgridDamage",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings subgrid damage."
+    },
+    {
+        "Tag":  "SettingsSunRotation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings sun rotation."
+    },
+    {
+        "Tag":  "SettingsSupergridding",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings supergridding."
+    },
+    {
+        "Tag":  "SettingsThrusterDamage",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings thruster damage."
+    },
+    {
+        "Tag":  "SettingsVoxelDestruction",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings voxel destruction."
+    },
+    {
+        "Tag":  "SettingsWeaponsEnabled",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings weapons enabled."
+    },
+    {
+        "Tag":  "SettingsWeather",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings weather."
+    },
+    {
+        "Tag":  "SettingsWolves",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets tings wolves."
+    },
+    {
+        "Tag":  "SetWeaponsToMaxRange",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets weapons to max range."
+    },
+    {
+        "Tag":  "SetWeaponsToMinRange",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, sets weapons to min range."
+    },
+    {
+        "Tag":  "Shape",
+        "Description":  "Enum value for shape."
+    },
+    {
+        "Tag":  "ShotDeviationAngle",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates shot deviation angle."
+    },
+    {
+        "Tag":  "SingleRecipient",
+        "Description":  "Configures single recipient."
+    },
+    {
+        "Tag":  "Size",
+        "Description":  "Vector3D coordinates for size."
+    },
+    {
+        "Tag":  "SkipAirDensityCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates skip air density check."
+    },
+    {
+        "Tag":  "SkipGridSpawnChecks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates skip grid spawn checks."
+    },
+    {
+        "Tag":  "SkipTerrainCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates skip terrain check."
+    },
+    {
+        "Tag":  "SkipVoxelSpawnChecks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates skip voxel spawn checks."
+    },
+    {
+        "Tag":  "SlowDownOnWaypointApproach",
+        "Description":  "Speed Config setting: slow down on waypoint approach."
+    },
+    {
+        "Tag":  "SoloMission",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates solo mission."
+    },
+    {
+        "Tag":  "SoundAtPosition",
+        "Description":  "Text value for sound at position."
+    },
+    {
+        "Tag":  "SpaceCargoShip",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates space cargo ship."
+    },
+    {
+        "Tag":  "SpaceCargoShipChance",
+        "Description":  "Numeric value for space cargo ship chance."
+    },
+    {
+        "Tag":  "SpaceRandomEncounter",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates space random encounter."
+    },
+    {
+        "Tag":  "SpawnConditionProfiles",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, spawns condition profiles."
+    },
+    {
+        "Tag":  "SpawnConditionsProfiles",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, spawns conditions profiles."
+    },
+    {
+        "Tag":  "SpawnCoords",
+        "Description":  "List of values for spawn coords."
+    },
+    {
+        "Tag":  "SpawnData",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, spawns data."
+    },
+    {
+        "Tag":  "SpawnEncounter",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, spawns encounter."
+    },
+    {
+        "Tag":  "Spawner",
+        "Description":  "Configures spawner."
+    },
+    {
+        "Tag":  "SpawnFactionTags",
+        "Description":  "List of values for spawn faction tags."
+    },
+    {
+        "Tag":  "SpawnGroupBlacklistContainsAll",
+        "Description":  "List of values for spawn group blacklist contains all."
+    },
+    {
+        "Tag":  "SpawnGroupBlacklistContainsAny",
+        "Description":  "List of values for spawn group blacklist contains any."
+    },
+    {
+        "Tag":  "SpawningType",
+        "Description":  "Configures spawning type."
+    },
+    {
+        "Tag":  "SpawnMaxCooldown",
+        "Description":  "Configures spawn max cooldown."
+    },
+    {
+        "Tag":  "SpawnMinCooldown",
+        "Description":  "Configures spawn min cooldown."
+    },
+    {
+        "Tag":  "SpawnOnlyAtNight",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, spawns only at night."
+    },
+    {
+        "Tag":  "SpawnPlanet",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, spawns planet."
+    },
+    {
+        "Tag":  "SpawnRandomCargo",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, spawns random cargo."
+    },
+    {
+        "Tag":  "SpawnReplaceKeys",
+        "Description":  "List of values for spawn replace keys."
+    },
+    {
+        "Tag":  "SpawnReplaceValues",
+        "Description":  "List of values for spawn replace values."
+    },
+    {
+        "Tag":  "SpawnTriggerPositionSoundId",
+        "Description":  "A spawn trigger position sound profile or id value."
+    },
+    {
+        "Tag":  "StaggerWarheadDetonation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates stagger warhead detonation."
+    },
+    {
+        "Tag":  "StartAntennaThoughtBubblePercentage",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, enables or applies antenna thought bubble percentage."
+    },
+    {
+        "Tag":  "StartAntennaThoughtBubblePercentageValue",
+        "Description":  "Numeric value for start antenna thought bubble percentage value."
+    },
+    {
+        "Tag":  "StartsReady",
+        "Description":  "Configures starts ready."
+    },
+    {
+        "Tag":  "StaticEncounter",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates static encounter."
+    },
+    {
+        "Tag":  "StaticEncounterCoords",
+        "Description":  "Vector3D coordinates for static encounter coords."
+    },
+    {
+        "Tag":  "StaticEncounterForward",
+        "Description":  "Vector3D coordinates for static encounter forward."
+    },
+    {
+        "Tag":  "StaticEncounterPlanet",
+        "Description":  "Text value for static encounter planet."
+    },
+    {
+        "Tag":  "StaticEncounterPlanetAltitude",
+        "Description":  "Altitude in meters for static encounter planet."
+    },
+    {
+        "Tag":  "StaticEncounterPlanetDirection",
+        "Description":  "Vector3D coordinates for static encounter planet direction."
+    },
+    {
+        "Tag":  "StaticEncounterUp",
+        "Description":  "Vector3D coordinates for static encounter up."
+    },
+    {
+        "Tag":  "StaticEncounterUsePlanetDirectionAndAltitude",
+        "Description":  "Altitude in meters for static encounter use planet direction and."
+    },
+    {
+        "Tag":  "StealthDriveMinDistance",
+        "Description":  "Configures stealth drive min distance."
+    },
+    {
+        "Tag":  "StopAllRotation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates stop all rotation."
+    },
+    {
+        "Tag":  "StopAllThrust",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates stop all thrust."
+    },
+    {
+        "Tag":  "StoreBlockName",
+        "Description":  "Optional store block name linked to shipyard transactions."
+    },
+    {
+        "Tag":  "StoreBlocks",
+        "Description":  "List of values for store blocks."
+    },
+    {
+        "Tag":  "StoreProfileId",
+        "Description":  "A store profile profile or id value."
+    },
+    {
+        "Tag":  "StoreProfiles",
+        "Description":  "One or more store profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "Strafe",
+        "Description":  "Strafe - Implement Post Release."
+    },
+    {
+        "Tag":  "StrafeDistanceCutOff",
+        "Description":  "Strafe Settings setting: strafe distance cut off."
+    },
+    {
+        "Tag":  "StrafeMaxCooldownMs",
+        "Description":  "Strafe Settings setting: strafe max cooldown ms."
+    },
+    {
+        "Tag":  "StrafeMaxDurationMs",
+        "Description":  "Strafe Settings setting: strafe max duration ms."
+    },
+    {
+        "Tag":  "StrafeMinCooldownMs",
+        "Description":  "Strafe Settings setting: strafe min cooldown ms."
+    },
+    {
+        "Tag":  "StrafeMinDurationMs",
+        "Description":  "Strafe Settings setting: strafe min duration ms."
+    },
+    {
+        "Tag":  "StrafeMinimumSafeAngleFromTarget",
+        "Description":  "Strafe Settings setting: strafe minimum safe angle from target."
+    },
+    {
+        "Tag":  "StrafeMinimumTargetDistance",
+        "Description":  "Strafe Settings setting: strafe minimum target distance."
+    },
+    {
+        "Tag":  "StrafeSpeedCutOff",
+        "Description":  "Strafe Settings setting: strafe speed cut off."
+    },
+    {
+        "Tag":  "StrikeBeginPlanetAttackRunDistance",
+        "Description":  "Distance in meters for strike begin planet attack run."
+    },
+    {
+        "Tag":  "StrikeBeginSpaceAttackRunDistance",
+        "Description":  "Distance in meters for strike begin space attack run."
+    },
+    {
+        "Tag":  "StrikeBreakawayDistance",
+        "Description":  "Distance in meters for strike breakaway."
+    },
+    {
+        "Tag":  "StrikeEngageUseSafePlanetPathing",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates strike engage use safe planet pathing."
+    },
+    {
+        "Tag":  "StrikeOffsetRecalculationTime",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates strike offset recalculation time."
+    },
+    {
+        "Tag":  "SubGridsDestructible",
+        "Description":  "Enum value for sub grids destructible."
+    },
+    {
+        "Tag":  "SubGridsEditable",
+        "Description":  "Enum value for sub grids editable."
+    },
+    {
+        "Tag":  "SufficientUpwardThrustDirection",
+        "Description":  "Enum value for sufficient upward thrust direction."
+    },
+    {
+        "Tag":  "SufficientUpwardThrustTolerance",
+        "Description":  "Numeric value for sufficient upward thrust tolerance."
+    },
+    {
+        "Tag":  "SwitchTargetProfile",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e Obsolete"
+    },
+    {
+        "Tag":  "SwitchTargetToDamager",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, switches target to damager."
+    },
+    {
+        "Tag":  "SwitchToBehavior",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e Do not use. MES skips re-registering an already-registered Remote Control. Use \u003ccode\u003e[ChangeBehaviorSubclass:true]\u003c/code\u003e and \u003ccode\u003e[NewBehaviorSubclass:Value]\u003c/code\u003e instead."
+    },
+    {
+        "Tag":  "SwitchToNextWaypoint",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, switches to next waypoint."
+    },
+    {
+        "Tag":  "SwitchToReceivedTarget",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, switches to received target."
+    },
+    {
+        "Tag":  "Tags",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates tags."
+    },
+    {
+        "Tag":  "Target",
+        "Description":  "Configures target."
+    },
+    {
+        "Tag":  "TargetAltitudeCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates target altitude check."
+    },
+    {
+        "Tag":  "TargetApproachTimer",
+        "Description":  "Rotation Settings setting: target approach timer."
+    },
+    {
+        "Tag":  "TargetData",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates target data."
+    },
+    {
+        "Tag":  "TargetDistance",
+        "Description":  "Configures target distance."
+    },
+    {
+        "Tag":  "TargetEngageTimer",
+        "Description":  "Rotation Settings setting: target engage timer."
+    },
+    {
+        "Tag":  "TargetIsUnderwater",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates target is underwater."
+    },
+    {
+        "Tag":  "TargetPriorities",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates target priorities."
+    },
+    {
+        "Tag":  "TargetUnderwaterCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates target underwater check."
+    },
+    {
+        "Tag":  "Taunts",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates taunts."
+    },
+    {
+        "Tag":  "TauntSounds",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates taunt sounds."
+    },
+    {
+        "Tag":  "TeleportPlayerConditionIds",
+        "Description":  "One or more teleport player condition profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "TeleportPlayerCoords",
+        "Description":  "Vector3D coordinates for teleport player coords."
+    },
+    {
+        "Tag":  "TeleportPlayerOverridePositionInPlayerCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, teleports player override position in player condition."
+    },
+    {
+        "Tag":  "TeleportPlayers",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, teleports players."
+    },
+    {
+        "Tag":  "TeleportPlayersIncludeSavedPlayerIdentity",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, teleports players include saved player identity."
+    },
+    {
+        "Tag":  "TeleportRadius",
+        "Description":  "Radius in meters for teleport."
+    },
+    {
+        "Tag":  "TemplateEventIds",
+        "Description":  "A template event profile or id value."
+    },
+    {
+        "Tag":  "TemporaryPlanet",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates temporary planet."
+    },
+    {
+        "Tag":  "TerminateBehavior",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates terminate behavior."
+    },
+    {
+        "Tag":  "TerrainTypeBlacklistNames",
+        "Description":  "One or more terrain type blacklist profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "TerrainTypeWhitelistNames",
+        "Description":  "One or more terrain type whitelist profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "TertiaryAutopilotData",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates tertiary autopilot data."
+    },
+    {
+        "Tag":  "Texture",
+        "Description":  "Text value for texture."
+    },
+    {
+        "Tag":  "ThreatIncludeOtherNpcOwners",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates threat include other npc owners."
+    },
+    {
+        "Tag":  "ThreatLevelCheckRange",
+        "Description":  "Numeric value for threat level check range."
+    },
+    {
+        "Tag":  "ThreatScoreAmount",
+        "Description":  "Numeric amount for threat score amount."
+    },
+    {
+        "Tag":  "ThreatScoreCoords",
+        "Description":  "Vector3D coordinates for threat score coords."
+    },
+    {
+        "Tag":  "ThreatScoreDistance",
+        "Description":  "Distance in meters for threat score."
+    },
+    {
+        "Tag":  "ThreatScoreDistanceFromCoords",
+        "Description":  "Numeric value for threat score distance from coords."
+    },
+    {
+        "Tag":  "ThreatScoreGridConfiguration",
+        "Description":  "Configures threat score grid configuration."
+    },
+    {
+        "Tag":  "ThreatScoreMaximum",
+        "Description":  "Numeric value for threat score maximum."
+    },
+    {
+        "Tag":  "ThreatScoreMinimum",
+        "Description":  "Numeric value for threat score minimum."
+    },
+    {
+        "Tag":  "ThreatScorePlanetaryHandicap",
+        "Description":  "Numeric value for threat score planetary handicap."
+    },
+    {
+        "Tag":  "ThreatScoreType",
+        "Description":  "Enum value for threat score type."
+    },
+    {
+        "Tag":  "TimeBetweenNewTargetChecks",
+        "Description":  "Rotation Settings setting: time between new target checks."
+    },
+    {
+        "Tag":  "TimerBlockNames",
+        "Description":  "One or more timer block profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "TimeUntilNextActionMs",
+        "Description":  "Numeric value for time until next action ms."
+    },
+    {
+        "Tag":  "TimeUntilNextEvaluation",
+        "Description":  "Configures time until next evaluation."
+    },
+    {
+        "Tag":  "TimeUntilNextRefresh",
+        "Description":  "Configures time until next refresh."
+    },
+    {
+        "Tag":  "TimeUntilTargetAcquisition",
+        "Description":  "Configures time until target acquisition."
+    },
+    {
+        "Tag":  "TimeUntilTargetLockingRefresh",
+        "Description":  "Configures time until target locking refresh."
+    },
+    {
+        "Tag":  "Title",
+        "Description":  "Text value for title."
+    },
+    {
+        "Tag":  "ToggleBlocksOfType",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, toggles blocks matching \u003ccode\u003eBlockTypesToToggle\u003c/code\u003e using \u003ccode\u003eBlockTypeToggles\u003c/code\u003e (On/Off)."
+    },
+    {
+        "Tag":  "ToggledProfileResetsCooldown",
+        "Description":  "Configures toggled profile resets cooldown."
+    },
+    {
+        "Tag":  "ToggleEventIdModes",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates toggle event id modes."
+    },
+    {
+        "Tag":  "ToggleEventIds",
+        "Description":  "One or more toggle event profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "ToggleEvents",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates toggle events."
+    },
+    {
+        "Tag":  "ToggleEventTagModes",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates toggle event tag modes."
+    },
+    {
+        "Tag":  "ToggleEventTags",
+        "Description":  "List of values for toggle event tags."
+    },
+    {
+        "Tag":  "ToggleWithTriggerProfile",
+        "Description":  "Configures toggle with trigger profile."
+    },
+    {
+        "Tag":  "ToolSubtypeId",
+        "Description":  "A tool subtype profile or id value."
+    },
+    {
+        "Tag":  "TransferCustomCountersVariables",
+        "Description":  "Configures transfer custom counters variables."
+    },
+    {
+        "Tag":  "TransmissionType",
+        "Description":  "Configures transmission type."
+    },
+    {
+        "Tag":  "TriggerCoords",
+        "Description":  "Vector3D coordinates for trigger coords."
+    },
+    {
+        "Tag":  "TriggerGroups",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates trigger groups."
+    },
+    {
+        "Tag":  "TriggerRadius",
+        "Description":  "Radius in meters for trigger."
+    },
+    {
+        "Tag":  "Triggers",
+        "Description":  "Configures triggers."
+    },
+    {
+        "Tag":  "TriggerTimerBlocks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates trigger timer blocks."
+    },
+    {
+        "Tag":  "TrueBooleans",
+        "Description":  "List of values for true booleans."
+    },
+    {
+        "Tag":  "TrueSandboxBooleans",
+        "Description":  "List of values for true sandbox booleans."
+    },
+    {
+        "Tag":  "TryContractFail",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, attempts contract fail."
+    },
+    {
+        "Tag":  "TryContractSuccess",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, attempts contract success."
+    },
+    {
+        "Tag":  "TryToDespawnThisGridOnly",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, attempts to despawn this grid only."
+    },
+    {
+        "Tag":  "TryToLevelWithTarget",
+        "Description":  "Rotation Settings setting: try to level with target."
+    },
+    {
+        "Tag":  "TurretSubtypesForTargetChange",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e Implement"
+    },
+    {
+        "Tag":  "TurretTargetType",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e Implement"
+    },
+    {
+        "Tag":  "TurretTypesForTargetChanges",
+        "Description":  "\u003cstrong\u003eOBSOLETE.\u003c/strong\u003e Implement"
+    },
+    {
+        "Tag":  "Type",
+        "Description":  "Configures type."
+    },
+    {
+        "Tag":  "UnderwaterCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates underwater check."
+    },
+    {
+        "Tag":  "UniqueEncounter",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates unique encounter."
+    },
+    {
+        "Tag":  "UniqueEvent",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates unique event."
+    },
+    {
+        "Tag":  "Unused",
+        "Description":  "Collision Config setting: unused."
+    },
+    {
+        "Tag":  "UseAccumulatedDamageWatcher",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses accumulated damage watcher."
+    },
+    {
+        "Tag":  "UseAiEnabled",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses ai enabled."
+    },
+    {
+        "Tag":  "UseAmmoReplenish",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses ammo replenish."
+    },
+    {
+        "Tag":  "UseAntiSmartWeapons",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses anti smart weapons."
+    },
+    {
+        "Tag":  "UseAnyPassingCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses any passing condition."
+    },
+    {
+        "Tag":  "UseAnyPassingEventCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses any passing event condition."
+    },
+    {
+        "Tag":  "UseBarrageFire",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses barrage fire."
+    },
+    {
+        "Tag":  "UseBoundingBoxCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses bounding box check."
+    },
+    {
+        "Tag":  "UseChat",
+        "Description":  "Configures use chat."
+    },
+    {
+        "Tag":  "UseChatBroadcast",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses chat broadcast."
+    },
+    {
+        "Tag":  "UseCollisionLeadPrediction",
+        "Description":  "Target Lead Config setting: use collision lead prediction."
+    },
+    {
+        "Tag":  "UseCombatPhase",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses combat phase."
+    },
+    {
+        "Tag":  "UseConditions",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses conditions."
+    },
+    {
+        "Tag":  "UseCurrentPositionAsPatrolReference",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses current position as patrol reference."
+    },
+    {
+        "Tag":  "UseCustomFactionTag",
+        "Description":  "Configures use custom faction tag."
+    },
+    {
+        "Tag":  "UseCustomTargeting",
+        "Description":  "Configures use custom targeting."
+    },
+    {
+        "Tag":  "UseDamageDetection",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses damage detection."
+    },
+    {
+        "Tag":  "UseDateTimeDayRange",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses date time day range."
+    },
+    {
+        "Tag":  "UseDateTimeDaysOfWeek",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses date time days of week."
+    },
+    {
+        "Tag":  "UseDateTimeHourRange",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses date time hour range."
+    },
+    {
+        "Tag":  "UseDateTimeMinuteRange",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses date time minute range."
+    },
+    {
+        "Tag":  "UseDateTimeMonthRange",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses date time month range."
+    },
+    {
+        "Tag":  "UseDateTimeYearRange",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses date time year range."
+    },
+    {
+        "Tag":  "UseDayOrNightOnly",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses day or night only."
+    },
+    {
+        "Tag":  "UseDiamondBoxOrientation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses diamond box orientation."
+    },
+    {
+        "Tag":  "UseDifficulty",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses difficulty."
+    },
+    {
+        "Tag":  "UseDrillInhibitorEffect",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses drill inhibitor effect."
+    },
+    {
+        "Tag":  "UseElseActions",
+        "Description":  "Configures use else actions."
+    },
+    {
+        "Tag":  "UseEvent",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses event."
+    },
+    {
+        "Tag":  "UseEventController",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses event controller."
+    },
+    {
+        "Tag":  "UseFailCondition",
+        "Description":  "Configures use fail condition."
+    },
+    {
+        "Tag":  "UseForcedRotationDampening",
+        "Description":  "Rotation Settings setting: use forced rotation dampening."
+    },
+    {
+        "Tag":  "UseGPSObjective",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses gps objective."
+    },
+    {
+        "Tag":  "UseGridOrigin",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses grid origin."
+    },
+    {
+        "Tag":  "UseGroundNodesFirst",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses ground nodes first."
+    },
+    {
+        "Tag":  "UseJetpackInhibitorEffect",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses jetpack inhibitor effect."
+    },
+    {
+        "Tag":  "UseJumpInhibitorEffect",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses jump inhibitor effect."
+    },
+    {
+        "Tag":  "UseKnownPlayerLocations",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses known player locations."
+    },
+    {
+        "Tag":  "UseNanobotInhibitorEffect",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses nanobot inhibitor effect."
+    },
+    {
+        "Tag":  "UseNoTargetTimer",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, the behavior starts a no-target despawn timer while idle without a valid target."
+    },
+    {
+        "Tag":  "UseOnlySelfOwnedSignals",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses only self owned signals."
+    },
+    {
+        "Tag":  "UseOptimizedVoxelSpawning",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses optimized voxel spawning."
+    },
+    {
+        "Tag":  "UsePartialNameMatching",
+        "Description":  "Configures use partial name matching."
+    },
+    {
+        "Tag":  "UsePauseAutopilotFromSpawnGroup",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses pause autopilot from spawn group."
+    },
+    {
+        "Tag":  "UsePCUCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses pcu check."
+    },
+    {
+        "Tag":  "UsePlayerCondition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses player condition."
+    },
+    {
+        "Tag":  "UsePlayerConditionProfile",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, the trigger uses \u003ccode\u003ePlayerConditionProfileIds\u003c/code\u003e to filter which players can activate it."
+    },
+    {
+        "Tag":  "UsePlayerCountCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses player count check."
+    },
+    {
+        "Tag":  "UsePlayerCredits",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses player credits."
+    },
+    {
+        "Tag":  "UsePlayerDistanceTimer",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses player distance timer."
+    },
+    {
+        "Tag":  "UsePlayerFactionReputation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses player faction reputation."
+    },
+    {
+        "Tag":  "UsePlayerInhibitorEffect",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses player inhibitor effect."
+    },
+    {
+        "Tag":  "UseProjectileLeadPrediction",
+        "Description":  "Target Lead Config setting: use projectile lead prediction."
+    },
+    {
+        "Tag":  "UseRandomBuilderFaction",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses random builder faction."
+    },
+    {
+        "Tag":  "UseRandomMilitaryFaction",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses random military faction."
+    },
+    {
+        "Tag":  "UseRandomMinerFaction",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses random miner faction."
+    },
+    {
+        "Tag":  "UseRandomNameGenerator",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses random name generator."
+    },
+    {
+        "Tag":  "UseRandomNameGeneratorFromMES",
+        "Description":  "Configures use random name generator from mes."
+    },
+    {
+        "Tag":  "UseRandomPirateFaction",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses random pirate faction."
+    },
+    {
+        "Tag":  "UseRandomTraderFaction",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses random trader faction."
+    },
+    {
+        "Tag":  "UseRelativeSpawnPosition",
+        "Description":  "Configures use relative spawn position."
+    },
+    {
+        "Tag":  "UseRemoteControlCodeRestrictions",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses remote control code restrictions."
+    },
+    {
+        "Tag":  "UseRequiredFunctionalBlocks",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses required functional blocks."
+    },
+    {
+        "Tag":  "UseRetreatTimer",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses retreat timer."
+    },
+    {
+        "Tag":  "UseRotationBoostUp",
+        "Description":  "Rotation Settings setting: use rotation boost up."
+    },
+    {
+        "Tag":  "UsesAerodynamicModAdvLift",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses s aerodynamic mod adv lift."
+    },
+    {
+        "Tag":  "UseSandboxCounterCosts",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses sandbox counter costs."
+    },
+    {
+        "Tag":  "UseSeparatePercentages",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses separate percentages."
+    },
+    {
+        "Tag":  "UseSettingsCheck",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses settings check."
+    },
+    {
+        "Tag":  "UseSignalRequirement",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses signal requirement."
+    },
+    {
+        "Tag":  "UseSpawn",
+        "Description":  "Configures use spawn."
+    },
+    {
+        "Tag":  "UseSpawnGroupPrefabSpawningMode",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses spawn group prefab spawning mode."
+    },
+    {
+        "Tag":  "UseStaticGuns",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses static guns."
+    },
+    {
+        "Tag":  "UseSubgridThrust",
+        "Description":  "Thrust Settings setting: use subgrid thrust."
+    },
+    {
+        "Tag":  "UseSurfaceHoverThrustMode",
+        "Description":  "Rotation Settings setting: use surface hover thrust mode."
+    },
+    {
+        "Tag":  "UseTargetLastKnownPosition",
+        "Description":  "Configures use target last known position."
+    },
+    {
+        "Tag":  "UseTargetRefresh",
+        "Description":  "Configures use target refresh."
+    },
+    {
+        "Tag":  "UseTerrainTypeValidation",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses terrain type validation."
+    },
+    {
+        "Tag":  "UseTrigger",
+        "Description":  "Configures use trigger."
+    },
+    {
+        "Tag":  "UseTurrets",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses turrets."
+    },
+    {
+        "Tag":  "UseVanillaTargetLocking",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses Space Engineers vanilla turret/grid target locking."
+    },
+    {
+        "Tag":  "UseVelocityCollisionEvasion",
+        "Description":  "Rotation Settings setting: use velocity collision evasion."
+    },
+    {
+        "Tag":  "UseVerticalRetreat",
+        "Description":  "Rotation Settings setting: use vertical retreat."
+    },
+    {
+        "Tag":  "UseWaterPatrolMode",
+        "Description":  "Rotation Settings setting: use water patrol mode."
+    },
+    {
+        "Tag":  "UseWaypoint",
+        "Description":  "Configures use waypoint."
+    },
+    {
+        "Tag":  "UseWeaponMassLimits",
+        "Description":  "Imp //Doc."
+    },
+    {
+        "Tag":  "UseWeatherSpawning",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, uses weather spawning."
+    },
+    {
+        "Tag":  "WaterNodesOnly",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates water nodes only."
+    },
+    {
+        "Tag":  "Waypoint",
+        "Description":  "Configures waypoint."
+    },
+    {
+        "Tag":  "WaypointAbandonTimeTrigger",
+        "Description":  "Offset Misc Config setting: waypoint abandon time trigger."
+    },
+    {
+        "Tag":  "WaypointsToAdd",
+        "Description":  "List of values for waypoints to add."
+    },
+    {
+        "Tag":  "WaypointTolerance",
+        "Description":  "Planet Config setting: waypoint tolerance."
+    },
+    {
+        "Tag":  "WaypointWaitTimeTrigger",
+        "Description":  "Offset Misc Config setting: waypoint wait time trigger."
+    },
+    {
+        "Tag":  "WeaponBlock",
+        "Description":  "Configures weapon block."
+    },
+    {
+        "Tag":  "WeaponMassMultiplierForGrid",
+        "Description":  "Imp //Doc."
+    },
+    {
+        "Tag":  "WeaponMaxAngleFromTarget",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates weapon max angle from target."
+    },
+    {
+        "Tag":  "WeaponMaxBaseDistanceTarget",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates weapon max base distance target."
+    },
+    {
+        "Tag":  "WeaponsSystem",
+        "Description":  "SubtypeId of the MES weapons system profile attached to this behavior."
+    },
+    {
+        "Tag":  "WeaponSystem",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates weapon system."
+    },
+    {
+        "Tag":  "WeatherTypes",
+        "Description":  "Configures weather types."
+    },
+    {
+        "Tag":  "ZoneConditions",
+        "Description":  "Configures zone conditions."
+    },
+    {
+        "Tag":  "ZoneCoords",
+        "Description":  "List of values for zone coords."
+    },
+    {
+        "Tag":  "ZoneCustomBoolChange",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates zone custom bool change."
+    },
+    {
+        "Tag":  "ZoneCustomBoolChangeName",
+        "Description":  "List of values for zone custom bool change name."
+    },
+    {
+        "Tag":  "ZoneCustomBoolChangeUseKPL",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates zone custom bool change use kpl."
+    },
+    {
+        "Tag":  "ZoneCustomBoolChangeValue",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates zone custom bool change value."
+    },
+    {
+        "Tag":  "ZoneCustomCounterChange",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates zone custom counter change."
+    },
+    {
+        "Tag":  "ZoneCustomCounterChangeAmount",
+        "Description":  "Numeric amount for zone custom counter change amount."
+    },
+    {
+        "Tag":  "ZoneCustomCounterChangeName",
+        "Description":  "List of values for zone custom counter change name."
+    },
+    {
+        "Tag":  "ZoneCustomCounterChangeType",
+        "Description":  "Enum value for zone custom counter change type."
+    },
+    {
+        "Tag":  "ZoneCustomCounterChangeUseKPL",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates zone custom counter change use kpl."
+    },
+    {
+        "Tag":  "ZoneName",
+        "Description":  "Configures zone name."
+    },
+    {
+        "Tag":  "ZoneNames",
+        "Description":  "One or more zone profile or id values (comma-separated)."
+    },
+    {
+        "Tag":  "ZoneRadiusChangeAmount",
+        "Description":  "Numeric amount for zone radius change amount."
+    },
+    {
+        "Tag":  "ZoneRadiusChangeType",
+        "Description":  "Enum value for zone radius change type."
+    },
+    {
+        "Tag":  "ZoneToggleActive",
+        "Description":  "Toggle Zone."
+    },
+    {
+        "Tag":  "ZoneToggleActiveAtPosition",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates zone toggle active at position."
+    },
+    {
+        "Tag":  "ZoneToggleActiveAtPositionMode",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates zone toggle active at position mode."
+    },
+    {
+        "Tag":  "ZoneToggleActiveMode",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates zone toggle active mode."
+    },
+    {
+        "Tag":  "ZoneToggleActiveModes",
+        "Description":  "When \u003ccode\u003etrue\u003c/code\u003e, activates zone toggle active modes."
+    }
+]

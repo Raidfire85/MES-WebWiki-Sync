@@ -1,0 +1,74 @@
+# Optional GitHub Actions workflow for MeridiusIX/Modular-Encounters-Systems
+# Copy to: .github/workflows/webwiki-sync-deploy.yml
+#
+# Requires repo Settings → Pages → Source: Deploy from branch gh-pages
+# Uses WebWiki/publisher/TagDescriptions.json shipped with the sync package
+
+name: WebWiki sync and deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - 'Data/Scripts/ModularEncountersSystems/**'
+      - 'WebWiki/publisher/**'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: webwiki-deploy
+  cancel-in-progress: true
+
+jobs:
+  sync-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build sync tool
+        working-directory: WebWiki/publisher
+        run: |
+          npm install --no-save
+          npx tsc -p tsconfig.json
+
+      - name: Sync WebWiki docs from MES source
+        run: |
+          node WebWiki/publisher/publish.cjs \
+            --docs WebWiki/docs \
+            --mkdocs WebWiki/mkdocs.yml \
+            --mes-source Data/Scripts/ModularEncountersSystems \
+            --tag-descriptions WebWiki/publisher/TagDescriptions.json \
+            --write
+
+      - name: Commit doc updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add WebWiki/docs WebWiki/mkdocs.yml WebWiki/docs/style.css
+          git diff --staged --quiet || git commit -m "chore(webwiki): sync docs from MES source"
+          git push
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Build MkDocs site
+        working-directory: WebWiki
+        run: |
+          pip install mkdocs
+          mkdocs build
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: WebWiki/site
+          publish_branch: gh-pages
