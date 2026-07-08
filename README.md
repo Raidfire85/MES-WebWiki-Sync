@@ -2,6 +2,8 @@
 
 Standalone tool for syncing the official [MeridiusIX WebWiki](https://github.com/MeridiusIX/Modular-Encounters-Systems/tree/master/WebWiki) from MES C# source. Everything needed to run the sync ships in `publisher/` — no other repos required.
 
+Can not run on its own. Its mean for the contributors of the official MES(Modular Encounter Systems)
+
 ## Quick start (Meridius fork)
 
 After copying `publisher/` into the MES repo (`WebWiki/publisher/`), from the **MES repo root**:
