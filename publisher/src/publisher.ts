@@ -22,6 +22,7 @@ import {
   getProfileMdFile,
   getProfilePlacement,
 } from './profilePlacements';
+import { localizeExternalPages } from './externalPageLocalization';
 
 interface TagDescriptionEntry {
   Tag: string;
@@ -218,6 +219,36 @@ export async function publishMesWebWiki(
   }
 
   if (options.mkdocsPath) {
+    try {
+      const localizationResult = await localizeExternalPages({
+        docsDir: options.docsDir,
+        mkdocsPath: options.mkdocsPath,
+        sidebarPath: path.join(options.docsDir, '_Sidebar.md'),
+        write: options.write,
+      });
+
+      result.externalLinkAudit = localizationResult.audit;
+
+      for (const mdFile of localizationResult.pagesCreated) {
+        result.created.push(`${mdFile} (external page localized)`);
+      }
+      for (const mdFile of localizationResult.pagesUpdated) {
+        result.updated.push(`${mdFile} (external page refreshed)`);
+      }
+      if (localizationResult.mkdocsChanged) {
+        result.navUpdated = true;
+        result.updated.push('mkdocs.yml (external nav links localized)');
+      }
+      if (localizationResult.sidebarChanged) {
+        result.updated.push('_Sidebar.md (external links localized)');
+      }
+      for (const mdFile of localizationResult.docsPatched) {
+        result.updated.push(`${mdFile} (cross-reference links localized)`);
+      }
+    } catch (error) {
+      result.errors.push(`external page localization: ${formatError(error)}`);
+    }
+
     try {
       const mkdocsResult = await updateMkDocsFile(options.mkdocsPath, {
         profileNavEntries,

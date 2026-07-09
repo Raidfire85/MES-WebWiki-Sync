@@ -43,6 +43,8 @@ export interface WebWikiPublishOptions {
   fixMkdocsWarnings?: boolean;
 }
 
+import type { ExternalLinkAuditEntry } from './externalPageLocalization';
+
 export interface WebWikiPublishResult {
   updated: string[];
   created: string[];
@@ -50,4 +52,5 @@ export interface WebWikiPublishResult {
   navUpdated: boolean;
   errors: string[];
   sourceLabel: string;
+  externalLinkAudit?: ExternalLinkAuditEntry[];
 }
