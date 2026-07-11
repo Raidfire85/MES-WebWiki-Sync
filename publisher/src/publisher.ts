@@ -1,6 +1,7 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import { contentEquals, getTagMetaFromSource } from './syncBridge';
+import { findProfileFile } from './sync/tagMetaParser';
 import type { NewProfilePageConfig, WebWikiPublishOptions, WebWikiPublishResult, WikiSyncChangeRecord } from './types';
 import {
   buildNewProfileMarkdownPage,
@@ -56,6 +57,19 @@ export async function publishMesWebWiki(
   const sourceTagDescriptions = await buildTagDescriptionsFromMesSource(options.mesSourcePath);
   const tagDescriptions = mergeTagDescriptionMaps(sourceTagDescriptions, fileTagDescriptions);
   await fs.mkdir(options.docsDir, { recursive: true });
+
+  async function loadProfileSource(profileCs: string | null | undefined): Promise<string | undefined> {
+    if (!profileCs) {
+      return undefined;
+    }
+
+    const filePath = await findProfileFile(options.mesSourcePath, profileCs);
+    if (!filePath) {
+      return undefined;
+    }
+
+    return fs.readFile(filePath, 'utf8');
+  }
 
   try {
     const homeResult = await ensureHomePage(options.docsDir, options.write);
@@ -116,8 +130,11 @@ export async function publishMesWebWiki(
         const meta = cfg.profile
           ? await getTagMetaFromSource(options.mesSourcePath, cfg.profile)
           : {};
+        const profileSource = await loadProfileSource(cfg.profile);
         renderedRows = syncManagedTags
-          .map((tag) => buildMkDocsTagTableFromMeta(tag, meta, tagDescriptions, cfg.style))
+          .map((tag) =>
+            buildMkDocsTagTableFromMeta(tag, meta, tagDescriptions, cfg.style, profileSource)
+          )
           .join('\n');
       }
 
@@ -170,10 +187,13 @@ export async function publishMesWebWiki(
 
     try {
       const meta = await getTagMetaFromSource(options.mesSourcePath, profile.profileCs);
+      const profileSource = await loadProfileSource(profile.profileCs);
       const style = profileConfigStyle(profile.profileCs);
       const tableRows = Object.keys(meta)
         .sort()
-        .map((tag) => buildMkDocsTagTableFromMeta(tag, meta, tagDescriptions, style))
+        .map((tag) =>
+          buildMkDocsTagTableFromMeta(tag, meta, tagDescriptions, style, profileSource)
+        )
         .join('\n');
 
       let existing = '';

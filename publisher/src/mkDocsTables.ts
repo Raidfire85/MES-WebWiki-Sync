@@ -1,4 +1,5 @@
 import { getTypeHint } from './syncBridge';
+import { getEnhancedTypeHint } from './profileEnumHints';
 import { inferRichDescription } from './tagDescriptionGenerator';
 import type { TagMetaMap, WikiTableStyle } from './types';
 
@@ -47,10 +48,11 @@ export function buildMkDocsTagTableFromMeta(
   tagName: string,
   meta: TagMetaMap,
   tagDescriptions: Record<string, string>,
-  style: WikiTableStyle
+  style: WikiTableStyle,
+  profileSource?: string
 ): string {
   const parseType = meta[tagName] ?? 'Unknown';
-  const hint = getTypeHint(parseType);
+  const hint = getEnhancedTypeHint(parseType, profileSource) ?? getTypeHint(parseType);
   const multipleAllowed = hint.multipleAllowed ? 'Yes' : 'No';
   const description = tagDescriptions[tagName] ?? inferRichDescription(tagName, parseType);
 
