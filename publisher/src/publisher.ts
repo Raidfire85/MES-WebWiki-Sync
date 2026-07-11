@@ -179,7 +179,7 @@ export async function publishMesWebWiki(
         file: mdFile,
         profileCs: cfg.profile ?? undefined,
         profileTitle: pageTitleFromMdFile(mdFile),
-        tagsAdded: analysis.tagsAdded.length > 0 ? analysis.tagsAdded : syncManagedTags,
+        tagsAdded: analysis.tagsAdded,
         tagsRemoved: analysis.tagsRemoved,
         tagsRefreshed: analysis.tagsRefreshed,
       });

@@ -75,9 +75,6 @@ export function buildUpdatesEmbed(history: WikiUpdatesHistoryV2): string {
     return lines.join('\n');
   }
 
-  lines.push(
-    `<p class="mes-wiki-updates-meta"><strong>Last updated:</strong> ${escapeHtml(formatDisplayDate(latest.date))}</p>`
-  );
   lines.push('<ul class="mes-wiki-updates-latest">');
   for (const highlight of latest.highlights) {
     lines.push(`<li>${renderHighlightHtml(highlight)}</li>`);
@@ -278,14 +275,17 @@ function migrateHistory(history: WikiUpdatesHistoryFile): WikiUpdatesHistoryV2 {
 }
 
 function normalizeHistory(history: WikiUpdatesHistoryV2): WikiUpdatesHistoryV2 {
-  const runs = history.runs
-    .map((run) => ({
-      date: run.date,
-      source: run.source,
-      highlights: run.highlights.filter((highlight) => highlight.segments.length > 0),
-    }))
-    .filter((run) => run.highlights.length > 0)
-    .slice(0, MAX_HISTORY_RUNS);
+  const runs = pruneContainedHighlightRuns(
+    dedupeRunsByHighlights(
+      history.runs
+        .map((run) => ({
+          date: run.date,
+          source: run.source,
+          highlights: run.highlights.filter((highlight) => highlight.segments.length > 0),
+        }))
+        .filter((run) => run.highlights.length > 0)
+    )
+  ).slice(0, MAX_HISTORY_RUNS);
 
   const normalized: WikiUpdatesHistoryV2 = { version: 2, runs };
   if (history.lastSynced) {
@@ -294,16 +294,55 @@ function normalizeHistory(history: WikiUpdatesHistoryV2): WikiUpdatesHistoryV2 {
   return normalized;
 }
 
+function dedupeRunsByHighlights(runs: WikiUpdateRun[]): WikiUpdateRun[] {
+  const seen = new Set<string>();
+  const deduped: WikiUpdateRun[] = [];
+
+  for (const run of runs) {
+    const fingerprint = runHighlightsFingerprint(run);
+    if (seen.has(fingerprint)) {
+      continue;
+    }
+    seen.add(fingerprint);
+    deduped.push(run);
+  }
+
+  return deduped;
+}
+
+/** Drop older runs whose highlights were already surfaced in a newer run. */
+function pruneContainedHighlightRuns(runs: WikiUpdateRun[]): WikiUpdateRun[] {
+  const seenHighlights = new Set<string>();
+  const pruned: WikiUpdateRun[] = [];
+
+  for (const run of runs) {
+    const highlightTexts = run.highlights.map(highlightToPlainText);
+    if (
+      highlightTexts.length > 0 &&
+      highlightTexts.every((text) => seenHighlights.has(text))
+    ) {
+      continue;
+    }
+
+    for (const text of highlightTexts) {
+      seenHighlights.add(text);
+    }
+    pruned.push(run);
+  }
+
+  return pruned;
+}
+
+function runHighlightsFingerprint(run: WikiUpdateRun): string {
+  return run.highlights.map(highlightToPlainText).join('|');
+}
+
 function formatDateUtc(date: Date): string {
   return date.toISOString().slice(0, 10);
 }
 
 function sameRun(a: WikiUpdateRun, b: WikiUpdateRun): boolean {
-  return (
-    a.date === b.date &&
-    a.highlights.map(highlightToPlainText).join('|') ===
-      b.highlights.map(highlightToPlainText).join('|')
-  );
+  return runHighlightsFingerprint(a) === runHighlightsFingerprint(b);
 }
 
 function escapeHtml(value: string): string {

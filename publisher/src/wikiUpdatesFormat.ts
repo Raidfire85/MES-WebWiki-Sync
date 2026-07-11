@@ -81,48 +81,58 @@ export function formatDisplayDate(isoDate: string): string {
 
 export function buildPublishHighlights(result: WebWikiPublishResult): WikiUpdateHighlight[] {
   const highlights: WikiUpdateHighlight[] = [];
-
   const createdHighlights: WikiUpdateHighlight[] = [];
-  for (const created of result.created) {
-    const highlight = highlightCreatedLine(created);
-    if (highlight) {
-      createdHighlights.push(highlight);
-    }
-  }
-
-  if (createdHighlights.length > 0) {
-    highlights.push(...groupCreatedHighlights(createdHighlights));
-  }
-
   const tagUpdates: Array<{ title: string; mdFile: string; count: number }> = [];
   let navUpdated = false;
 
-  for (const updated of result.updated) {
-    if (updated.startsWith('index.md') || updated.startsWith('style.css')) {
+  for (const record of result.changeLog) {
+    if (record.kind === 'skipped' || record.kind === 'error' || record.kind === 'maintenance') {
       continue;
     }
 
-    if (updated.startsWith('mkdocs.yml')) {
+    if (record.kind === 'navigation') {
       navUpdated = true;
       continue;
     }
 
-    const migration = updated.match(/^(.+?)\.md \(migrated from .+\)$/i);
-    if (migration) {
-      const mdFile = `${migration[1]}.md`;
+    if (record.kind === 'page-created') {
+      const mdFile = record.file;
+      const count = record.tagsAdded?.length ?? 0;
+      const highlight = highlightCreatedPayload(
+        count > 0 ? `${stripMdExtension(mdFile)} (${count} tags)` : stripMdExtension(mdFile)
+      );
+      if (highlight) {
+        createdHighlights.push(highlight);
+      }
+      continue;
+    }
+
+    if (record.kind === 'migration') {
       highlights.push({
         segments: [
-          { type: 'link', title: pageTitleFromMdFile(mdFile), mdFile },
+          { type: 'link', title: pageTitleFromMdFile(record.file), mdFile: record.file },
           { type: 'text', value: ' page added to the wiki.' },
         ],
       });
       continue;
     }
 
-    const parsed = parseTagUpdateLine(updated);
-    if (parsed) {
-      tagUpdates.push(parsed);
+    if (record.kind === 'tag-update' || record.kind === 'profile-update') {
+      const added = record.tagsAdded ?? [];
+      if (added.length === 0) {
+        continue;
+      }
+
+      tagUpdates.push({
+        title: record.profileTitle ?? pageTitleFromMdFile(record.file),
+        mdFile: record.file,
+        count: added.length,
+      });
     }
+  }
+
+  if (createdHighlights.length > 0) {
+    highlights.push(...groupCreatedHighlights(createdHighlights));
   }
 
   highlights.push(...buildGroupedTagHighlights(tagUpdates));
@@ -134,6 +144,10 @@ export function buildPublishHighlights(result: WebWikiPublishResult): WikiUpdate
   }
 
   return highlights.slice(0, MAX_HIGHLIGHTS);
+}
+
+function stripMdExtension(mdFile: string): string {
+  return mdFile.replace(/\.md$/i, '');
 }
 
 export function legacyLineToHighlight(line: string): WikiUpdateHighlight | null {
