@@ -2,6 +2,15 @@ import { getTypeHint } from './syncBridge';
 import { getEnhancedTypeHint } from './profileEnumHints';
 import { inferRichDescription } from './tagDescriptionGenerator';
 import type { TagMetaMap, WikiTableStyle } from './types';
+import type { TypeHint } from './sync/typeHints';
+
+const TAG_SPECIFIC_HINTS: Record<string, TypeHint> = {
+  WeaponsSystem: {
+    allowedValuesHtml:
+      'MES weapons system profile subtype ID (e.g. <code>MES-Weapons-GenericStandard</code>)',
+    multipleAllowed: false,
+  },
+};
 
 export function allowedValuesMarkdown(allowedValuesHtml: string): string {
   return allowedValuesHtml
@@ -52,7 +61,10 @@ export function buildMkDocsTagTableFromMeta(
   profileSource?: string
 ): string {
   const parseType = meta[tagName] ?? 'Unknown';
-  const hint = getEnhancedTypeHint(parseType, profileSource) ?? getTypeHint(parseType);
+  const hint =
+    TAG_SPECIFIC_HINTS[tagName] ??
+    getEnhancedTypeHint(parseType, profileSource) ??
+    getTypeHint(parseType);
   const multipleAllowed = hint.multipleAllowed ? 'Yes' : 'No';
   const description = tagDescriptions[tagName] ?? inferRichDescription(tagName, parseType);
 

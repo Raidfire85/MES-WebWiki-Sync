@@ -16,6 +16,9 @@ export function getTypeHint(parseType: string): TypeHint {
   if (parseType === 'String') {
     return { allowedValuesHtml: 'Any String Value', multipleAllowed: false };
   }
+  if (parseType === 'Guid') {
+    return { allowedValuesHtml: 'GUID value (e.g. <code>00000000-0000-0000-0000-000000000000</code>)', multipleAllowed: false };
+  }
   if (/^StringList|^IntList|^LongList|^BoolList/.test(parseType)) {
     return { allowedValuesHtml: 'Comma-separated list of values', multipleAllowed: true };
   }
@@ -39,6 +42,54 @@ export function getTypeHint(parseType: string): TypeHint {
   }
   if (parseType === 'ModifierEnum') {
     return { allowedValuesHtml: 'Modifier enum value', multipleAllowed: false };
+  }
+  if (parseType === 'MyDefId') {
+    return {
+      allowedValuesHtml: 'Block definition ID (subtype/name, e.g. LargeBlockSmallGenerator)',
+      multipleAllowed: true,
+    };
+  }
+  if (parseType === 'MDIDictionary') {
+    return {
+      allowedValuesHtml: 'Comma-separated oldBlock,newBlock definition ID pairs',
+      multipleAllowed: false,
+    };
+  }
+  if (parseType === 'Int') {
+    return { allowedValuesHtml: 'Any Integer Value', multipleAllowed: false };
+  }
+  if (parseType === 'Vector3DList') {
+    return {
+      allowedValuesHtml: 'Comma-separated Vector3D values (e.g. {X:0 Y:0 Z:0})',
+      multipleAllowed: true,
+    };
+  }
+  if (parseType === 'Vector3I') {
+    return {
+      allowedValuesHtml: 'Vector3I integer coordinates (e.g. {X:0 Y:0 Z:0})',
+      multipleAllowed: false,
+    };
+  }
+  if (parseType === 'Vector3Dictionary' || parseType === 'Vector3StringDictionary') {
+    return { allowedValuesHtml: 'Comma-separated key,value pairs', multipleAllowed: true };
+  }
+  if (parseType === 'Contains' || parseType === 'StartsWith' || parseType === 'CustomDataContains') {
+    return { allowedValuesHtml: 'Tag presence flag (no value required)', multipleAllowed: false };
+  }
+  if (/^StringStringDict|^StringDict|^StringIntDict/.test(parseType)) {
+    return { allowedValuesHtml: 'Comma-separated key,value pairs', multipleAllowed: true };
+  }
+  if (/^UlongList|^LongList/.test(parseType)) {
+    return { allowedValuesHtml: 'Comma-separated unsigned long values (e.g. mod IDs)', multipleAllowed: true };
+  }
+  if (parseType === 'TextTemplate') {
+    return { allowedValuesHtml: 'Text template profile reference', multipleAllowed: true };
+  }
+  if (/Profile$|ProfileList$/.test(parseType)) {
+    return { allowedValuesHtml: 'MES profile subtype ID reference', multipleAllowed: /List$/.test(parseType) };
+  }
+  if (parseType === 'Unknown') {
+    return { allowedValuesHtml: 'Value per tag format (see MES behavior/profile source)', multipleAllowed: false };
   }
   return { allowedValuesHtml: 'See MES source / enum definition', multipleAllowed: false };
 }

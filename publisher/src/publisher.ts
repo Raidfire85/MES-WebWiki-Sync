@@ -1,7 +1,7 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import { contentEquals, getTagMetaFromSource } from './syncBridge';
-import { findProfileFile } from './sync/tagMetaParser';
+import { buildPageTagMeta, findProfileFile } from './sync/tagMetaParser';
 import type { NewProfilePageConfig, WebWikiPublishOptions, WebWikiPublishResult, WikiSyncChangeRecord } from './types';
 import {
   buildNewProfileMarkdownPage,
@@ -58,17 +58,37 @@ export async function publishMesWebWiki(
   const tagDescriptions = mergeTagDescriptionMaps(sourceTagDescriptions, fileTagDescriptions);
   await fs.mkdir(options.docsDir, { recursive: true });
 
-  async function loadProfileSource(profileCs: string | null | undefined): Promise<string | undefined> {
+  const HINT_SUPPLEMENTAL_FILES = [
+    'Enums.cs',
+    'GridEntity.cs',
+    'EntityEvaluator.cs',
+    'AutoPilotSystem.cs',
+    'CommandHelper.cs',
+    'SpawnRequest.cs',
+    'WaypointProfile.cs',
+    'TriggerProfile.cs',
+    'EventConditions.cs',
+  ];
+
+  async function loadHintSource(profileCs: string | null | undefined): Promise<string | undefined> {
     if (!profileCs) {
       return undefined;
     }
 
-    const filePath = await findProfileFile(options.mesSourcePath, profileCs);
-    if (!filePath) {
-      return undefined;
+    const parts: string[] = [];
+    const profilePath = await findProfileFile(options.mesSourcePath, profileCs);
+    if (profilePath) {
+      parts.push(await fs.readFile(profilePath, 'utf8'));
     }
 
-    return fs.readFile(filePath, 'utf8');
+    for (const fileName of HINT_SUPPLEMENTAL_FILES) {
+      const filePath = await findProfileFile(options.mesSourcePath, fileName);
+      if (filePath) {
+        parts.push(await fs.readFile(filePath, 'utf8'));
+      }
+    }
+
+    return parts.length > 0 ? parts.join('\n\n') : undefined;
   }
 
   try {
@@ -116,21 +136,20 @@ export async function publishMesWebWiki(
         continue;
       }
 
-      const sourceTags: string[] = [...(cfg.extraTags ?? [])];
-      if (cfg.profile) {
-        const meta = await getTagMetaFromSource(options.mesSourcePath, cfg.profile);
-        sourceTags.push(...Object.keys(meta));
-      }
+      const pageMeta = await buildPageTagMeta(
+        options.mesSourcePath,
+        cfg.profile,
+        cfg.extraTags
+      );
+      const sourceTags: string[] = [...(cfg.extraTags ?? []), ...Object.keys(pageMeta)];
 
       const uniqueSourceTags = [...new Set(sourceTags)];
       const syncManagedTags = getSupplementTagsForMarkdown(existing, uniqueSourceTags);
 
       let renderedRows = '';
       if (syncManagedTags.length > 0) {
-        const meta = cfg.profile
-          ? await getTagMetaFromSource(options.mesSourcePath, cfg.profile)
-          : {};
-        const profileSource = await loadProfileSource(cfg.profile);
+        const meta = pageMeta;
+        const profileSource = await loadHintSource(cfg.profile);
         renderedRows = syncManagedTags
           .map((tag) =>
             buildMkDocsTagTableFromMeta(tag, meta, tagDescriptions, cfg.style, profileSource)
@@ -187,7 +206,7 @@ export async function publishMesWebWiki(
 
     try {
       const meta = await getTagMetaFromSource(options.mesSourcePath, profile.profileCs);
-      const profileSource = await loadProfileSource(profile.profileCs);
+      const profileSource = await loadHintSource(profile.profileCs);
       const style = profileConfigStyle(profile.profileCs);
       const tableRows = Object.keys(meta)
         .sort()
