@@ -26,9 +26,16 @@ export interface WikiUpdateRun {
   highlights: WikiUpdateHighlight[];
 }
 
+/** Replaced on every sync run — not appended to history. */
+export interface WikiLastSynced {
+  date: string;
+  source: string;
+}
+
 export interface WikiUpdatesHistoryV2 {
   version: 2;
   runs: WikiUpdateRun[];
+  lastSynced?: WikiLastSynced;
 }
 
 type WikiUpdatesHistoryFile = WikiUpdatesHistoryV2 | WikiUpdatesHistoryLegacy;
@@ -54,9 +61,15 @@ export function buildUpdatesEmbed(history: WikiUpdatesHistoryV2): string {
     '<p class="mes-wiki-updates-summary">Recent changes to profile pages, tags, and sidebar navigation from the MES framework.</p>'
   );
 
+  if (normalized.lastSynced) {
+    lines.push(
+      `<p class="mes-wiki-updates-meta"><strong>Last synced:</strong> ${escapeHtml(formatDisplayDate(normalized.lastSynced.date))} — ${escapeHtml(formatSourceDisplayLabel(normalized.lastSynced.source))}</p>`
+    );
+  }
+
   if (!latest) {
     lines.push(
-      '<p class="mes-wiki-updates-meta">Documentation is up to date. New changes will be listed here when the wiki is refreshed.</p>'
+      '<p class="mes-wiki-updates-meta">Documentation is up to date. No new profiles or tags since the last content update.</p>'
     );
     lines.push('</div>');
     return lines.join('\n');
@@ -64,9 +77,6 @@ export function buildUpdatesEmbed(history: WikiUpdatesHistoryV2): string {
 
   lines.push(
     `<p class="mes-wiki-updates-meta"><strong>Last updated:</strong> ${escapeHtml(formatDisplayDate(latest.date))}</p>`
-  );
-  lines.push(
-    `<p class="mes-wiki-updates-source">${escapeHtml(formatSourceDisplayLabel(latest.source))}</p>`
   );
   lines.push('<ul class="mes-wiki-updates-latest">');
   for (const highlight of latest.highlights) {
@@ -104,6 +114,19 @@ ${WEBWIKI_UPDATES_SYNC_END}`;
 
 export function summarizePublishRun(result: WebWikiPublishResult): WikiUpdateHighlight[] {
   return buildPublishHighlights(result);
+}
+
+export function touchLastSynced(
+  history: WikiUpdatesHistoryV2,
+  result: WebWikiPublishResult
+): WikiUpdatesHistoryV2 {
+  return {
+    ...normalizeHistory(history),
+    lastSynced: {
+      date: formatDateUtc(new Date()),
+      source: result.sourceLabel,
+    },
+  };
 }
 
 export function recordPublishRun(
@@ -191,24 +214,37 @@ export async function applyHomeUpdates(
   }
 
   let history = await loadUpdatesHistory(docsDir);
-  const embedHistory = write
-    ? recordPublishRun(history, result)
-    : normalizeHistory({
-        version: 2,
-        runs: [
-          {
-            date: formatDateUtc(new Date()),
-            source: result.sourceLabel,
-            highlights: summarizePublishRun(result),
-          },
-          ...history.runs,
-        ],
-      });
+  const previewLastSynced: WikiLastSynced = {
+    date: formatDateUtc(new Date()),
+    source: result.sourceLabel,
+  };
 
   if (write) {
-    history = embedHistory;
+    history = touchLastSynced(history, result);
+    history = recordPublishRun(history, result);
     await saveUpdatesHistory(docsDir, history, write);
   }
+
+  const embedHistory = write
+    ? history
+    : normalizeHistory({
+        version: 2,
+        lastSynced: previewLastSynced,
+        runs: (() => {
+          const highlights = summarizePublishRun(result);
+          if (highlights.length === 0) {
+            return history.runs;
+          }
+          return [
+            {
+              date: previewLastSynced.date,
+              source: result.sourceLabel,
+              highlights,
+            },
+            ...history.runs,
+          ];
+        })(),
+      });
 
   const next = injectUpdatesBlockIntoHome(content, embedHistory);
   if (contentEquals(content, next)) {
@@ -251,7 +287,11 @@ function normalizeHistory(history: WikiUpdatesHistoryV2): WikiUpdatesHistoryV2 {
     .filter((run) => run.highlights.length > 0)
     .slice(0, MAX_HISTORY_RUNS);
 
-  return { version: 2, runs };
+  const normalized: WikiUpdatesHistoryV2 = { version: 2, runs };
+  if (history.lastSynced) {
+    normalized.lastSynced = history.lastSynced;
+  }
+  return normalized;
 }
 
 function formatDateUtc(date: Date): string {

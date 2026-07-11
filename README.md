@@ -1,15 +1,19 @@
 # MES WebWiki Sync
 
-Standalone tool for syncing the official [MeridiusIX WebWiki](https://github.com/MeridiusIX/Modular-Encounters-Systems/tree/master/WebWiki) from MES C# source. Everything needed to run the sync ships in `publisher/` — no other repos required.
+Standalone sync tool for the official [MeridiusIX WebWiki](https://github.com/MeridiusIX/Modular-Encounters-Systems/tree/master/WebWiki). Everything needed to run a sync ships in `publisher/` — no other repos are required to **run** the CLI.
 
-Can not run on its own. Its mean for the contributors of the official MES(Modular Encounter Systems)
+**Used in two places:**
+
+1. **[MES-WebWiki](https://github.com/Raidfire85/MES-WebWiki)** — community mirror that syncs and deploys automatically (weekly + on push).
+2. **MeridiusIX/MES** — optional merge of `publisher/` into upstream `WebWiki/` for official-repo contributors ([HANDOFF.md](./HANDOFF.md)).
+
+The CLI **dry-runs by default** (report only). Pass `--write` to apply file changes. Meridius prose **outside** sync markers is never edited.
 
 ## Quick start (Meridius fork)
 
-After copying `publisher/` into the MES repo (`WebWiki/publisher/`), from the **MES repo root**:
+After copying `publisher/` into the MES repo (`WebWiki/publisher/`), from **`WebWiki/publisher/`**:
 
 ```powershell
-cd WebWiki/publisher
 npm install --no-save
 npx tsc -p tsconfig.json
 
@@ -38,11 +42,11 @@ See [HANDOFF.md](./HANDOFF.md) for the full merge checklist and GitHub Actions s
 
 ## Optional: sandbox in this repo
 
-Tool maintainers can clone this repo and run an isolated copy of Meridius WebWiki under `local-test/` (nothing here is required for the MES merge):
+Tool maintainers can clone this repo and run an isolated copy of the Meridius WebWiki under `local-test/` (not required for the MES merge):
 
 ```powershell
-git clone <this-repo-url>
-cd mes-webwiki-sync
+git clone https://github.com/Raidfire85/MES-WebWiki-Sync.git
+cd MES-WebWiki-Sync
 npm install
 npm run setup-local-test
 npm run test-local
@@ -68,17 +72,16 @@ Preview output is under `local-test/sandbox/site/`. Use a local server for navig
 
 ## How a sync run works
 
-Each run scans MES C# under `ModularEncountersSystems` and updates only **marked** regions in the WebWiki tree. Default mode is **dry-run** (report only); pass `--write` to apply files.
+Each run scans MES C# under `ModularEncountersSystems` and updates only **marked** regions in the WebWiki tree.
 
 1. **Resolve MES source** — `--mes-source` / `MES_SOURCE_PATH`, or download `Data/Scripts/ModularEncountersSystems` from MeridiusIX GitHub when omitted.
 2. **Load tag descriptions** — `publisher/TagDescriptions.json` (or `--tag-descriptions` to override).
-3. **Home + style** — `index.md` intro and `style.css` footer tweaks inside their sync markers.
+3. **Home + style** — `index.md` intro and `style.css` patches inside their sync markers.
 4. **Existing modding pages** — For each entry in `WEBWIKI_PAGE_MAP` (`Action.md`, `Trigger.md`, …), append only **missing** tags into the page sync block.
 5. **Profile pages** — Discover `*Profile.cs` files, create or update `.md` pages, migrate legacy `*-Profile.md` names when a Meridius nav slot exists.
 6. **mkdocs.yml** — Add profile nav entries under Modding / Modder Resources (marked nav blocks), normalize nav paths, and update the marked validation section when `--mkdocs` is passed.
-7. **What's new** — Append a run summary to `docs/mes-wiki-updates.json` and refresh the homepage embed in `index.md`.
-
-Meridius prose **outside** sync markers is never edited. See [HANDOFF.md](./HANDOFF.md) for merge steps, extending placement rules, and CI setup.
+7. **External pages** — When `--mkdocs` is passed, fetch and localize external wiki links (gist/GitHub wiki content), patch cross-references, and update nav where needed.
+8. **What's new** — Update `docs/mes-wiki-updates.json` (always refresh **Last synced**; append a changelog run only when tags, profiles, or nav changed) and refresh the homepage embed in `index.md`.
 
 ## Profile and tag placement
 
@@ -108,7 +111,7 @@ node publisher/publish.cjs --docs <path/to/WebWiki/docs> [options]
 | Option | Description |
 |--------|-------------|
 | `--docs <path>` | **Required.** Target `WebWiki/docs` folder |
-| `--mkdocs <path>` | `mkdocs.yml` path (enables nav updates and mkdocs.yml sync markers) |
+| `--mkdocs <path>` | `mkdocs.yml` path (enables nav updates, external page localization, and mkdocs.yml sync markers) |
 | `--mes-source <path>` | Local `ModularEncountersSystems` folder (must contain `ProfileManager.cs`) |
 | `--tag-descriptions <path>` | `TagDescriptions.json` for human-written tag blurbs |
 | `--write` | Apply file changes (default: dry-run report only) |
@@ -124,10 +127,10 @@ The sync tool only replaces content between these markers:
 |-------------|------|---------|
 | `MES-WEBWIKI-SOURCE-SYNC-START/END` | `docs/*.md` | Tag tables on modding + profile pages |
 | `MES-WEBWIKI-HOME-SYNC-START/END` | `docs/index.md` | Home intro (replaces Meridius placeholder) |
-| `MES-WEBWIKI-UPDATES-SYNC-START/END` | `docs/index.md` | “What's new” embed |
+| `MES-WEBWIKI-UPDATES-SYNC-START/END` | `docs/index.md` | “What's new” + Last synced embed |
 | `MES-WEBWIKI-STYLE-SYNC-START/END` | `docs/style.css` | Footer prev/next hide + update styles |
 | `MES-WEBWIKI-SOURCE-SYNC-NAV-START/END` | `mkdocs.yml` | Auto-added profile nav entries |
-| `MES-WEBWIKI-SOURCE-SYNC-VALIDATION-START/END` | `mkdocs.yml` | MkDocs settings (marked block) |
+| `MES-WEBWIKI-SOURCE-SYNC-VALIDATION-START/END` | `mkdocs.yml` | MkDocs validation settings (marked block) |
 
 Defined in `publisher/src/constants.ts`. To roll back sync output, revert the git commit or delete the marked blocks.
 
@@ -135,44 +138,15 @@ Defined in `publisher/src/constants.ts`. To roll back sync output, revert the gi
 
 | File | Managed by | Notes |
 |------|------------|-------|
-| `docs/mes-wiki-updates.json` | `mkDocsUpdates.ts` | Rolling changelog (latest run + history); drives homepage highlights |
+| `docs/mes-wiki-updates.json` | `mkDocsUpdates.ts` | `lastSynced` (replaced every run) + rolling changelog runs for real content changes |
 | `docs/discovered-profiles.json` | Optional input | If present, keeps previously discovered profiles in the scan set; not written by default |
-
-## Run sync (paths relative to MES repo)
-
-From `WebWiki/publisher/` after merge:
-
-```powershell
-npm install --no-save
-npx tsc -p tsconfig.json
-
-# Dry-run
-node publish.cjs `
-  --docs ../docs `
-  --mkdocs ../mkdocs.yml `
-  --mes-source ../../Data/Scripts/ModularEncountersSystems
-
-# Apply
-node publish.cjs `
-  --docs ../docs `
-  --mkdocs ../mkdocs.yml `
-  --mes-source ../../Data/Scripts/ModularEncountersSystems `
-  --write
-```
-
-Or from this standalone repo via `npm run publish --` after `npm run build`:
-
-```powershell
-node publisher/publish.cjs --docs <WebWiki/docs> --mkdocs <WebWiki/mkdocs.yml> --mes-source <ModularEncountersSystems> [--write]
-```
-
-Tag descriptions load automatically from `publisher/TagDescriptions.json`. Override with `--tag-descriptions <path>`.
 
 ## Layout
 
 ```
 MES-WebWiki-Sync/
   HANDOFF.md              Contributor guide for Meridius merge
+  LICENSE                 MIT (this tool)
   package.json
   publisher/
     publish.cjs           CLI entry
@@ -184,6 +158,7 @@ MES-WebWiki-Sync/
       profilePlacementInference.ts   Nav group rules + overrides
       profilePlacements.ts           Resolved placement + managed page detection
       profileDiscovery.ts            Which profiles become wiki pages
+      externalPageLocalization.ts    External gist/wiki page fetch + link rewrites
       mkDocsContent.ts / mkDocsTables.ts   Markdown + tag tables
       mkDocsYaml.ts       mkdocs.yml nav and settings edits
       mkDocsHome.ts / mkDocsUpdates.ts / mkDocsStyle.ts   Home, changelog, CSS
@@ -194,12 +169,11 @@ MES-WebWiki-Sync/
   scripts/
     setup-local-test.ps1  Clone Meridius wiki into local-test/sandbox/
     test-local.ps1        End-to-end test
-    build-html.ps1        Build + open HTML preview
+    build-html.ps1        Build static site preview
+    publish-local-sandbox.ps1  Write-only sandbox sync
     vendor-sync.mjs       Refresh sync/ (tool development only)
   local-test/             Created by setup (gitignored)
 ```
-
-See [HANDOFF.md](./HANDOFF.md) for contributor merge instructions.
 
 ## License and attribution
 
@@ -211,9 +185,9 @@ Same licensing approach as [MES-Reference-Library](https://github.com/Raidfire85
 
 ## GitHub Actions (Meridius production)
 
-This standalone repo does **not** deploy the wiki by itself. Automated sync runs **after** you merge `publisher/` and `handoff/github-workflow/webwiki-sync-deploy.yml` into [MeridiusIX/Modular-Encounters-Systems](https://github.com/MeridiusIX/Modular-Encounters-Systems) (`WebWiki/` + `.github/workflows/`).
+This standalone repo does **not** deploy a public wiki by itself. Automated sync on GitHub runs in **[MES-WebWiki](https://github.com/Raidfire85/MES-WebWiki)**.
 
-The workflow then:
+To enable the same workflow **upstream**, merge `publisher/` and `handoff/github-workflow/webwiki-sync-deploy.yml` into [MeridiusIX/Modular-Encounters-Systems](https://github.com/MeridiusIX/Modular-Encounters-Systems) (`WebWiki/` + `.github/workflows/`). That workflow then:
 
 1. Builds `WebWiki/publisher` with `npm install` + `tsc`
 2. Syncs docs from in-repo `Data/Scripts/ModularEncountersSystems` using bundled `TagDescriptions.json`
