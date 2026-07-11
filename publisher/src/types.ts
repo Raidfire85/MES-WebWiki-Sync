@@ -45,6 +45,37 @@ export interface WebWikiPublishOptions {
 
 import type { ExternalLinkAuditEntry } from './externalPageLocalization';
 
+export type WikiSyncChangeKind =
+  | 'page-created'
+  | 'tag-update'
+  | 'profile-update'
+  | 'migration'
+  | 'navigation'
+  | 'external'
+  | 'maintenance'
+  | 'skipped'
+  | 'error';
+
+export interface WikiSyncNavEntry {
+  title: string;
+  mdFile: string;
+  navGroup: string;
+  profileCs?: string;
+}
+
+export interface WikiSyncChangeRecord {
+  kind: WikiSyncChangeKind;
+  file: string;
+  profileCs?: string;
+  profileTitle?: string;
+  tagsAdded?: string[];
+  tagsRemoved?: string[];
+  tagsRefreshed?: string[];
+  sectionsUpdated?: string[];
+  navEntries?: WikiSyncNavEntry[];
+  detail?: string;
+}
+
 export interface WebWikiPublishResult {
   updated: string[];
   created: string[];
@@ -53,4 +84,5 @@ export interface WebWikiPublishResult {
   errors: string[];
   sourceLabel: string;
   externalLinkAudit?: ExternalLinkAuditEntry[];
+  changeLog: WikiSyncChangeRecord[];
 }

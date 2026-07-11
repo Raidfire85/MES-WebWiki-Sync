@@ -82,6 +82,7 @@ Each run scans MES C# under `ModularEncountersSystems` and updates only **marked
 6. **mkdocs.yml** — When `--mkdocs` is passed, add profile nav entries under Modding / Modder Resources (marked nav blocks), normalize nav paths, and update the marked validation section.
 7. **External pages** — When `--mkdocs` is passed, fetch and localize external wiki links (gist/GitHub wiki content), patch cross-references, and update nav where needed.
 8. **What's new** — Update `docs/mes-wiki-updates.json` (always refresh **Last synced**; append a changelog entry only when tags, profiles, or navigation change) and refresh the homepage embed in `index.md`.
+9. **Changelog log** — Append a detailed entry to repo-root `LOG.md` (pages, tags, profiles, nav, skipped, errors) on every sync run.
 
 ## Profile and tag placement
 
@@ -139,6 +140,7 @@ Defined in `publisher/src/constants.ts`. To roll back sync output, revert the gi
 | File | Managed by | Notes |
 |------|------------|-------|
 | `docs/mes-wiki-updates.json` | `mkDocsUpdates.ts` | `lastSynced` (replaced every run) + rolling changelog runs for real content changes |
+| `LOG.md` (repo root) | `wikiSyncLog.ts` | Full per-run changelog — tags added/refreshed by name, profile + file, nav entries, sections updated (newest first) |
 | `docs/discovered-profiles.json` | Optional input | If present, keeps previously discovered profiles in the scan set; not written by default |
 
 ## Layout

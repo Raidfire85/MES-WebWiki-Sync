@@ -1,7 +1,7 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import { contentEquals, getTagMetaFromSource } from './syncBridge';
-import type { NewProfilePageConfig, WebWikiPublishOptions, WebWikiPublishResult } from './types';
+import type { NewProfilePageConfig, WebWikiPublishOptions, WebWikiPublishResult, WikiSyncChangeRecord } from './types';
 import {
   buildNewProfileMarkdownPage,
   getSupplementTagsForMarkdown,
@@ -26,11 +26,13 @@ import { updateMkDocsFile } from './mkDocsYaml';
 import { ensureHomePage } from './mkDocsHome';
 import { ensureWebWikiStylePatches } from './mkDocsStyle';
 import { applyHomeUpdates } from './mkDocsUpdates';
+import { applySyncLog } from './wikiSyncLog';
 import {
   getProfileMdFile,
   getProfilePlacement,
 } from './profilePlacements';
 import { localizeExternalPages } from './externalPageLocalization';
+import { analyzePageContentChanges } from './wikiChangeDetails';
 
 interface TagDescriptionEntry {
   Tag: string;
@@ -47,6 +49,7 @@ export async function publishMesWebWiki(
     navUpdated: false,
     errors: [],
     sourceLabel: options.sourceLabel,
+    changeLog: [],
   };
 
   const fileTagDescriptions = await loadTagDescriptions(options.tagDescriptionsPath);
@@ -58,20 +61,33 @@ export async function publishMesWebWiki(
     const homeResult = await ensureHomePage(options.docsDir, options.write);
     if (homeResult.changed) {
       result.updated.push(`index.md (home intro ${homeResult.action})`);
+      logChange(result, {
+        kind: 'maintenance',
+        file: 'index.md',
+        detail: `Home intro ${homeResult.action}`,
+      });
     } else if (homeResult.action === 'skipped') {
       result.skipped.push('index.md (custom home page preserved)');
+      logChange(result, { kind: 'skipped', file: 'index.md', detail: 'Custom home page preserved' });
     }
   } catch (error) {
     result.errors.push(`index.md: ${formatError(error)}`);
+    logChange(result, { kind: 'error', file: 'index.md', detail: formatError(error) });
   }
 
   try {
     const styleResult = await ensureWebWikiStylePatches(options.docsDir, options.write);
     if (styleResult.changed) {
       result.updated.push('style.css (hide footer prev/next to match live site)');
+      logChange(result, {
+        kind: 'maintenance',
+        file: 'docs/style.css',
+        detail: 'Style sync block updated',
+      });
     }
   } catch (error) {
     result.errors.push(`style.css: ${formatError(error)}`);
+    logChange(result, { kind: 'error', file: 'docs/style.css', detail: formatError(error) });
   }
 
   for (const [mdFile, cfg] of Object.entries(WEBWIKI_PAGE_MAP)) {
@@ -82,6 +98,7 @@ export async function publishMesWebWiki(
         existing = await fs.readFile(mdPath, 'utf8');
       } catch {
         result.skipped.push(`${mdFile} (page not present in WebWiki/docs)`);
+        logChange(result, { kind: 'skipped', file: mdFile, detail: 'Page not present in WebWiki/docs' });
         continue;
       }
 
@@ -111,6 +128,7 @@ export async function publishMesWebWiki(
       });
       if (contentEquals(existing, next)) {
         result.skipped.push(`${mdFile} (already up to date)`);
+        logChange(result, { kind: 'skipped', file: mdFile });
         continue;
       }
 
@@ -118,9 +136,20 @@ export async function publishMesWebWiki(
         await fs.writeFile(mdPath, next, 'utf8');
       }
 
+      const analysis = analyzePageContentChanges(existing, next, uniqueSourceTags);
       result.updated.push(`${mdFile} (${syncManagedTags.length} sync-managed tags)`);
+      logChange(result, {
+        kind: 'tag-update',
+        file: mdFile,
+        profileCs: cfg.profile ?? undefined,
+        profileTitle: pageTitleFromMdFile(mdFile),
+        tagsAdded: analysis.tagsAdded.length > 0 ? analysis.tagsAdded : syncManagedTags,
+        tagsRemoved: analysis.tagsRemoved,
+        tagsRefreshed: analysis.tagsRefreshed,
+      });
     } catch (error) {
       result.errors.push(`${mdFile}: ${formatError(error)}`);
+      logChange(result, { kind: 'error', file: mdFile, detail: formatError(error) });
     }
   }
 
@@ -198,8 +227,24 @@ export async function publishMesWebWiki(
             blurb
           );
 
+      const metaTags = Object.keys(meta).sort();
+      const analysis = analyzePageContentChanges(existing, next, metaTags);
+      const sectionsUpdated: string[] = [];
+      if (analysis.blurbChanged) {
+        sectionsUpdated.push('intro/blurb');
+      }
+      if (analysis.exampleChanged) {
+        sectionsUpdated.push('inline XML example');
+      }
+
       if (contentEquals(existing, next)) {
         result.skipped.push(`${mdFile} (profile page up to date)`);
+        logChange(result, {
+          kind: 'skipped',
+          file: mdFile,
+          profileCs: profile.profileCs,
+          profileTitle: profile.title,
+        });
         if (options.write && legacyPath) {
           try {
             await fs.access(mdPath);
@@ -211,6 +256,13 @@ export async function publishMesWebWiki(
               // Legacy filename may already be gone.
             }
             result.updated.push(`${mdFile} (migrated from ${legacyMdFile})`);
+            logChange(result, {
+              kind: 'migration',
+              file: mdFile,
+              profileCs: profile.profileCs,
+              profileTitle: profile.title,
+              detail: `Migrated from \`${legacyMdFile}\``,
+            });
           }
         }
       } else if (options.write) {
@@ -224,14 +276,48 @@ export async function publishMesWebWiki(
         }
 
         if (isNew) {
-          result.created.push(`${mdFile} (${Object.keys(meta).length} tags)`);
+          result.created.push(`${mdFile} (${metaTags.length} tags)`);
+          logChange(result, {
+            kind: 'page-created',
+            file: mdFile,
+            profileCs: profile.profileCs,
+            profileTitle: profile.title,
+            tagsAdded: metaTags,
+          });
         } else {
-          result.updated.push(`${mdFile} (profile, ${Object.keys(meta).length} tags)`);
+          result.updated.push(`${mdFile} (profile, ${metaTags.length} tags)`);
+          logChange(result, {
+            kind: 'profile-update',
+            file: mdFile,
+            profileCs: profile.profileCs,
+            profileTitle: profile.title,
+            tagsAdded: analysis.tagsAdded,
+            tagsRemoved: analysis.tagsRemoved,
+            tagsRefreshed: analysis.tagsRefreshed,
+            sectionsUpdated,
+          });
         }
       } else if (isNew) {
-        result.created.push(`${mdFile} (${Object.keys(meta).length} tags)`);
+        result.created.push(`${mdFile} (${metaTags.length} tags)`);
+        logChange(result, {
+          kind: 'page-created',
+          file: mdFile,
+          profileCs: profile.profileCs,
+          profileTitle: profile.title,
+          tagsAdded: metaTags,
+        });
       } else {
-        result.updated.push(`${mdFile} (profile, ${Object.keys(meta).length} tags)`);
+        result.updated.push(`${mdFile} (profile, ${metaTags.length} tags)`);
+        logChange(result, {
+          kind: 'profile-update',
+          file: mdFile,
+          profileCs: profile.profileCs,
+          profileTitle: profile.title,
+          tagsAdded: analysis.tagsAdded,
+          tagsRemoved: analysis.tagsRemoved,
+          tagsRefreshed: analysis.tagsRefreshed,
+          sectionsUpdated,
+        });
       }
 
       const placement = getProfilePlacement(profile.profileCs, {
@@ -247,6 +333,13 @@ export async function publishMesWebWiki(
       });
     } catch (error) {
       result.errors.push(`${mdFile}: ${formatError(error)}`);
+      logChange(result, {
+        kind: 'error',
+        file: mdFile,
+        profileCs: profile.profileCs,
+        profileTitle: profile.title,
+        detail: formatError(error),
+      });
     }
   }
 
@@ -263,22 +356,52 @@ export async function publishMesWebWiki(
 
       for (const mdFile of localizationResult.pagesCreated) {
         result.created.push(`${mdFile} (external page localized)`);
+        logChange(result, {
+          kind: 'external',
+          file: mdFile,
+          detail: 'Localized from external gist/wiki source (new page)',
+        });
       }
       for (const mdFile of localizationResult.pagesUpdated) {
         result.updated.push(`${mdFile} (external page refreshed)`);
+        logChange(result, {
+          kind: 'external',
+          file: mdFile,
+          detail: 'Refreshed from external gist/wiki source',
+        });
       }
       if (localizationResult.mkdocsChanged) {
         result.navUpdated = true;
         result.updated.push('mkdocs.yml (external nav links localized)');
+        logChange(result, {
+          kind: 'navigation',
+          file: 'mkdocs.yml',
+          detail: 'External nav links localized to local pages',
+        });
       }
       if (localizationResult.sidebarChanged) {
         result.updated.push('_Sidebar.md (external links localized)');
+        logChange(result, {
+          kind: 'navigation',
+          file: 'docs/_Sidebar.md',
+          detail: 'External sidebar links localized to local pages',
+        });
       }
       for (const mdFile of localizationResult.docsPatched) {
         result.updated.push(`${mdFile} (cross-reference links localized)`);
+        logChange(result, {
+          kind: 'external',
+          file: mdFile,
+          detail: 'Cross-reference links localized to local pages',
+        });
       }
     } catch (error) {
       result.errors.push(`external page localization: ${formatError(error)}`);
+      logChange(result, {
+        kind: 'error',
+        file: 'external page localization',
+        detail: formatError(error),
+      });
     }
 
     try {
@@ -302,11 +425,29 @@ export async function publishMesWebWiki(
           details.push('validation relaxed for legacy wiki warnings');
         }
         result.updated.push(`mkdocs.yml (${details.join(', ') || 'mkdocs warning fixes'})`);
+        logChange(result, {
+          kind: mkdocsResult.navEntriesAdded > 0 ? 'navigation' : 'maintenance',
+          file: 'mkdocs.yml',
+          detail: details.join('; ') || 'MkDocs warning fixes',
+          navEntries:
+            mkdocsResult.navEntriesAdded > 0
+              ? profileNavEntries
+                  .filter((entry) => entry.placement.navGroup !== 'existing-leaf')
+                  .map((entry) => ({
+                    title: entry.placement.navTitle,
+                    mdFile: entry.mdFile,
+                    navGroup: entry.placement.navGroup,
+                    profileCs: entry.profileCs,
+                  }))
+              : undefined,
+        });
       } else if (options.fixMkdocsWarnings !== false) {
         result.skipped.push('mkdocs.yml (already up to date)');
+        logChange(result, { kind: 'skipped', file: 'mkdocs.yml' });
       }
     } catch (error) {
       result.errors.push(`mkdocs.yml: ${formatError(error)}`);
+      logChange(result, { kind: 'error', file: 'mkdocs.yml', detail: formatError(error) });
     }
   }
 
@@ -314,12 +455,33 @@ export async function publishMesWebWiki(
     const updatesResult = await applyHomeUpdates(options.docsDir, result, options.write);
     if (updatesResult.changed) {
       result.updated.push('index.md (wiki updates embed)');
+      logChange(result, {
+        kind: 'maintenance',
+        file: 'index.md',
+        detail: 'Homepage What\'s new / Last synced embed refreshed',
+      });
     }
   } catch (error) {
     result.errors.push(`index.md updates: ${formatError(error)}`);
+    logChange(result, { kind: 'error', file: 'index.md updates', detail: formatError(error) });
+  }
+
+  try {
+    const wikiRoot = path.resolve(options.docsDir, '..');
+    const logResult = await applySyncLog(wikiRoot, result, options.write);
+    if (logResult.changed) {
+      result.updated.push('LOG.md (sync changelog entry)');
+    }
+  } catch (error) {
+    result.errors.push(`LOG.md: ${formatError(error)}`);
+    logChange(result, { kind: 'error', file: 'LOG.md', detail: formatError(error) });
   }
 
   return result;
+}
+
+function logChange(result: WebWikiPublishResult, record: WikiSyncChangeRecord): void {
+  result.changeLog.push(record);
 }
 
 function profileConfigStyle(profileCs: string): NewProfilePageConfig['style'] {
