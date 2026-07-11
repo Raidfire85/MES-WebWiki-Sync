@@ -4,14 +4,14 @@ Standalone sync tool for the official [MeridiusIX WebWiki](https://github.com/Me
 
 **Used in two places:**
 
-1. **[MES-WebWiki](https://github.com/Raidfire85/MES-WebWiki)** — community mirror that syncs and deploys automatically (weekly + on push).
+1. **[MES-WebWiki](https://github.com/Raidfire85/MES-WebWiki)** — community mirror that syncs and deploys automatically (weekly and on push).
 2. **MeridiusIX/MES** — optional merge of `publisher/` into upstream `WebWiki/` for official-repo contributors ([HANDOFF.md](./HANDOFF.md)).
 
 The CLI **dry-runs by default** (report only). Pass `--write` to apply file changes. Meridius prose **outside** sync markers is never edited.
 
 ## Quick start (Meridius fork)
 
-After copying `publisher/` into the MES repo (`WebWiki/publisher/`), from **`WebWiki/publisher/`**:
+After copying `publisher/` into the MES repo (`WebWiki/publisher/`), run these commands from **`WebWiki/publisher/`**:
 
 ```powershell
 npm install --no-save
@@ -23,7 +23,7 @@ node publish.cjs `
   --mkdocs ../mkdocs.yml `
   --mes-source ../../Data/Scripts/ModularEncountersSystems
 
-# Apply when happy
+# Apply after reviewing the dry-run report
 node publish.cjs `
   --docs ../docs `
   --mkdocs ../mkdocs.yml `
@@ -76,16 +76,16 @@ Each run scans MES C# under `ModularEncountersSystems` and updates only **marked
 
 1. **Resolve MES source** — `--mes-source` / `MES_SOURCE_PATH`, or download `Data/Scripts/ModularEncountersSystems` from MeridiusIX GitHub when omitted.
 2. **Load tag descriptions** — `publisher/TagDescriptions.json` (or `--tag-descriptions` to override).
-3. **Home + style** — `index.md` intro and `style.css` patches inside their sync markers.
+3. **Home + style** — Patch `index.md` intro and `style.css` inside their sync markers.
 4. **Existing modding pages** — For each entry in `WEBWIKI_PAGE_MAP` (`Action.md`, `Trigger.md`, …), append only **missing** tags into the page sync block.
-5. **Profile pages** — Discover `*Profile.cs` files, create or update `.md` pages, migrate legacy `*-Profile.md` names when a Meridius nav slot exists.
-6. **mkdocs.yml** — Add profile nav entries under Modding / Modder Resources (marked nav blocks), normalize nav paths, and update the marked validation section when `--mkdocs` is passed.
+5. **Profile pages** — Discover `*Profile.cs` files, create or update `.md` pages, and migrate legacy `*-Profile.md` names when a Meridius nav slot exists.
+6. **mkdocs.yml** — When `--mkdocs` is passed, add profile nav entries under Modding / Modder Resources (marked nav blocks), normalize nav paths, and update the marked validation section.
 7. **External pages** — When `--mkdocs` is passed, fetch and localize external wiki links (gist/GitHub wiki content), patch cross-references, and update nav where needed.
-8. **What's new** — Update `docs/mes-wiki-updates.json` (always refresh **Last synced**; append a changelog run only when tags, profiles, or nav changed) and refresh the homepage embed in `index.md`.
+8. **What's new** — Update `docs/mes-wiki-updates.json` (always refresh **Last synced**; append a changelog entry only when tags, profiles, or navigation change) and refresh the homepage embed in `index.md`.
 
 ## Profile and tag placement
 
-On every sync run the tool decides where new content belongs:
+On every sync run, the tool decides where new content belongs:
 
 - **Tags on existing profile types** (Action, Trigger, Spawn, etc.) stay on their current **Modding** pages via `WEBWIKI_PAGE_MAP` — only missing tags are appended in the sync section.
 - **New profile pages** get nav placement from `publisher/src/profilePlacementInference.ts`:
@@ -96,9 +96,9 @@ On every sync run the tool decides where new content belongs:
   - Faction/cosmetic reference → **Modder Resources**
   - Unknown future profiles → **Modding → Additional Profiles (MES Source Sync)** until a rule is added
 
-Override a specific profile with `WEBWIKI_PROFILE_PLACEMENT_OVERRIDES` in the same file.
+You can override a specific profile with `WEBWIKI_PROFILE_PLACEMENT_OVERRIDES` in the same file.
 
-Profiles that already have a Meridius nav leaf (Block Replacement, Loot, Dereliction, …) are listed in `WEBWIKI_MERIDIUS_PROFILE_CS` / `MERIDIUS_EXISTING_NAV` — the sync tool fills that page instead of adding a duplicate nav entry.
+Profiles that already have a Meridius nav leaf (Block Replacement, Loot, Dereliction, …) are listed in `WEBWIKI_MERIDIUS_PROFILE_CS` / `MERIDIUS_EXISTING_NAV` — the sync tool updates that page instead of adding a duplicate nav entry.
 
 For step-by-step extension tasks (new profile type, new mapped page, intro copy), see **Extending the sync tool** in [HANDOFF.md](./HANDOFF.md).
 
@@ -132,7 +132,7 @@ The sync tool only replaces content between these markers:
 | `MES-WEBWIKI-SOURCE-SYNC-NAV-START/END` | `mkdocs.yml` | Auto-added profile nav entries |
 | `MES-WEBWIKI-SOURCE-SYNC-VALIDATION-START/END` | `mkdocs.yml` | MkDocs validation settings (marked block) |
 
-Defined in `publisher/src/constants.ts`. To roll back sync output, revert the git commit or delete the marked blocks.
+Defined in `publisher/src/constants.ts`. To roll back sync output, revert the git commit or manually restore the content between sync markers.
 
 ## Sync-managed files
 
@@ -181,7 +181,7 @@ MES-WebWiki-Sync/
 - **Output written into a WebWiki tree** (markdown pages, nav entries, synced tag tables) may include or merge material from MeridiusIX's WebWiki and MES C# source. That documentation remains attributed to [MeridiusIX / Modular Encounters Systems](https://github.com/MeridiusIX/Modular-Encounters-Systems) and its contributors — this LICENSE covers the tool, not a claim of ownership over Meridius wiki prose.
 - For the deployed community mirror that uses this tool, see [MES-WebWiki](https://github.com/Raidfire85/MES-WebWiki).
 
-Same licensing approach as [MES-Reference-Library](https://github.com/Raidfire85/MES-Reference-Library).
+This project follows the same licensing approach as [MES-Reference-Library](https://github.com/Raidfire85/MES-Reference-Library).
 
 ## GitHub Actions (Meridius production)
 
@@ -193,4 +193,4 @@ To enable the same workflow **upstream**, merge `publisher/` and `handoff/github
 2. Syncs docs from in-repo `Data/Scripts/ModularEncountersSystems` using bundled `TagDescriptions.json`
 3. Commits wiki changes and deploys MkDocs to `gh-pages`
 
-Triggers on push to `master` when MES scripts or `WebWiki/publisher/**` change, or via **workflow_dispatch**.
+The workflow triggers on push to `master` when MES scripts or `WebWiki/publisher/**` change, or via **workflow_dispatch**.

@@ -17,7 +17,7 @@ If you cloned **this** handoff repo (not the MES repo), you can run an offline s
 
 ```powershell
 git clone <this-repo-url>
-cd mes-webwiki-sync
+cd MES-WebWiki-Sync
 npm install
 npm run setup-local-test    # clones Meridius WebWiki + MES source into local-test/
 npm run test-local          # dry-run, write, mkdocs build
@@ -43,7 +43,8 @@ Orchestration lives in `publisher/src/publisher.ts`. A single run performs these
 5. **Mapped modding pages** — For each `WEBWIKI_PAGE_MAP` entry (`Action.md`, `Trigger.md`, …), parse tags from the linked `*Profile.cs` and append only **new** rows inside `MES-WEBWIKI-SOURCE-SYNC` on that page.
 6. **Profile pages** — `discoverWebWikiProfiles()` finds `*Profile.cs` files not already handled by the page map. Creates new `.md` files or updates existing ones; migrates `*-Profile.md` → Meridius filenames (e.g. `Block-Replacement.md`) when applicable.
 7. **`mkdocs.yml`** — When `--mkdocs` is passed: insert marked nav blocks for new profiles, normalize nav paths, and update the marked validation section.
-8. **What's new** — Record run highlights in `docs/mes-wiki-updates.json` and refresh the HTML embed in `index.md` (`MES-WEBWIKI-UPDATES-SYNC`).
+8. **External pages** — When `--mkdocs` is passed: fetch and localize external wiki links (gist/GitHub wiki content), patch cross-references, and update nav where needed.
+9. **What's new** — Always refresh **Last synced** in `docs/mes-wiki-updates.json`; append a changelog entry only when tags, profiles, or navigation change. Refresh the HTML embed in `index.md` (`MES-WEBWIKI-UPDATES-SYNC`).
 
 Dry-run (default) reports what would be created, updated, or skipped — without writing files.
 
@@ -82,7 +83,7 @@ npx tsc -p tsconfig.json
 node publish.cjs --docs ../docs --mkdocs ../mkdocs.yml `
   --mes-source ../../Data/Scripts/ModularEncountersSystems
 
-# Apply when happy
+# Apply after reviewing the dry-run report
 node publish.cjs --docs ../docs --mkdocs ../mkdocs.yml `
   --mes-source ../../Data/Scripts/ModularEncountersSystems `
   --write
@@ -148,7 +149,7 @@ Edit `publisher/src/syncSectionCopy.ts` — `PAGE_SUPPLEMENT_COPY` for tag suppl
 
 | File | Written by sync tool? | Purpose |
 |------|----------------------|---------|
-| `docs/mes-wiki-updates.json` | Yes | Changelog history (`version: 2`, `runs[]` with `highlights` and link segments). Drives homepage “What's new”. Safe to delete to reset history. |
+| `docs/mes-wiki-updates.json` | Yes | Changelog history (`version: 2`, `lastSynced`, `runs[]` with `highlights` and link segments). Drives homepage “What's new” and **Last synced**. Safe to delete to reset history. |
 | `docs/discovered-profiles.json` | No (optional input) | If present, profiles listed here stay in the discovery set even when heuristics would skip them. Useful for hand-maintained edge cases. |
 
 ### 7. Rollback
