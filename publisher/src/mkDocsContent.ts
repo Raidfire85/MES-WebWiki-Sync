@@ -65,6 +65,28 @@ export function injectWebWikiSyncSection(
   return `${base}\n\n${buildWebWikiSyncSection(tableRows, context)}\n`;
 }
 
+export function updateProfilePageBlurb(content: string, title: string, blurb: string): string {
+  const titleLine = `# ${title}`;
+  const titleIndex = content.indexOf(titleLine);
+  if (titleIndex === -1) {
+    return content;
+  }
+
+  let cursor = titleIndex + titleLine.length;
+  while (cursor < content.length && (content[cursor] === '\n' || content[cursor] === '\r')) {
+    cursor++;
+  }
+
+  const rest = content.slice(cursor);
+  const stopMatch = rest.match(
+    /^(?:Profile header:|<!-- MES-WEBWIKI-SOURCE-SYNC-START -->|## )/m
+  );
+  const stopOffset = stopMatch?.index ?? rest.length;
+  const afterBlurb = rest.slice(stopOffset).replace(/^\n+/, '');
+
+  return `${content.slice(0, cursor)}${blurb.trim()}\n\n${afterBlurb}`;
+}
+
 export function buildNewProfileMarkdownPage(options: {
   title: string;
   blurb: string;

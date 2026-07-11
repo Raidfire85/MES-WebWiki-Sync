@@ -14,6 +14,7 @@ import {
   STATIC_PROFILE_HEADERS,
 } from './syncBridge';
 import type { DiscoveredProfile } from './types';
+import { inferProfileBlurbFromSource } from './profileBlurbGenerator';
 import {
   extensionHtmlToWebWikiMd,
   WEBWIKI_MERIDIUS_PROFILE_CS,
@@ -31,17 +32,17 @@ function profileConfigForCs(profileCs: string) {
   return NEW_PROFILE_PAGES.find((page) => page.profile === profileCs);
 }
 
-function buildBlurb(profileCs: string, header: string | null): string {
+async function buildBlurb(
+  mesSourcePath: string,
+  profileCs: string,
+  header: string | null,
+  title: string
+): Promise<string> {
   if (KNOWN_PROFILE_BLURBS[profileCs]) {
     return KNOWN_PROFILE_BLURBS[profileCs];
   }
 
-  const title = profileCsToTitle(profileCs);
-  if (header) {
-    return `${title} profiles use the ${header} header in SBC Description blocks.`;
-  }
-
-  return `${title} profile tags parsed from MES source.`;
+  return inferProfileBlurbFromSource(mesSourcePath, profileCs, header, title);
 }
 
 function shouldSkipExistingWebWikiPage(
@@ -120,6 +121,8 @@ export async function discoverWebWikiProfiles(
     const htmlFile = knownPage?.file ?? profileCsToHtmlFile(profileCs);
     const mdFile = getProfileMdFile(profileCs, htmlFile, header);
 
+    const title = knownPage?.title ?? profileCsToTitle(profileCs);
+
     const meridiusMd = WEBWIKI_MERIDIUS_PROFILE_CS[profileCs];
     if (meridiusMd && wikiFiles.has(meridiusMd) && meridiusMd === mdFile) {
       const meridiusPath = path.join(docsDir, meridiusMd);
@@ -141,8 +144,8 @@ export async function discoverWebWikiProfiles(
       profileCs,
       header,
       htmlFile,
-      title: knownPage?.title ?? profileCsToTitle(profileCs),
-      blurb: buildBlurb(profileCs, header),
+      title,
+      blurb: await buildBlurb(mesSourcePath, profileCs, header, title),
       tagCount: Object.keys(meta).length,
       author: 'MeridiusIX',
     });

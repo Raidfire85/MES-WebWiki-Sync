@@ -1,4 +1,5 @@
-import { getTypeHint, inferDescription } from './syncBridge';
+import { getTypeHint } from './syncBridge';
+import { inferRichDescription } from './tagDescriptionGenerator';
 import type { TagMetaMap, WikiTableStyle } from './types';
 
 export function allowedValuesMarkdown(allowedValuesHtml: string): string {
@@ -51,7 +52,7 @@ export function buildMkDocsTagTableFromMeta(
   const parseType = meta[tagName] ?? 'Unknown';
   const hint = getTypeHint(parseType);
   const multipleAllowed = hint.multipleAllowed ? 'Yes' : 'No';
-  const description = tagDescriptions[tagName] ?? inferDescription(tagName, parseType);
+  const description = tagDescriptions[tagName] ?? inferRichDescription(tagName, parseType);
 
   return buildMkDocsTagTable(
     tagName,

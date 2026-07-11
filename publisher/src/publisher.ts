@@ -7,6 +7,7 @@ import {
   getSupplementTagsForMarkdown,
   injectWebWikiSyncSection,
   pageTitleFromMdFile,
+  updateProfilePageBlurb,
 } from './mkDocsContent';
 import { buildMkDocsTagTableFromMeta } from './mkDocsTables';
 import {
@@ -14,6 +15,11 @@ import {
   extensionHtmlToWebWikiMd,
 } from './constants';
 import { discoverWebWikiProfiles } from './profileDiscovery';
+import { inferProfileBlurbFromSource } from './profileBlurbGenerator';
+import {
+  buildTagDescriptionsFromMesSource,
+  mergeTagDescriptionMaps,
+} from './tagDescriptionGenerator';
 import { updateMkDocsFile } from './mkDocsYaml';
 import { ensureHomePage } from './mkDocsHome';
 import { ensureWebWikiStylePatches } from './mkDocsStyle';
@@ -41,7 +47,9 @@ export async function publishMesWebWiki(
     sourceLabel: options.sourceLabel,
   };
 
-  const tagDescriptions = await loadTagDescriptions(options.tagDescriptionsPath);
+  const fileTagDescriptions = await loadTagDescriptions(options.tagDescriptionsPath);
+  const sourceTagDescriptions = await buildTagDescriptionsFromMesSource(options.mesSourcePath);
+  const tagDescriptions = mergeTagDescriptionMaps(sourceTagDescriptions, fileTagDescriptions);
   await fs.mkdir(options.docsDir, { recursive: true });
 
   try {
@@ -82,14 +90,14 @@ export async function publishMesWebWiki(
       }
 
       const uniqueSourceTags = [...new Set(sourceTags)];
-      const supplementTags = getSupplementTagsForMarkdown(existing, uniqueSourceTags);
+      const syncManagedTags = getSupplementTagsForMarkdown(existing, uniqueSourceTags);
 
       let renderedRows = '';
-      if (supplementTags.length > 0) {
+      if (syncManagedTags.length > 0) {
         const meta = cfg.profile
           ? await getTagMetaFromSource(options.mesSourcePath, cfg.profile)
           : {};
-        renderedRows = supplementTags
+        renderedRows = syncManagedTags
           .map((tag) => buildMkDocsTagTableFromMeta(tag, meta, tagDescriptions, cfg.style))
           .join('\n');
       }
@@ -108,7 +116,7 @@ export async function publishMesWebWiki(
         await fs.writeFile(mdPath, next, 'utf8');
       }
 
-      result.updated.push(`${mdFile} (+${supplementTags.length} tags)`);
+      result.updated.push(`${mdFile} (${syncManagedTags.length} sync-managed tags)`);
     } catch (error) {
       result.errors.push(`${mdFile}: ${formatError(error)}`);
     }
@@ -153,18 +161,29 @@ export async function publishMesWebWiki(
         }
       }
 
-      const next = isNew
+      const blurb = await inferProfileBlurbFromSource(
+        options.mesSourcePath,
+        profile.profileCs,
+        profile.header,
+        profile.title
+      );
+
+      let next = isNew
         ? buildNewProfileMarkdownPage({
             title: profile.title,
-            blurb: profile.blurb,
+            blurb,
             header: profile.header,
             tableRows,
           })
-        : injectWebWikiSyncSection(existing, tableRows, {
-            pageTitle: profile.title,
-            mdFile,
-            mode: 'profile-page',
-          });
+        : updateProfilePageBlurb(
+            injectWebWikiSyncSection(existing, tableRows, {
+              pageTitle: profile.title,
+              mdFile,
+              mode: 'profile-page',
+            }),
+            profile.title,
+            blurb
+          );
 
       if (contentEquals(existing, next)) {
         result.skipped.push(`${mdFile} (profile page up to date)`);
@@ -309,7 +328,7 @@ async function loadTagDescriptions(
 
   try {
     const raw = await fs.readFile(tagDescriptionsPath, 'utf8');
-    const entries = JSON.parse(raw) as TagDescriptionEntry[];
+    const entries = JSON.parse(raw.replace(/^\uFEFF/, '')) as TagDescriptionEntry[];
     return Object.fromEntries(entries.map((entry) => [entry.Tag, entry.Description]));
   } catch {
     return {};
