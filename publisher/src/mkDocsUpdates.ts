@@ -176,6 +176,35 @@ export async function saveUpdatesHistory(
   await fs.writeFile(filePath, `${JSON.stringify(normalizeHistory(history), null, 2)}\n`, 'utf8');
 }
 
+/** Clear homepage highlight history. Does not reset mes-wiki-sync-registry.json. */
+export async function resetWhatsNewHistory(
+  docsDir: string,
+  write: boolean
+): Promise<{ changed: boolean }> {
+  const history: WikiUpdatesHistoryV2 = { version: 2, runs: [] };
+
+  await saveUpdatesHistory(docsDir, history, write);
+
+  const homePath = path.join(docsDir, HOME_FILE);
+  let content = '';
+  try {
+    content = await fs.readFile(homePath, 'utf8');
+  } catch {
+    return { changed: false };
+  }
+
+  const next = injectUpdatesBlockIntoHome(content, history);
+  if (contentEquals(content, next)) {
+    return { changed: false };
+  }
+
+  if (write) {
+    await fs.writeFile(homePath, next, 'utf8');
+  }
+
+  return { changed: true };
+}
+
 export function injectUpdatesBlockIntoHome(content: string, history: WikiUpdatesHistoryV2): string {
   const block = buildUpdatesSyncBlock(history).trim();
   const updatesPattern = new RegExp(

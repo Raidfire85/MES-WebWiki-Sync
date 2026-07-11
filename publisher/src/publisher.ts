@@ -26,7 +26,7 @@ import {
 import { updateMkDocsFile } from './mkDocsYaml';
 import { ensureHomePage } from './mkDocsHome';
 import { ensureWebWikiStylePatches } from './mkDocsStyle';
-import { applyHomeUpdates } from './mkDocsUpdates';
+import { applyHomeUpdates, resetWhatsNewHistory } from './mkDocsUpdates';
 import { applySyncLog } from './wikiSyncLog';
 import {
   filterNovelTags,
@@ -68,6 +68,23 @@ export async function publishMesWebWiki(
   await fs.mkdir(options.docsDir, { recursive: true });
 
   const syncRegistry = await loadSyncRegistry(options.docsDir);
+
+  if (options.resetWhatsNew) {
+    try {
+      const resetResult = await resetWhatsNewHistory(options.docsDir, options.write);
+      if (resetResult.changed) {
+        result.updated.push('index.md (What\'s new history reset)');
+        logChange(result, {
+          kind: 'maintenance',
+          file: 'index.md',
+          detail: 'Homepage What\'s new history cleared (mes-wiki-updates.json)',
+        });
+      }
+    } catch (error) {
+      result.errors.push(`What's new reset: ${formatError(error)}`);
+      logChange(result, { kind: 'error', file: 'index.md', detail: formatError(error) });
+    }
+  }
 
   const HINT_SUPPLEMENTAL_FILES = [
     'Enums.cs',

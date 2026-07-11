@@ -33,6 +33,7 @@ Options:
   --tag-descriptions <path>
                         TagDescriptions.json (optional; defaults to publisher/TagDescriptions.json)
   --write               Apply file changes (default: dry-run report only)
+  --reset-whats-new     Clear homepage What's new history (keeps sync registry)
   --no-fix-mkdocs-warnings
                         Skip mkdocs.yml nav .md fixes and validation relax block
   --help                Show this help
@@ -105,6 +106,7 @@ async function main() {
   const tagDescriptionsPath = readArg('tag-descriptions') ?? defaultTagDescriptionsPath();
   const write = hasFlag('write');
   const fixMkdocsWarnings = !hasFlag('no-fix-mkdocs-warnings');
+  const resetWhatsNew = hasFlag('reset-whats-new');
 
   console.log(`MES WebWiki sync (${write ? 'write' : 'dry-run'})`);
   console.log(`Docs: ${path.resolve(docsDir)}`);
@@ -125,6 +127,7 @@ async function main() {
       sourceLabel: acquired.label,
       write,
       fixMkdocsWarnings,
+      resetWhatsNew,
     });
 
     console.log(`\nSource: ${result.sourceLabel}`);

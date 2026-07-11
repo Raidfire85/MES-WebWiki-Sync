@@ -41,6 +41,8 @@ export interface WebWikiPublishOptions {
   sourceLabel: string;
   write: boolean;
   fixMkdocsWarnings?: boolean;
+  /** One-time: clear mes-wiki-updates.json and homepage highlight history. */
+  resetWhatsNew?: boolean;
 }
 
 import type { ExternalLinkAuditEntry } from './externalPageLocalization';
