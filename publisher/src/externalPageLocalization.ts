@@ -2,6 +2,10 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 import { contentEquals } from './syncBridge';
 import { GITHUB_REPO } from './sync/constants';
+import {
+  BLOCK_REPLACEMENT_PROFILES_MD,
+  mergeBlockReplacementProfilesPage,
+} from './blockReplacementProfilesIntro';
 
 const WIKI_BASE_URL = `https://github.com/${GITHUB_REPO}/wiki/`;
 const WIKI_RAW_BASE = `https://raw.githubusercontent.com/wiki/${GITHUB_REPO}/`;
@@ -176,7 +180,14 @@ async function fetchMissingExternalPages(
     const mdPath = path.join(options.docsDir, target.mdFile);
     const exists = docsFiles.has(target.mdFile.toLowerCase());
     const raw = await fetchGistRaw(gistId);
-    const next = formatFetchedPageContent(raw, target.title, target.wrapAsXml);
+    const gistPage = formatFetchedPageContent(raw, target.title, target.wrapAsXml);
+    const next =
+      target.mdFile === BLOCK_REPLACEMENT_PROFILES_MD
+        ? mergeBlockReplacementProfilesPage(
+            exists ? await fs.readFile(mdPath, 'utf8') : null,
+            gistPage
+          )
+        : gistPage;
 
     if (!exists) {
       if (options.write) {
