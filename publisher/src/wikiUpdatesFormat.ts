@@ -135,7 +135,7 @@ export function buildPublishHighlights(result: WebWikiPublishResult): WikiUpdate
     highlights.push(...groupCreatedHighlights(createdHighlights));
   }
 
-  highlights.push(...buildGroupedTagHighlights(tagUpdates));
+  highlights.push(...buildGroupedTagHighlights(dedupeTagUpdatesByPage(tagUpdates)));
 
   if (navUpdated) {
     highlights.push({
@@ -148,6 +148,21 @@ export function buildPublishHighlights(result: WebWikiPublishResult): WikiUpdate
 
 function stripMdExtension(mdFile: string): string {
   return mdFile.replace(/\.md$/i, '');
+}
+
+function dedupeTagUpdatesByPage(
+  updates: Array<{ title: string; mdFile: string; count: number }>
+): Array<{ title: string; mdFile: string; count: number }> {
+  const byFile = new Map<string, { title: string; mdFile: string; count: number }>();
+
+  for (const update of updates) {
+    const existing = byFile.get(update.mdFile);
+    if (!existing || update.count > existing.count) {
+      byFile.set(update.mdFile, update);
+    }
+  }
+
+  return [...byFile.values()];
 }
 
 export function legacyLineToHighlight(line: string): WikiUpdateHighlight | null {

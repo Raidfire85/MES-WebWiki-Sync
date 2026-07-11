@@ -29,6 +29,15 @@ import { ensureWebWikiStylePatches } from './mkDocsStyle';
 import { applyHomeUpdates } from './mkDocsUpdates';
 import { applySyncLog } from './wikiSyncLog';
 import {
+  filterNovelTags,
+  isProfilePageAnnounced,
+  loadSyncRegistry,
+  markNavigationAnnounced,
+  saveSyncRegistry,
+  shouldAnnounceNavigation,
+  updateRegistryAfterWrite,
+} from './wikiSyncRegistry';
+import {
   getProfileMdFile,
   getProfilePlacement,
 } from './profilePlacements';
@@ -57,6 +66,8 @@ export async function publishMesWebWiki(
   const sourceTagDescriptions = await buildTagDescriptionsFromMesSource(options.mesSourcePath);
   const tagDescriptions = mergeTagDescriptionMaps(sourceTagDescriptions, fileTagDescriptions);
   await fs.mkdir(options.docsDir, { recursive: true });
+
+  const syncRegistry = await loadSyncRegistry(options.docsDir);
 
   const HINT_SUPPLEMENTAL_FILES = [
     'Enums.cs',
@@ -162,24 +173,38 @@ export async function publishMesWebWiki(
         mdFile,
         mode: 'supplement',
       });
+
       if (contentEquals(existing, next)) {
         result.skipped.push(`${mdFile} (already up to date)`);
         logChange(result, { kind: 'skipped', file: mdFile });
         continue;
       }
 
+      const analysis = analyzePageContentChanges(existing, next, uniqueSourceTags);
+      const novelTags = filterNovelTags(syncRegistry, mdFile, analysis.tagsAdded);
+
       if (options.write) {
         await fs.writeFile(mdPath, next, 'utf8');
+        updateRegistryAfterWrite(syncRegistry, mdFile, next, {
+          kind: 'supplement',
+          profileCs: cfg.profile ?? undefined,
+          announcedTags: novelTags,
+        });
       }
 
-      const analysis = analyzePageContentChanges(existing, next, uniqueSourceTags);
-      result.updated.push(`${mdFile} (${syncManagedTags.length} sync-managed tags)`);
+      if (novelTags.length === 0 && analysis.tagsRefreshed.length === 0) {
+        continue;
+      }
+
+      result.updated.push(
+        `${mdFile} (${novelTags.length > 0 ? `+${novelTags.length}` : `${analysis.tagsRefreshed.length} refreshed`} tags)`
+      );
       logChange(result, {
         kind: 'tag-update',
         file: mdFile,
         profileCs: cfg.profile ?? undefined,
         profileTitle: pageTitleFromMdFile(mdFile),
-        tagsAdded: analysis.tagsAdded,
+        tagsAdded: novelTags,
         tagsRemoved: analysis.tagsRemoved,
         tagsRefreshed: analysis.tagsRefreshed,
       });
@@ -314,48 +339,30 @@ export async function publishMesWebWiki(
           }
         }
 
-        if (isNew) {
-          result.created.push(`${mdFile} (${metaTags.length} tags)`);
-          logChange(result, {
-            kind: 'page-created',
-            file: mdFile,
-            profileCs: profile.profileCs,
-            profileTitle: profile.title,
-            tagsAdded: metaTags,
-          });
-        } else {
-          result.updated.push(`${mdFile} (profile, ${metaTags.length} tags)`);
-          logChange(result, {
-            kind: 'profile-update',
-            file: mdFile,
-            profileCs: profile.profileCs,
-            profileTitle: profile.title,
-            tagsAdded: analysis.tagsAdded,
-            tagsRemoved: analysis.tagsRemoved,
-            tagsRefreshed: analysis.tagsRefreshed,
-            sectionsUpdated,
-          });
-        }
-      } else if (isNew) {
-        result.created.push(`${mdFile} (${metaTags.length} tags)`);
-        logChange(result, {
-          kind: 'page-created',
-          file: mdFile,
-          profileCs: profile.profileCs,
-          profileTitle: profile.title,
-          tagsAdded: metaTags,
+        logProfileRegistryChange({
+          syncRegistry,
+          result,
+          mdFile,
+          profile,
+          metaTags,
+          analysis,
+          sectionsUpdated,
+          isNew,
+          next,
+          write: true,
         });
       } else {
-        result.updated.push(`${mdFile} (profile, ${metaTags.length} tags)`);
-        logChange(result, {
-          kind: 'profile-update',
-          file: mdFile,
-          profileCs: profile.profileCs,
-          profileTitle: profile.title,
-          tagsAdded: analysis.tagsAdded,
-          tagsRemoved: analysis.tagsRemoved,
-          tagsRefreshed: analysis.tagsRefreshed,
+        logProfileRegistryChange({
+          syncRegistry,
+          result,
+          mdFile,
+          profile,
+          metaTags,
+          analysis,
           sectionsUpdated,
+          isNew,
+          next,
+          write: false,
         });
       }
 
@@ -463,23 +470,28 @@ export async function publishMesWebWiki(
         if (mkdocsResult.validationRelaxed) {
           details.push('validation relaxed for legacy wiki warnings');
         }
+        const announceNav =
+          mkdocsResult.navEntriesAdded > 0 &&
+          shouldAnnounceNavigation(syncRegistry, mkdocsResult.navEntriesAdded);
         result.updated.push(`mkdocs.yml (${details.join(', ') || 'mkdocs warning fixes'})`);
         logChange(result, {
-          kind: mkdocsResult.navEntriesAdded > 0 ? 'navigation' : 'maintenance',
+          kind: announceNav ? 'navigation' : 'maintenance',
           file: 'mkdocs.yml',
           detail: details.join('; ') || 'MkDocs warning fixes',
-          navEntries:
-            mkdocsResult.navEntriesAdded > 0
-              ? profileNavEntries
-                  .filter((entry) => entry.placement.navGroup !== 'existing-leaf')
-                  .map((entry) => ({
-                    title: entry.placement.navTitle,
-                    mdFile: entry.mdFile,
-                    navGroup: entry.placement.navGroup,
-                    profileCs: entry.profileCs,
-                  }))
-              : undefined,
+          navEntries: announceNav
+            ? profileNavEntries
+                .filter((entry) => entry.placement.navGroup !== 'existing-leaf')
+                .map((entry) => ({
+                  title: entry.placement.navTitle,
+                  mdFile: entry.mdFile,
+                  navGroup: entry.placement.navGroup,
+                  profileCs: entry.profileCs,
+                }))
+            : undefined,
         });
+        if (options.write && announceNav) {
+          markNavigationAnnounced(syncRegistry);
+        }
       } else if (options.fixMkdocsWarnings !== false) {
         result.skipped.push('mkdocs.yml (already up to date)');
         logChange(result, { kind: 'skipped', file: 'mkdocs.yml' });
@@ -516,7 +528,95 @@ export async function publishMesWebWiki(
     logChange(result, { kind: 'error', file: 'LOG.md', detail: formatError(error) });
   }
 
+  try {
+    await saveSyncRegistry(options.docsDir, syncRegistry, options.write, options.sourceLabel);
+  } catch (error) {
+    result.errors.push(`mes-wiki-sync-registry.json: ${formatError(error)}`);
+    logChange(result, {
+      kind: 'error',
+      file: 'mes-wiki-sync-registry.json',
+      detail: formatError(error),
+    });
+  }
+
   return result;
+}
+
+function logProfileRegistryChange(options: {
+  syncRegistry: import('./wikiSyncRegistry').WikiSyncRegistry;
+  result: WebWikiPublishResult;
+  mdFile: string;
+  profile: { profileCs: string; title: string };
+  metaTags: string[];
+  analysis: import('./wikiChangeDetails').PageContentChangeAnalysis;
+  sectionsUpdated: string[];
+  isNew: boolean;
+  next: string;
+  write: boolean;
+}): void {
+  const {
+    syncRegistry,
+    result,
+    mdFile,
+    profile,
+    metaTags,
+    analysis,
+    sectionsUpdated,
+    isNew,
+    next,
+    write,
+  } = options;
+
+  const pageAlreadyAnnounced = isProfilePageAnnounced(syncRegistry, mdFile);
+  const candidateTags = isNew && !pageAlreadyAnnounced ? metaTags : analysis.tagsAdded;
+  const novelTags = filterNovelTags(syncRegistry, mdFile, candidateTags);
+
+  if (write) {
+    updateRegistryAfterWrite(syncRegistry, mdFile, next, {
+      kind: 'profile',
+      profileCs: profile.profileCs,
+      announcedTags: novelTags,
+      markPageAnnounced: isNew || pageAlreadyAnnounced || novelTags.length > 0,
+    });
+  }
+
+  const hasMeaningfulChange =
+    novelTags.length > 0 ||
+    analysis.tagsRefreshed.length > 0 ||
+    sectionsUpdated.length > 0 ||
+    analysis.tagsRemoved.length > 0;
+
+  if (!hasMeaningfulChange) {
+    return;
+  }
+
+  if (isNew && !pageAlreadyAnnounced && novelTags.length > 0) {
+    result.created.push(`${mdFile} (${novelTags.length} tags)`);
+    logChange(result, {
+      kind: 'page-created',
+      file: mdFile,
+      profileCs: profile.profileCs,
+      profileTitle: profile.title,
+      tagsAdded: novelTags,
+    });
+    return;
+  }
+
+  if (novelTags.length === 0 && analysis.tagsRefreshed.length === 0) {
+    return;
+  }
+
+  result.updated.push(`${mdFile} (profile, ${novelTags.length > 0 ? `+${novelTags.length}` : `${analysis.tagsRefreshed.length} refreshed`} tags)`);
+  logChange(result, {
+    kind: 'profile-update',
+    file: mdFile,
+    profileCs: profile.profileCs,
+    profileTitle: profile.title,
+    tagsAdded: novelTags,
+    tagsRemoved: analysis.tagsRemoved,
+    tagsRefreshed: analysis.tagsRefreshed,
+    sectionsUpdated,
+  });
 }
 
 function logChange(result: WebWikiPublishResult, record: WikiSyncChangeRecord): void {

@@ -147,7 +147,7 @@ export function recordPublishRun(
     MAX_HISTORY_RUNS
   );
 
-  return normalizeHistory({ version: 2, runs });
+  return normalizeHistory({ ...history, runs });
 }
 
 export async function loadUpdatesHistory(docsDir: string): Promise<WikiUpdatesHistoryV2> {
