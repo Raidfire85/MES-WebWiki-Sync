@@ -275,15 +275,17 @@ function migrateHistory(history: WikiUpdatesHistoryFile): WikiUpdatesHistoryV2 {
 }
 
 function normalizeHistory(history: WikiUpdatesHistoryV2): WikiUpdatesHistoryV2 {
-  const runs = pruneContainedHighlightRuns(
-    dedupeRunsByHighlights(
-      history.runs
-        .map((run) => ({
-          date: run.date,
-          source: run.source,
-          highlights: run.highlights.filter((highlight) => highlight.segments.length > 0),
-        }))
-        .filter((run) => run.highlights.length > 0)
+  const runs = mergeHistoryByDate(
+    keepNovelHighlightsPerRun(
+      dedupeRunsByHighlights(
+        history.runs
+          .map((run) => ({
+            date: run.date,
+            source: run.source,
+            highlights: run.highlights.filter((highlight) => highlight.segments.length > 0),
+          }))
+          .filter((run) => run.highlights.length > 0)
+      )
     )
   ).slice(0, MAX_HISTORY_RUNS);
 
@@ -310,27 +312,104 @@ function dedupeRunsByHighlights(runs: WikiUpdateRun[]): WikiUpdateRun[] {
   return deduped;
 }
 
-/** Drop older runs whose highlights were already surfaced in a newer run. */
-function pruneContainedHighlightRuns(runs: WikiUpdateRun[]): WikiUpdateRun[] {
+/** Drop highlight lines already shown in a newer run; remove runs that become empty. */
+function keepNovelHighlightsPerRun(runs: WikiUpdateRun[]): WikiUpdateRun[] {
   const seenHighlights = new Set<string>();
   const pruned: WikiUpdateRun[] = [];
 
   for (const run of runs) {
-    const highlightTexts = run.highlights.map(highlightToPlainText);
-    if (
-      highlightTexts.length > 0 &&
-      highlightTexts.every((text) => seenHighlights.has(text))
-    ) {
+    const novelHighlights = run.highlights.filter((highlight) => {
+      const text = highlightToPlainText(highlight);
+      return !seenHighlights.has(text);
+    });
+
+    if (novelHighlights.length === 0) {
       continue;
     }
 
-    for (const text of highlightTexts) {
-      seenHighlights.add(text);
+    for (const highlight of run.highlights) {
+      seenHighlights.add(highlightToPlainText(highlight));
     }
-    pruned.push(run);
+
+    pruned.push({ ...run, highlights: novelHighlights });
   }
 
   return pruned;
+}
+
+/** Merge older history entries that share the same date into one section. */
+function mergeHistoryByDate(runs: WikiUpdateRun[]): WikiUpdateRun[] {
+  if (runs.length <= 1) {
+    return runs;
+  }
+
+  const [latest, ...history] = runs;
+  const mergedByDate = new Map<string, WikiUpdateRun>();
+
+  for (const run of history) {
+    const existing = mergedByDate.get(run.date);
+    if (!existing) {
+      mergedByDate.set(run.date, { ...run, highlights: [...run.highlights] });
+      continue;
+    }
+
+    existing.highlights.push(...run.highlights);
+    existing.highlights = dedupeSimilarHighlights(existing.highlights);
+  }
+
+  const mergedHistory = [...mergedByDate.entries()]
+    .sort((a, b) => b[0].localeCompare(a[0]))
+    .map(([, run]) => ({
+      ...run,
+      highlights: dedupeSimilarHighlights(run.highlights),
+    }));
+
+  return [latest, ...mergedHistory];
+}
+
+function dedupeSimilarHighlights(highlights: WikiUpdateHighlight[]): WikiUpdateHighlight[] {
+  const kept: WikiUpdateHighlight[] = [];
+
+  for (const highlight of highlights) {
+    const text = highlightToPlainText(highlight);
+    const similarIndex = kept.findIndex((entry) =>
+      areSimilarHighlights(highlightToPlainText(entry), text)
+    );
+
+    if (similarIndex === -1) {
+      kept.push(highlight);
+      continue;
+    }
+
+    const existingText = highlightToPlainText(kept[similarIndex]);
+    if (shouldPreferHighlight(text, existingText)) {
+      kept[similarIndex] = highlight;
+    }
+  }
+
+  return kept;
+}
+
+function areSimilarHighlights(a: string, b: string): boolean {
+  if (a === b) {
+    return true;
+  }
+
+  return normalizeHighlightCompareKey(a) === normalizeHighlightCompareKey(b);
+}
+
+function normalizeHighlightCompareKey(text: string): string {
+  return text.replace(/\d+/g, '#').trim();
+}
+
+function shouldPreferHighlight(candidate: string, existing: string): boolean {
+  return extractTagCount(candidate) > extractTagCount(existing);
+}
+
+function extractTagCount(text: string): number {
+  const match =
+    text.match(/(\d+)\s+new tags documented/i) ?? text.match(/(\d+)\s+tags documented/i);
+  return match ? Number.parseInt(match[1], 10) : 0;
 }
 
 function runHighlightsFingerprint(run: WikiUpdateRun): string {
