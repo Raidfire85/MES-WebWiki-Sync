@@ -34,6 +34,8 @@ Options:
                         TagDescriptions.json (optional; defaults to publisher/TagDescriptions.json)
   --write               Apply file changes (default: dry-run report only)
   --reset-whats-new     Clear homepage What's new history (keeps sync registry)
+  --announce-economy-suit-profiles
+                        Add What's new highlights for Economy & Station Blocks + Suit Upgrades
   --no-fix-mkdocs-warnings
                         Skip mkdocs.yml nav .md fixes and validation relax block
   --help                Show this help
@@ -107,6 +109,7 @@ async function main() {
   const write = hasFlag('write');
   const fixMkdocsWarnings = !hasFlag('no-fix-mkdocs-warnings');
   const resetWhatsNew = hasFlag('reset-whats-new');
+  const announceEconomySuitProfiles = hasFlag('announce-economy-suit-profiles');
 
   console.log(`MES WebWiki sync (${write ? 'write' : 'dry-run'})`);
   console.log(`Docs: ${path.resolve(docsDir)}`);
@@ -128,6 +131,7 @@ async function main() {
       write,
       fixMkdocsWarnings,
       resetWhatsNew,
+      announceEconomySuitProfiles,
     });
 
     console.log(`\nSource: ${result.sourceLabel}`);

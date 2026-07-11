@@ -43,6 +43,8 @@ export interface WebWikiPublishOptions {
   fixMkdocsWarnings?: boolean;
   /** One-time: clear mes-wiki-updates.json and homepage highlight history. */
   resetWhatsNew?: boolean;
+  /** Curate homepage highlights for Economy & Station Blocks + Suit Upgrades profiles. */
+  announceEconomySuitProfiles?: boolean;
 }
 
 import type { ExternalLinkAuditEntry } from './externalPageLocalization';

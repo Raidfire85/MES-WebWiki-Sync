@@ -15,6 +15,7 @@ import {
   renderHighlightHtml,
   type WikiUpdateHighlight,
 } from './wikiUpdatesFormat';
+import { pageTitleFromMdFile } from './syncSectionCopy';
 
 const HOME_FILE = 'index.md';
 const HISTORY_FILE = 'mes-wiki-updates.json';
@@ -199,6 +200,86 @@ export async function resetWhatsNewHistory(
   }
 
   if (write) {
+    await fs.writeFile(homePath, next, 'utf8');
+  }
+
+  return { changed: true };
+}
+
+/** Profile pages under Modding → Economy & Station Blocks in mkdocs.yml. */
+export const ECONOMY_STATION_BLOCK_PROFILES = [
+  'Contract-Block-Profile.md',
+  'Mission-Profile.md',
+  'Safezone-Profile.md',
+  'Shipyard-Profile.md',
+  'Store-Profile.md',
+] as const;
+
+/** Profile pages under Modding → Suit Upgrades in mkdocs.yml. */
+export const MODDING_SUIT_UPGRADE_PROFILES = ['Suit-Upgrades-Profile.md'] as const;
+
+export async function announceProfilePagesInWhatsNew(
+  docsDir: string,
+  mdFiles: string[],
+  options: {
+    write: boolean;
+    source: string;
+    tagCountForPage: (mdFile: string) => number;
+    navNote?: string;
+  }
+): Promise<{ changed: boolean }> {
+  const highlights: WikiUpdateHighlight[] = mdFiles
+    .filter((mdFile) => options.tagCountForPage(mdFile) > 0)
+    .map((mdFile) => ({
+      segments: [
+        { type: 'text', value: 'New ' },
+        { type: 'link', title: pageTitleFromMdFile(mdFile), mdFile },
+        {
+          type: 'text',
+          value: ` profile page — ${options.tagCountForPage(mdFile)} tags documented.`,
+        },
+      ],
+    }));
+
+  if (options.navNote) {
+    highlights.push({
+      segments: [{ type: 'text', value: options.navNote }],
+    });
+  }
+
+  if (highlights.length === 0) {
+    return { changed: false };
+  }
+
+  const history = await loadUpdatesHistory(docsDir);
+  const run: WikiUpdateRun = {
+    date: formatDateUtc(new Date()),
+    source: options.source,
+    highlights,
+  };
+
+  const nextHistory = normalizeHistory({
+    ...history,
+    runs: [run, ...history.runs.filter((entry) => !sameRun(entry, run))],
+    lastSynced: { date: run.date, source: options.source },
+  });
+
+  await saveUpdatesHistory(docsDir, nextHistory, options.write);
+
+  const homePath = path.join(docsDir, HOME_FILE);
+  let content = '';
+  try {
+    content = await fs.readFile(homePath, 'utf8');
+  } catch {
+    return { changed: false };
+  }
+
+  const next = injectUpdatesBlockIntoHome(content, nextHistory);
+  if (contentEquals(content, next)) {
+    return { changed: false };
+  }
+
+  if (options.write) {
     await fs.writeFile(homePath, next, 'utf8');
   }
 

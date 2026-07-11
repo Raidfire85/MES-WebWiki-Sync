@@ -26,7 +26,7 @@ import {
 import { updateMkDocsFile } from './mkDocsYaml';
 import { ensureHomePage } from './mkDocsHome';
 import { ensureWebWikiStylePatches } from './mkDocsStyle';
-import { applyHomeUpdates, resetWhatsNewHistory } from './mkDocsUpdates';
+import { applyHomeUpdates, announceProfilePagesInWhatsNew, ECONOMY_STATION_BLOCK_PROFILES, MODDING_SUIT_UPGRADE_PROFILES, resetWhatsNewHistory } from './mkDocsUpdates';
 import { applySyncLog } from './wikiSyncLog';
 import {
   filterNovelTags,
@@ -532,6 +532,41 @@ export async function publishMesWebWiki(
   } catch (error) {
     result.errors.push(`index.md updates: ${formatError(error)}`);
     logChange(result, { kind: 'error', file: 'index.md updates', detail: formatError(error) });
+  }
+
+  if (options.announceEconomySuitProfiles) {
+    try {
+      const profilePages = [
+        ...ECONOMY_STATION_BLOCK_PROFILES,
+        ...MODDING_SUIT_UPGRADE_PROFILES,
+      ];
+      const announceResult = await announceProfilePagesInWhatsNew(
+        options.docsDir,
+        [...profilePages],
+        {
+          write: options.write,
+          source: options.sourceLabel,
+          tagCountForPage: (mdFile) => syncRegistry.pages[mdFile]?.syncedTags.length ?? 0,
+          navNote:
+            'Economy & Station Blocks and Suit Upgrades profile pages added under Modding.',
+        }
+      );
+      if (announceResult.changed) {
+        result.updated.push('index.md (Economy & Station Blocks + Suit Upgrades announced)');
+        logChange(result, {
+          kind: 'maintenance',
+          file: 'index.md',
+          detail: `Homepage What's new updated for ${profilePages.length} profile pages`,
+        });
+      }
+    } catch (error) {
+      result.errors.push(`Economy/Suit profile announcement: ${formatError(error)}`);
+      logChange(result, {
+        kind: 'error',
+        file: 'index.md',
+        detail: formatError(error),
+      });
+    }
   }
 
   try {
