@@ -1,4 +1,9 @@
-import { WEBWIKI_SYNC_END, WEBWIKI_SYNC_START } from './constants';
+import {
+  WEBWIKI_EXAMPLE_SYNC_END,
+  WEBWIKI_EXAMPLE_SYNC_START,
+  WEBWIKI_SYNC_END,
+  WEBWIKI_SYNC_START,
+} from './constants';
 import {
   pageTitleFromMdFile,
   resolveSyncSectionCopy,
@@ -7,6 +12,18 @@ import {
 
 export type { SyncSectionContext } from './syncSectionCopy';
 export { pageTitleFromMdFile } from './syncSectionCopy';
+
+export function removeWebWikiExampleBlock(content: string): string {
+  if (!content.includes(WEBWIKI_EXAMPLE_SYNC_START)) {
+    return content;
+  }
+
+  const pattern = new RegExp(
+    `${escapeRegex(WEBWIKI_EXAMPLE_SYNC_START)}[\\s\\S]*?${escapeRegex(WEBWIKI_EXAMPLE_SYNC_END)}`,
+    'g'
+  );
+  return content.replace(pattern, '').trimEnd();
+}
 
 export function removeWebWikiSyncBlock(content: string): string {
   if (!content.includes(WEBWIKI_SYNC_START)) {
@@ -52,6 +69,21 @@ ${tableRows.trim()}
 ${WEBWIKI_SYNC_END}`;
 }
 
+export function injectProfileExampleSection(content: string, exampleSection: string): string {
+  const base = removeWebWikiExampleBlock(content).trimEnd();
+  if (!exampleSection.trim()) {
+    return base;
+  }
+
+  const block = exampleSection.trim();
+  const syncStart = base.indexOf(WEBWIKI_SYNC_START);
+  if (syncStart !== -1) {
+    return `${base.slice(0, syncStart).trimEnd()}\n\n${block}\n\n${base.slice(syncStart)}`;
+  }
+
+  return `${base}\n\n${block}\n`;
+}
+
 export function injectWebWikiSyncSection(
   content: string,
   tableRows: string,
@@ -79,7 +111,7 @@ export function updateProfilePageBlurb(content: string, title: string, blurb: st
 
   const rest = content.slice(cursor);
   const stopMatch = rest.match(
-    /^(?:Profile header:|<!-- MES-WEBWIKI-SOURCE-SYNC-START -->|## )/m
+    /^(?:Profile header:|<!-- MES-WEBWIKI-EXAMPLE-SYNC-START -->|<!-- MES-WEBWIKI-SOURCE-SYNC-START -->|## )/m
   );
   const stopOffset = stopMatch?.index ?? rest.length;
   const afterBlurb = rest.slice(stopOffset).replace(/^\n+/, '');
@@ -91,6 +123,7 @@ export function buildNewProfileMarkdownPage(options: {
   title: string;
   blurb: string;
   header: string | null;
+  exampleSection: string;
   tableRows: string;
 }): string {
   const headerLine = options.header
@@ -104,10 +137,19 @@ export function buildNewProfileMarkdownPage(options: {
       })
     : '';
 
-  return `# ${options.title}
+  const withHeader = `# ${options.title}
 
-${options.blurb.trim()}${headerLine}
-${body ? `\n\n${body}\n` : '\n'}`;
+${options.blurb.trim()}${headerLine}`;
+
+  const withExample = options.exampleSection.trim()
+    ? injectProfileExampleSection(withHeader, options.exampleSection)
+    : withHeader;
+
+  if (!body) {
+    return `${withExample.trimEnd()}\n`;
+  }
+
+  return `${withExample.trimEnd()}\n\n${body}\n`;
 }
 
 function escapeRegex(value: string): string {

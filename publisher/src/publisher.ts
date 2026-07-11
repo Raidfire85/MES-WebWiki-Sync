@@ -5,6 +5,7 @@ import type { NewProfilePageConfig, WebWikiPublishOptions, WebWikiPublishResult 
 import {
   buildNewProfileMarkdownPage,
   getSupplementTagsForMarkdown,
+  injectProfileExampleSection,
   injectWebWikiSyncSection,
   pageTitleFromMdFile,
   updateProfilePageBlurb,
@@ -16,6 +17,7 @@ import {
 } from './constants';
 import { discoverWebWikiProfiles } from './profileDiscovery';
 import { inferProfileBlurbFromSource } from './profileBlurbGenerator';
+import { buildProfileExampleSectionFromSource } from './profileExampleGenerator';
 import {
   buildTagDescriptionsFromMesSource,
   mergeTagDescriptionMaps,
@@ -167,20 +169,31 @@ export async function publishMesWebWiki(
         profile.header,
         profile.title
       );
+      const exampleSection = await buildProfileExampleSectionFromSource({
+        mesSourcePath: options.mesSourcePath,
+        profileCs: profile.profileCs,
+        title: profile.title,
+        header: profile.header,
+        meta,
+      });
 
       let next = isNew
         ? buildNewProfileMarkdownPage({
             title: profile.title,
             blurb,
             header: profile.header,
+            exampleSection,
             tableRows,
           })
         : updateProfilePageBlurb(
-            injectWebWikiSyncSection(existing, tableRows, {
-              pageTitle: profile.title,
-              mdFile,
-              mode: 'profile-page',
-            }),
+            injectProfileExampleSection(
+              injectWebWikiSyncSection(existing, tableRows, {
+                pageTitle: profile.title,
+                mdFile,
+                mode: 'profile-page',
+              }),
+              exampleSection
+            ),
             profile.title,
             blurb
           );

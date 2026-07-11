@@ -14,6 +14,8 @@ export const WEBWIKI_UPDATES_SYNC_START = '<!-- MES-WEBWIKI-UPDATES-SYNC-START -
 export const WEBWIKI_UPDATES_SYNC_END = '<!-- MES-WEBWIKI-UPDATES-SYNC-END -->';
 export const WEBWIKI_STYLE_SYNC_START = '/* MES-WEBWIKI-STYLE-SYNC-START */';
 export const WEBWIKI_STYLE_SYNC_END = '/* MES-WEBWIKI-STYLE-SYNC-END */';
+export const WEBWIKI_EXAMPLE_SYNC_START = '<!-- MES-WEBWIKI-EXAMPLE-SYNC-START -->';
+export const WEBWIKI_EXAMPLE_SYNC_END = '<!-- MES-WEBWIKI-EXAMPLE-SYNC-END -->';
 
 /** Extension bundled wiki HTML → official WebWiki/docs Markdown filenames. */
 export const EXTENSION_HTML_TO_WEBWIKI_MD: Record<string, string> = {
