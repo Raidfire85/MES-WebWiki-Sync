@@ -201,6 +201,14 @@ MES-WebWiki-Sync/
 
 See [HANDOFF.md](./HANDOFF.md) for contributor merge instructions.
 
+## License and attribution
+
+- **This sync tool** (`publisher/`, scripts, and related code) is licensed under the [MIT License](./LICENSE) (Copyright Raidfire85, 2026).
+- **Output written into a WebWiki tree** (markdown pages, nav entries, synced tag tables) may include or merge material from MeridiusIX's WebWiki and MES C# source. That documentation remains attributed to [MeridiusIX / Modular Encounters Systems](https://github.com/MeridiusIX/Modular-Encounters-Systems) and its contributors — this LICENSE covers the tool, not a claim of ownership over Meridius wiki prose.
+- For the deployed community mirror that uses this tool, see [MES-WebWiki](https://github.com/Raidfire85/MES-WebWiki).
+
+Same licensing approach as [MES-Reference-Library](https://github.com/Raidfire85/MES-Reference-Library).
+
 ## GitHub Actions (Meridius production)
 
 This standalone repo does **not** deploy the wiki by itself. Automated sync runs **after** you merge `publisher/` and `handoff/github-workflow/webwiki-sync-deploy.yml` into [MeridiusIX/Modular-Encounters-Systems](https://github.com/MeridiusIX/Modular-Encounters-Systems) (`WebWiki/` + `.github/workflows/`).

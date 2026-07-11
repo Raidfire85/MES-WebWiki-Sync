@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "MES WebWiki sync tool for MeridiusIX MkDocs wiki",
+  "license": "MIT",
   "scripts": {
     "vendor-sync": "node ./scripts/vendor-sync.mjs",
     "build": "npm run vendor-sync && tsc -p ./publisher/tsconfig.json",
